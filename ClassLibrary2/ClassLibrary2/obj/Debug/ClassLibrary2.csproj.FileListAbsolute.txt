@@ -1,0 +1,16 @@
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.abstractions.dll
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.runner.utility.desktop.dll
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\bin\Debug\ClassLibrary2.dll
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\bin\Debug\ClassLibrary2.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.assert.dll
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.core.dll
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.execution.desktop.dll
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.assert.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.assert.xml
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.core.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.core.xml
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.execution.desktop.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.execution.desktop.xml
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\obj\Debug\ClassLibrary2.dll
+c:\users\administrator\documents\visual studio 2015\Projects\ClassLibrary2\ClassLibrary2\obj\Debug\ClassLibrary2.pdb
