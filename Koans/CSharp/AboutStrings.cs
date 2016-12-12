@@ -190,14 +190,14 @@ broken line";
 		[Koan(20)]
 		public void BuiltInDateFormaters()
 		{
-			var str = string.Format("{0:t}", new DateTime(2011, 12, 16, 2, 35, 2));
+			var str = string.Format("{0:t}", DateTime.Parse("12/16/2011 2:35:02 PM"));
 			Assert.Equal(FILL_ME_IN, str);
 		}
 
 		[Koan(21)]
 		public void CustomeDateFormaters()
 		{
-            var str = string.Format("{0:t m}", new DateTime(2011, 12, 16, 2, 35, 2));
+			var str = string.Format("{0:t m}", DateTime.Parse("12/16/2011 2:35:02 PM"));
 			Assert.Equal(FILL_ME_IN, str);
 		}
 		//These are just a few of the formatters available. Dig some and you may find what you need.
@@ -222,7 +222,7 @@ broken line";
             //String.Format and StringBuilder will be more efficent that concatenation. Prefer them.
         }
 
-		[Koan(23)]
+		[Koan(22)]
 		public void StringBuilderCanUseFormatAsWell()
 		{
 			var strBuilder = new System.Text.StringBuilder();
@@ -233,28 +233,28 @@ broken line";
 			Assert.Equal(FILL_ME_IN, str);
 		}
 		
-        [Koan(24)]
+        [Koan(23)]
         public void LiteralStringsInterpretsEscapeCharacters()
         {
             var str = "\n";
             Assert.Equal(FILL_ME_IN, str.Length);
         }
 
-        [Koan(25)]
+        [Koan(24)]
         public void VerbatimStringsDoNotInterpretEscapeCharacters()
         {
             var str = @"\n";
             Assert.Equal(FILL_ME_IN, str.Length);
         }
 
-        [Koan(26)]
+        [Koan(25)]
         public void VerbatimStringsStillDoNotInterpretEscapeCharacters()
         {
             var str = @"\\\";
             Assert.Equal(FILL_ME_IN, str.Length);
         }
 
-        [Koan(27)]
+        [Koan(28)]
         public void YouCanGetASubstringFromAString()
         {
             var str = "Bacon, lettuce and tomato";
@@ -262,14 +262,14 @@ broken line";
             Assert.Equal(FILL_ME_IN, str.Substring(7, 3));
         }
 
-        [Koan(28)]
+        [Koan(29)]
         public void YouCanGetASingleCharacterFromAString()
         {
             var str = "Bacon, lettuce and tomato";
             Assert.Equal(FILL_ME_IN, str[0]);
         }
 
-        [Koan(29)]
+        [Koan(30)]
         public void SingleCharactersAreRepresentedByIntegers()
         {
             Assert.Equal(97, 'a');
@@ -277,7 +277,7 @@ broken line";
             Assert.Equal(FILL_ME_IN, 'b' == ('a' + 1));
         }
 
-        [Koan(30)]
+        [Koan(31)]
         public void StringsCanBeSplit()
         {
             var str = "Sausage Egg Cheese";
@@ -285,7 +285,7 @@ broken line";
             Assert.Equal(new[] { FILL_ME_IN }, words);
         }
 
-        [Koan(31)]
+        [Koan(32)]
         public void StringsCanBeSplitUsingCharacters()
         {
             var str = "the:rain:in:spain";
@@ -293,7 +293,7 @@ broken line";
             Assert.Equal(new[] { FILL_ME_IN }, words);
         }
 
-        [Koan(32)]
+        [Koan(33)]
         public void StringsCanBeSplitUsingRegularExpressions()
         {
             var str = "the:rain:in:spain";
