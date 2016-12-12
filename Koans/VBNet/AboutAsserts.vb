@@ -22,7 +22,7 @@ Public Class AboutAsserts
         Assert.True(expectedValue = actualValue)
     End Sub
 
-    'Some ways of asserting equality are better than others
+    'Some wasy of asserting equality are better than others
     <Koan(4)> _
     Public Sub ABetterWayOfAssertingEquality()
         Dim expectedValue = 3

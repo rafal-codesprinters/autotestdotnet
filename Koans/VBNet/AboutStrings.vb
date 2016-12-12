@@ -20,51 +20,71 @@ Public Class AboutStrings
     End Sub
 
     <Koan(2)> _
-    Public Sub DoubleQuotedStringsFollowedByCAreNotStrings()
+    Public Sub SingleQuotedStringsAreNotStrings()
         Dim str = "H"c
         Assert.Equal(GetType(FillMeIn), str.GetType())
     End Sub
 
     <Koan(3)> _
     Public Sub CreateAStringWhichContainsDoubleQuotes()
-        Dim str = "Hello, " + Chr(34) + "World" + Chr(34)
-        Assert.Equal(14, str.Length)
+        Dim str = "Hello, " + Chr(34) + "World" + Chr(34) + ""
+        Assert.Equal(FILL_ME_IN, str.Length)
     End Sub
 
     <Koan(4)> _
     Public Sub AnotherWayToCreateAStringWhichContainsDoubleQuotes()
-        'A simpler way to have double quotes in a string is to repeat the double qoutes:
+        'The @ symbol creates a 'verbatim string literal'. 
+        'Here's one thing you can do with it:
         Dim str = "Hello, ""World"""
         Assert.Equal(FILL_ME_IN, str.Length)
     End Sub
 
     <Koan(5)> _
+    Public Sub StringsCanHandleFlexibleQuoting()
+        Dim strA = "Verbatim Strings can handle both ' and "" characters (when escaped)"
+        Dim strB = "Verbatim Strings can handle both ' and " + Chr(34) + " characters (when escaped)"
+        Assert.Equal(FILL_ME_IN, strA.Equals(strB))
+    End Sub
+
+    '<Koan(6)> _
+    'Public Sub StringsCanHandleMultipleLinesToo()
+    '    'Tip: What you create for the literal string will have to 
+    '    'escape the newline characters. For Windows, that would be
+    '    ' \r\n. If you are on non-Windows, that would just be \n.
+    '    'We'll show a different way next.
+    '    Dim verbatimString = "I"
+    '    am(a)
+    '        broken line"
+    '    Assert.Equal(20, verbatimString.Length)
+    '    Dim literalString = FILL_ME_IN
+    '    Assert.Equal(literalString, verbatimString)
+    'End Sub
+
+    <Koan(6)> _
     Public Sub ACrossPlatformWayToHandleLineEndings()
         'Since line endings are different on different platforms
         '(\r\n for Windows, \n for Linux) you shouldn't just type in
         'the hardcoded escape sequence. A much better way
-        'is to use System.Environment.NewLine
-        Dim literalString = "I" + System.Environment.NewLine + "am here"
-
-        'The values to fill in here depend on your platform
-        Assert.Equal(FILL_ME_IN, Asc(literalString(1)))
-        Assert.Equal(FILL_ME_IN, Asc(literalString(2)))
+        '(We'll handle concatenation and better ways of that in a bit)
+        Dim literalString = "I" + System.Environment.NewLine + "am a" + System.Environment.NewLine + "broken line"
+        Dim vebatimString = FILL_ME_IN
+        Assert.Equal(literalString, vebatimString)
     End Sub
 
-    <Koan(6)> _
+    <Koan(7)> _
     Public Sub PlusWillConcatenateTwoStrings()
         Dim str = "Hello, " + "World"
         Assert.Equal(FILL_ME_IN, str)
     End Sub
 
-    <Koan(7)> _
+    <Koan(8)> _
     Public Sub AmpersandWillAlsoConcatenateTwoStrings()
         Dim str = "Hello, " & "World"
         Assert.Equal(FILL_ME_IN, str)
     End Sub
 
 
-    <Koan(8)> _
+    <Koan(9)> _
     Public Sub ConcatenationWillNotModifyOriginalStrings()
         Dim strA = "Hello, "
         Dim strB = "World"
@@ -73,7 +93,7 @@ Public Class AboutStrings
         Assert.Equal(FILL_ME_IN, strB)
     End Sub
 
-    <Koan(9)> _
+    <Koan(10)> _
     Public Sub PlusEqualsWillModifyTheTargetString()
         Dim strA = "Hello, "
         Dim strB = "World"
@@ -82,7 +102,7 @@ Public Class AboutStrings
         Assert.Equal(FILL_ME_IN, strB)
     End Sub
 
-    <Koan(10)> _
+    <Koan(11)> _
     Public Sub StringsAreReallyImmutable()
         'So here's the thing. Concatenating strings is cool
         'and all. But if you think you are modifying the original
@@ -102,7 +122,7 @@ Public Class AboutStrings
         'when dealing with lots of concatenation
     End Sub
 
-    <Koan(11)> _
+    <Koan(12)> _
     Public Sub ABetterWayToConcatenateLotsOfStrings()
         'As shows in the above Koan, concatenating lots of strings
         'is a Bad Idea(tm). If you need to do that, then do this instead
@@ -120,59 +140,59 @@ Public Class AboutStrings
         'If you need more than that, use a StringBuilder. 
     End Sub
 
-    <Koan(12)> _
+    <Koan(13)> _
     Public Sub VBStringsDoNotInterpretEscapeCharacters()
         Dim str = "\n"
         Assert.Equal(FILL_ME_IN, str.Length)
     End Sub
 
-    <Koan(13)> _
+    <Koan(14)> _
     Public Sub VBStringsStillDoNotInterpretEscapeCharacters()
         Dim str = "\"
         Assert.Equal(FILL_ME_IN, str.Length)
     End Sub
 
-    <Koan(14)> _
+    <Koan(15)> _
     Public Sub YouDoNotNeedConcatenationToInsertVariablesInAString()
         Dim world = "World"
         Dim str = String.Format("Hello, {0}", world)
         Assert.Equal(FILL_ME_IN, str)
     End Sub
 
-    <Koan(15)> _
+    <Koan(16)> _
     Public Sub AnyExpressionCanBeUsedInFormatString()
         Dim str = String.Format("The square root of 9 is {0}", Math.Sqrt(9))
         Assert.Equal(FILL_ME_IN, str)
     End Sub
 
-    <Koan(16)> _
+    <Koan(17)> _
     Public Sub YouCanGetASubstringFromAString()
         Dim str = "Bacon, lettuce and tomato"
         Assert.Equal(FILL_ME_IN, str.Substring(19))
         Assert.Equal(FILL_ME_IN, str.Substring(7, 3))
     End Sub
 
-    <Koan(17)> _
+    <Koan(18)> _
     Public Sub YouCanGetASingleCharacterFromAString()
         Dim str = "Bacon, lettuce and tomato"
         Assert.Equal(FILL_ME_IN, str(0))
     End Sub
 
-    <Koan(18)> _
+    <Koan(19)> _
     Public Sub StringsCanBeSplit()
         Dim str = "Sausage Egg Cheese"
         Dim words As String() = str.Split()
         Assert.Equal(New String() {FILL_ME_IN}, words)
     End Sub
 
-    <Koan(19)> _
+    <Koan(20)> _
     Public Sub StringsCanBeSplitUsingCharacters()
         Dim str = "the:rain:in:spain"
         Dim words As String() = str.Split(":"c)
         Assert.Equal(New String() {FILL_ME_IN}, words)
     End Sub
 
-    <Koan(20)> _
+    <Koan(21)> _
     Public Sub StringsCanBeSplitUsingRegularExpressions()
         Dim str = "the:rain:in:spain"
         Dim regex = New System.Text.RegularExpressions.Regex(":")
