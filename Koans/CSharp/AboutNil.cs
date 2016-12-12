@@ -28,7 +28,7 @@ namespace DotNetKoans.CSharp
             }
             catch (System.Exception ex)
             {
-                Assert.Contains("Odwo³anie do obiektu" as string, ex.Message);
+                Assert.Contains("reference not set" as string, ex.Message);
             }
         }
 
