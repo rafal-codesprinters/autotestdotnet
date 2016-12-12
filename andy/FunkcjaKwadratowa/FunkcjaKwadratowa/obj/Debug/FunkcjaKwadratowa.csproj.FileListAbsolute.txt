@@ -1,0 +1,28 @@
+c:\users\andy\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Debug\FunkcjaKwadratowa.exe.config
+c:\users\andy\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Debug\FunkcjaKwadratowa.exe
+c:\users\andy\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Debug\FunkcjaKwadratowa.pdb
+c:\users\andy\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\FunkcjaKwadratowa.csprojResolveAssemblyReference.cache
+c:\users\andy\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\MainWindow.g.cs
+c:\users\andy\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\App.g.cs
+c:\users\andy\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\FunkcjaKwadratowa_MarkupCompile.cache
+c:\users\andy\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\FunkcjaKwadratowa_MarkupCompile.lref
+c:\users\andy\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\MainWindow.baml
+c:\users\andy\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\FunkcjaKwadratowa.g.resources
+c:\users\andy\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\FunkcjaKwadratowa.Properties.Resources.resources
+c:\users\andy\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\FunkcjaKwadratowa.csproj.GenerateResource.Cache
+c:\users\andy\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\FunkcjaKwadratowa.exe
+c:\users\andy\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\FunkcjaKwadratowa.pdb
+D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\FunkcjaKwadratowa.exe.config
+D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.exe
+D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.pdb
+D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\FunkcjaKwadratowa.exe
+D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\FunkcjaKwadratowa.pdb
+D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.csprojResolveAssemblyReference.cache
+D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\MainWindow.g.cs
+D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\App.g.cs
+D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa_MarkupCompile.cache
+D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa_MarkupCompile.lref
+D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\MainWindow.baml
+D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.g.resources
+D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.Properties.Resources.resources
+D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.csproj.GenerateResource.Cache
