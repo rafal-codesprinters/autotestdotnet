@@ -56,27 +56,27 @@ namespace DotNetKoans.CSharp
         [Koan(1)]
         public void SubclassesHaveTheParentAsAnAncestor()
         {
-            Assert.True(typeof(FillMeIn).IsAssignableFrom(typeof(Chihuahua)));
+            Assert.True(typeof(Dog).IsAssignableFrom(typeof(Chihuahua)));
         }
 
         [Koan(2)]
         public void AllClassesUltimatelyInheritFromAnObject()
         {
-            Assert.True(typeof(FillMeIn).IsAssignableFrom(typeof(Chihuahua)));
+            Assert.True(typeof(object).IsAssignableFrom(typeof(Chihuahua)));
         }
 
         [Koan(3)]
         public void SubclassesInheritBehaviorFromParentClass()
         {
             var chico = new Chihuahua("Chico");
-            Assert.Equal(FILL_ME_IN, chico.Name);
+            Assert.Equal("Chico", chico.Name);
         }
 
         [Koan(4)]
         public void SubclassesAddNewBehavior()
         {
             var chico = new Chihuahua("Chico");
-            Assert.Equal(FILL_ME_IN, chico.Wag());
+            Assert.Equal("Happy", chico.Wag());
 
             //We can search the public methods of an object 
             //instance like this:
