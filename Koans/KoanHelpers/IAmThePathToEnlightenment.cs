@@ -2,6 +2,6 @@
 {
     public interface IAmThePathToEnlightenment
     {
-        string ThePath { get; }
+        string[] ThePath { get; }
     }
 }
