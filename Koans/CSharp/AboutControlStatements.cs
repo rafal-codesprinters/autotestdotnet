@@ -6,46 +6,7 @@ namespace DotNetKoans.CSharp
 {
     public class AboutControlStatements : Koan
     {
-#pragma warning disable 162
         [Koan(1)]
-        public void IfThenStatementsWithBrackets()
-        {
-            bool b = false;
-            if (true)
-            {
-                b = true;
-            }
-
-            Assert.Equal(FILL_ME_IN, b);
-        }
-
-        [Koan(2)]
-        public void IfThenStatementsWithoutBrackets()
-        {
-            bool b = false;
-            if (true)
-                b = true;
-
-            Assert.Equal(FILL_ME_IN, b);
-        }
-
-        [Koan(3)]
-        public void WhyItsWiseToAlwaysUseBrackets()
-        {
-            bool b1 = false;
-            bool b2 = false;
-
-            int counter = 1;
-
-            if (counter == 0)
-                b1 = true;
-                b2 = true;
-
-            Assert.Equal(FILL_ME_IN, b1);
-            Assert.Equal(FILL_ME_IN, b2);
-        }
-
-        [Koan(4)]
         public void IfThenElseStatementsWithBrackets()
         {
             bool b;
@@ -61,7 +22,7 @@ namespace DotNetKoans.CSharp
             Assert.Equal(FILL_ME_IN, b);
         }
 
-        [Koan(5)]
+        [Koan(2)]
         public void IfThenElseStatementsWithoutBrackets()
         {
             bool b;
@@ -74,6 +35,44 @@ namespace DotNetKoans.CSharp
 
         }
 
+        [Koan(3)]
+        public void IfThenStatementsWithBrackets()
+        {
+            bool b = false;
+            if (true)
+            {
+                b = true;
+            }
+
+            Assert.Equal(FILL_ME_IN, b);
+        }
+
+        [Koan(4)]
+        public void IfThenStatementsWithoutBrackets()
+        {
+            bool b = false;
+            if (true)
+                b = true;
+
+            Assert.Equal(FILL_ME_IN, b);
+        }
+
+        [Koan(5)]
+        public void WhyItsWiseToAlwaysUseBrackets()
+        {
+            bool b1 = false;
+            bool b2 = false;
+
+            int counter = 1;
+
+            if (counter == 0)
+                b1 = true;
+                b2 = true;
+
+			Assert.Equal(FILL_ME_IN, b1);
+			Assert.Equal(FILL_ME_IN, b2);
+        }
+
         [Koan(6)]
         public void TernaryOperators()
         {
@@ -81,7 +80,6 @@ namespace DotNetKoans.CSharp
             Assert.Equal(FILL_ME_IN, (false ? 1 : 0));
         }
 
-#pragma warning disable 219
         //This is out of place for control statements, but necessary for Koan 8
         [Koan(7)]
         public void NullableTypes()
@@ -104,7 +102,6 @@ namespace DotNetKoans.CSharp
             Assert.Equal(FILL_ME_IN, x);
         }
 
-#pragma warning disable 184
         [Koan(9)]
         public void IsOperators()
         {
@@ -237,168 +234,6 @@ namespace DotNetKoans.CSharp
             }
 
             Assert.Equal(FILL_ME_IN, whoCaughtTheException);
-        }
-
-        [Koan(17)]
-        public void Switch()
-        {
-            // A switch statement allows you to execute one of several blocks of code
-            // depending on the value of an integer, give after the case keyword.
-            // Each block ends with break (but we'll see an alternative soon).
-
-            int a = 2, b = 0;
-            switch (a)
-            {
-                case 1:
-                    b = 10;
-                    break;
-                case 2:
-                    b = 11;
-                    break;
-            }
-
-            Assert.Equal(FILL_ME_IN, b);
-        }
-
-        [Koan(18)]
-        public void SwitchWithFallThrough()
-        {
-            // A block can handle multiple values of the variable,
-            // by grouping the case statements.
-            // In this case there can be no code between the case statements.
-
-            int a = 1, b = 0;
-            switch (a)
-            {
-                case 1:
-                case 2:
-                    b = 11;
-                    break;
-            }
-
-            Assert.Equal(FILL_ME_IN, b);
-        }
-
-        [Koan(19)]
-        public void SwitchWithDefault()
-        {
-            // If the value is not matched, the code after the default keyword
-            // is executed, if there is one.
-            int a = 3, b = 0;
-            switch (a)
-            {
-                case 1:
-                    b = 10;
-                    break;
-                case 2:
-                    b = 11;
-                    break;
-                default:
-                    b = 12;
-                    break;
-            }
-
-            Assert.Equal(FILL_ME_IN, b);
-        }
-
-        [Koan(20)]
-        public void SwitchWithGoto()
-        {
-            // Instead of break you can end a block in a switch block with any statement
-            // that ends the block, like return or throw.
-            // In this case we use another one, goto case.
-            // This makes it continue in another block.
-
-            int a = 2, b = 0;
-            switch (a)
-            {
-                case 1:
-                    b = 10;
-                    break;
-                case 2:
-                    b = 11;
-                    goto case 1;
-            }
-
-            Assert.Equal(FILL_ME_IN, b);
-        }
-
-        [Koan(21)]
-        public void SwitchWithStrings()
-        {
-            // Instead of integers you can also use strings.
-            string a = "a";
-            int b = 0;
-            switch (a)
-            {
-                case "a":
-                    b = 10;
-                    break;
-                case "b":
-                    b = 11;
-                    break;
-            }
-
-            Assert.Equal(FILL_ME_IN, b);
-        }
-
-        // The yield keyword makes a function act as an iterator.
-        // This creates an interesting control flow.
-        // Every time 'yield return' is encountered, the control goes back
-        // to the calling function. When the next element is requested,
-        // control goes back to the function right after the 'yield return'.
-        // All variables still have their values, because it runs on a separate stack.
-
-        private static System.Collections.Generic.IEnumerable<int> Fibonacci1(int n)
-        {
-            int f1 = 0, f2 = 1;
-            for (int i = 0; i < n; ++i)
-            {
-                int f3 = f2 + f1;
-                f1 = f2;
-                f2 = f3;
-                yield return f1;
-            }
-        }
-
-        [Koan(22)]
-        public void Yield()
-        {
-            var fibonacci = new List<int>();
-            foreach (int f in Fibonacci1(5))
-            {
-                fibonacci.Add(f);
-            }
-            Assert.Equal(new List<int>() { }, fibonacci);
-        }
-
-        // yield break allows you to stop the iteration
-        private static System.Collections.Generic.IEnumerable<int> Fibonacci2(int n)
-        {
-            int f1 = 0, f2 = 1;
-            int i = 0;
-            while (true)
-            {
-                int f3 = f2 + f1;
-                f1 = f2;
-                f2 = f3;
-                yield return f1;
-
-                ++i;
-                if (i == n)
-                    yield break;
-            }
-        }
-
-        [Koan(23)]
-        public void YieldWithBreak()
-        {
-            var fibonacci = new List<int>();
-            foreach (int f in Fibonacci2(5))
-            {
-                fibonacci.Add(f);
-            }
-            Assert.Equal(new List<int>() { }, fibonacci);
         }
     }
 }
