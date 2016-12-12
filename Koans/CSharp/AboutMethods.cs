@@ -40,19 +40,19 @@ namespace DotNetKoans.CSharp
         [Koan(1)]
         public void ExtensionMethodsShowUpInTheCurrentClass()
         {
-            Assert.Equal(FILL_ME_IN, this.HelloWorld());
+            Assert.Equal("Hello!", this.HelloWorld());
         }
 
         [Koan(2)]
         public void ExtensionMethodsWithParameters()
         {
-            Assert.Equal(FILL_ME_IN, this.SayHello("Cory"));
+            Assert.Equal("Hello, Cory!", this.SayHello("Cory"));
         }
 
         [Koan(3)]
         public void ExtensionMethodsWithVariableParameters()
         {
-            Assert.Equal(FILL_ME_IN, this.MethodWithVariableArguments("Cory", "Will", "Corey"));
+            Assert.Equal(new[] { "Cory", "Will", "Corey" }, this.MethodWithVariableArguments("Cory", "Will", "Corey"));
         }
 
         //Extension methods can extend any class my referencing 
@@ -62,7 +62,7 @@ namespace DotNetKoans.CSharp
         [Koan(4)]
         public void ExtendingCoreClasses()
         {
-            Assert.Equal(FILL_ME_IN, "Cory".SayHi());
+            Assert.Equal("Hi, Cory", "Cory".SayHi());
         }
 
         //Of course, any of the parameter things you can do with 
@@ -76,7 +76,7 @@ namespace DotNetKoans.CSharp
         [Koan(5)]
         public void LocalMethodsWithVariableParams()
         {
-            Assert.Equal(FILL_ME_IN, this.LocalMethodWithVariableParameters("Cory", "Will", "Corey"));
+            Assert.Equal(new[] { "Cory", "Will", "Corey" }, this.LocalMethodWithVariableParameters("Cory", "Will", "Corey"));
         }
 
         //Note how we called the method by saying "this.LocalMethodWithVariableParameters"
@@ -85,7 +85,7 @@ namespace DotNetKoans.CSharp
         [Koan(6)]
         public void LocalMethodsWithoutExplicitReceiver()
         {
-            Assert.Equal(FILL_ME_IN, LocalMethodWithVariableParameters("Cory", "Will", "Corey"));
+            Assert.Equal(new[] { "Cory", "Will", "Corey" }, LocalMethodWithVariableParameters("Cory", "Will", "Corey"));
         }
 
         //But it is required for Extension Methods, since it needs
@@ -111,7 +111,7 @@ namespace DotNetKoans.CSharp
         [Koan(7)]
         public void CallingStaticMethodsWithoutAnInstance()
         {
-            Assert.Equal(FILL_ME_IN, InnerSecret.Key());
+            Assert.Equal("Key", InnerSecret.Key());
         }
 
         //In fact, you can't call it on an instance variable
@@ -124,7 +124,7 @@ namespace DotNetKoans.CSharp
         public void CallingPublicMethodsOnAnInstance()
         {
             InnerSecret secret = new InnerSecret();
-            Assert.Equal(FILL_ME_IN, secret.Secret());
+            Assert.Equal("Secret", secret.Secret());
         }
 
         //Protected methods can only be called by a subclass
@@ -135,7 +135,7 @@ namespace DotNetKoans.CSharp
         public void CallingProtectedMethodsOnAnInstance()
         {
             StateSecret secret = new StateSecret();
-            Assert.Equal(FILL_ME_IN, secret.InformationLeak());
+            Assert.Equal("This is secret", secret.InformationLeak());
         }
 
         //But, we can't call the private methods of InnerSecret
@@ -152,7 +152,7 @@ namespace DotNetKoans.CSharp
             string superSecretMessage = secret.GetType()
                 .GetMethod("SooperSeekrit", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
                 .Invoke(secret, null) as string;
-            Assert.Equal(FILL_ME_IN, superSecretMessage);
+            Assert.Equal("No one will find me!", superSecretMessage);
         }
 
         //Up till now we've had explicit return types. It's also
@@ -168,9 +168,9 @@ namespace DotNetKoans.CSharp
         [Koan(11)]
         public void CallingGenericMethods()
         {
-            Assert.Equal(typeof(FillMeIn), GiveMeBack<int>(1).GetType());
+            Assert.Equal(typeof(int), GiveMeBack<int>(1).GetType());
 
-            Assert.Equal(FILL_ME_IN, GiveMeBack<string>("Hi!"));
+            Assert.Equal("Hi!", GiveMeBack<string>("Hi!"));
         }
     }
 }
