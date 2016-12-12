@@ -27,7 +27,7 @@ namespace DotNetKoans.CSharp
             Assert.True(expectedValue == actualValue);
         }
 
-        //Some ways of asserting equality are better than others
+        //Some wasy of asserting equality are better than others
         [Koan(4)]
         public void ABetterWayOfAssertingEquality() 
         {
