@@ -20,7 +20,7 @@ namespace DotNetKoans.CSharp
             Assert.Equal(0, empty_array.Length);
         }
 
-        [Koan(2)]
+        [Koan(2)] //12
         public void ArrayLiterals()
         {
             //You don't have to specify a type if the arguments can be inferred
@@ -48,13 +48,13 @@ namespace DotNetKoans.CSharp
             Assert.Equal((new int[] { 42, (int)13}), dynamicArray.ToArray());
         }
 
-        [Koan(3)]
+        [Koan(3)] //13
         public void AccessingArrayElements()
         {
             var array = new[] { "peanut", "butter", "and", "jelly" };
 
-            Assert.Equal(FILL_ME_IN, array[0]);
-            Assert.Equal(FILL_ME_IN, array[3]);
+            Assert.Equal("peanut", array[0]);
+            Assert.Equal("jelly", array[3]);
             
             //This doesn't work: Assert.Equal(FILL_ME_IN, array[-1]);
         }
@@ -64,8 +64,8 @@ namespace DotNetKoans.CSharp
         {
             var array = new[] { "peanut", "butter", "and", "jelly" };
 
-			Assert.Equal(new string[] { (string)FILL_ME_IN, (string)FILL_ME_IN }, array.Take(2).ToArray());
-			Assert.Equal(new string[] { (string)FILL_ME_IN, (string)FILL_ME_IN }, array.Skip(1).Take(2).ToArray());
+			Assert.Equal(new string[] { (string)"peanut", (string)"butter" }, array.Take(2).ToArray());
+			Assert.Equal(new string[] { (string)"butter", (string)"and" }, array.Skip(1).Take(2).ToArray());
         }
 
         [Koan(5)]
