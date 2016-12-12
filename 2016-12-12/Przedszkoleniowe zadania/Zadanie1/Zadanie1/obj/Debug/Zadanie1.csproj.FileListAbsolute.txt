@@ -1,0 +1,5 @@
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Zadanie1\Zadanie1\obj\Debug\Zadanie1.csprojResolveAssemblyReference.cache
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Zadanie1\Zadanie1\bin\Debug\Zadanie1.exe
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Zadanie1\Zadanie1\bin\Debug\Zadanie1.pdb
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Zadanie1\Zadanie1\obj\Debug\Zadanie1.exe
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Zadanie1\Zadanie1\obj\Debug\Zadanie1.pdb

@@ -27,7 +27,7 @@ namespace Zadanie2
             Console.Write("Hello");
         }
 
-        public void World()
+        public static void World()
         {
             Console.Write("World");
         }

@@ -25,7 +25,7 @@ namespace Zadanie1
         }
     }
 
-    private class SayHello
+    public class SayHello
     {
         public void Say()
         {

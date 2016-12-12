@@ -1,0 +1,4 @@
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Zadanie2\Zadanie2\bin\Debug\Zadanie2.exe
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Zadanie2\Zadanie2\bin\Debug\Zadanie2.pdb
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Zadanie2\Zadanie2\obj\Debug\Zadanie2.exe
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Zadanie2\Zadanie2\obj\Debug\Zadanie2.pdb
