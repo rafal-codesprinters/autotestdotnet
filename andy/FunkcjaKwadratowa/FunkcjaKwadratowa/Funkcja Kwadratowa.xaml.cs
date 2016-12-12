@@ -70,26 +70,31 @@ namespace FunkcjaKwadratowa
         private void oblicz_Click(object sender, RoutedEventArgs e)
         {
             double a, b, c = 0;
+            
 
-            a = Double.Parse(varA.Text);
-            b = Double.Parse(varB.Text);
-            c = Double.Parse(varC.Text);
+            if (Double.TryParse(varA.Text, out a) && Double.TryParse(varB.Text, out b) && Double.TryParse(varC.Text, out c))
+            {
 
-            Wynik rezultat = Calculate(a, b, c);
+                Wynik rezultat = Calculate(a, b, c);
 
-            if (rezultat.Delta < 0) {
-                miejsce_wyniku.Text = "";
-                miejsce_wyniku.Text = "Ujemna delta (" + rezultat.Delta + ")!. Wyznaczenie niemożliwe.";
-            }
-            else
+                if (rezultat.Delta < 0)
+                {
+                    miejsce_wyniku.Text = "";
+                    miejsce_wyniku.Text = "Ujemna delta (" + rezultat.Delta + ")!. Wyznaczenie niemożliwe.";
+                }
+                else
+                {
+                    miejsce_wyniku.Text = "";
+                    miejsce_wyniku.Text = "Delta: " + rezultat.Delta;
+                    miejsce_wyniku.Text += "\r\nX1 = " + rezultat.MiejscePierwsze + "\r\n";
+                    miejsce_wyniku.Text += "X2 = " + rezultat.MiejsceDrugie;
+                }
+
+            } else
             {
                 miejsce_wyniku.Text = "";
-                miejsce_wyniku.Text = "Delta: " + rezultat.Delta;
-                miejsce_wyniku.Text += "\r\nX1 = " + rezultat.MiejscePierwsze + "\r\n";
-                miejsce_wyniku.Text += "X2 = " + rezultat.MiejsceDrugie;
+                miejsce_wyniku.Text = "Wprowadzono błędne wartości \r\n(najpewniej nie są to liczby).";
             }
-
-
 
         }
     }
