@@ -1,0 +1,1 @@
+c:\autotestdotnet\Koans\KoanRunner\bin\Debug\KoanRunner.exe.config
