@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary2", "ClassLibrary2\ClassLibrary2.csproj", "{CE3AF725-6BC8-4717-A8B0-7A87AEDD1B23}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiejscaZerowe", "ClassLibrary2\MiejscaZerowe.csproj", "{CE3AF725-6BC8-4717-A8B0-7A87AEDD1B23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

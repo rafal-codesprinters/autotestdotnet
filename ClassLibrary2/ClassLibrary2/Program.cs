@@ -39,6 +39,22 @@ namespace FunkcjaKwadratowa
             Assert.Equal(2, wynik.JednoMiejsce);
         }
 
+        [Fact]
+        public void CzyDobrzeLiczyBrakMiejscZerowych()
+        {
+            var a = 1;
+            var b = 2;
+            var c = 4;
+
+            var wynik = Oblicz(a, b, c);
+
+
+            Assert.Equal(0, wynik.MiejscePierwsze);
+            Assert.Equal(0, wynik.MiejsceDrugie);
+            Assert.Equal(0, wynik.JednoMiejsce);
+            Assert.Equal("brak", wynik.BrakMiejsca);
+        }
+
         private Wynik Oblicz(int a, int b, int c)
         {
             double x1 = 0;
