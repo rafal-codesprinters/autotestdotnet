@@ -8,7 +8,7 @@ namespace FunkcjaKwadratowaTest
 {
     class Implementacja
     {
-        Wynik Calculate(double a, double b, double c)
+        public Wynik Calculate(double a, double b, double c)
         {
             double x1 = 0;
             double x2 = 0;

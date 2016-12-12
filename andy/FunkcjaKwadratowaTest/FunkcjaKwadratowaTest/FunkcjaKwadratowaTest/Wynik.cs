@@ -19,4 +19,20 @@ namespace FunkcjaKwadratowaTest
         public double? MiejsceDrugie { get; set; }
                 
     }
+
+    public class Testy
+    {
+
+        [Fact]
+        public void SzybkiTest()
+        {
+            var a = 1;
+            var b = -4;
+            var c = 3;
+
+            Wynik rezultat = new Implementacja().Calculate(a, b, c);
+            Assert.Equal(1, rezultat.MiejsceDrugie);
+            Assert.Equal(3, rezultat.MiejscePierwsze);
+        }
+    }
 }
