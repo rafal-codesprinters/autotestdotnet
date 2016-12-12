@@ -5,8 +5,8 @@ Public Class AboutInheritance
     Public Class Dog
         Public Property Name() As String
 
-        Public Sub New(ByVal name_ As String)
-            Name = name_
+        Public Sub New(ByVal name As String)
+            name = name
         End Sub
 
         ' For a method/function to be overidden by sub-classes, it must be virtual.
@@ -84,7 +84,7 @@ Public Class AboutInheritance
         'Note that even if we cast the object back to a dog
         'we still get the Chihuahua's behavior. It truly
         '"is-a" Chihuahua
-        Dim dog As Dog = chico
+        Dim dog As Dog = IIf(TypeOf chico Is Dog, CType(chico, Dog), Nothing)
         Assert.Equal(FILL_ME_IN, dog.Bark())
         Dim fido = New Dog("Fido")
         Assert.Equal(FILL_ME_IN, fido.Bark())
@@ -127,6 +127,7 @@ Public Class AboutInheritance
         Inherits Dog
         Public Sub New(ByVal name As String)
             MyBase.New(name)
+
         End Sub
 
         Public Overrides Function Bark() As String
@@ -144,6 +145,7 @@ Public Class AboutInheritance
         Inherits Dog
         Public Sub New(ByVal name As String)
             MyBase.New(name)
+
         End Sub
 
         Public Function Growl() As String
