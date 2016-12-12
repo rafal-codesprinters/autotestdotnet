@@ -1,0 +1,13 @@
+= DotNet Koans
+
+This is a fork of the DotNet Koans that Cory Foy made.
+
+The DotNet Koans walk you along the path to enlightenment in order to learn .NET. The goal is to learn a .NET language (C#, VB.NET, F#, etc), syntax, structure and some common functions and libraries. 
+
+The DotNet Koans came about because of the most enlightened RubyKoans (http://github.com/edgecase/ruby_koans) and follow the structure of it most closely.
+
+To use these Koans:
+1. open the CSharp or VB solution
+2. press F7 to build the solution and double click the warning that you see
+3. understand the code and its comments, and fix the code to make the assertion succeed
+4. repeat by going back to step 2 until all Koans are done
