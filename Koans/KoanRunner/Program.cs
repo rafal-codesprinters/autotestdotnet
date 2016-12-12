@@ -56,7 +56,7 @@ namespace DotNetKoans.KoanRunner
 			Console.WriteLine("*******************************************************************");
 			Console.WriteLine("");
 			Console.WriteLine("");
-			return TEST_FAILED;
+            return TEST_FAILED;
 		}
 
         static string Run(string className, System.Reflection.Assembly koanAssembly, ExecutorWrapper wrapper)
