@@ -1,0 +1,17 @@
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\FunkcjaKwadratowa.dll
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\FunkcjaKwadratowa.pdb
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.abstractions.dll
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.assert.dll
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.core.dll
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.execution.desktop.dll
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.assert.pdb
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.assert.xml
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.core.pdb
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.core.xml
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.execution.desktop.pdb
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.execution.desktop.xml
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.csprojResolveAssemblyReference.cache
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.dll
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.pdb
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+C:\autotestdotnet\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.runner.utility.desktop.dll
