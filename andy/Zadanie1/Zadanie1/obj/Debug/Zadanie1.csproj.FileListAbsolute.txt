@@ -1,0 +1,5 @@
+D:\szkolenie-automatyzacja\Przedszkoleniowe zadania\Zadanie1\Zadanie1\obj\Debug\Zadanie1.csprojResolveAssemblyReference.cache
+D:\szkolenie-automatyzacja\Przedszkoleniowe zadania\Zadanie1\Zadanie1\bin\Debug\Zadanie1.exe
+D:\szkolenie-automatyzacja\Przedszkoleniowe zadania\Zadanie1\Zadanie1\bin\Debug\Zadanie1.pdb
+D:\szkolenie-automatyzacja\Przedszkoleniowe zadania\Zadanie1\Zadanie1\obj\Debug\Zadanie1.exe
+D:\szkolenie-automatyzacja\Przedszkoleniowe zadania\Zadanie1\Zadanie1\obj\Debug\Zadanie1.pdb
