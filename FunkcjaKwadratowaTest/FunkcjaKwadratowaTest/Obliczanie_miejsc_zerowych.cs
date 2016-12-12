@@ -23,9 +23,13 @@ namespace FunkcjaKwadratowaTest
 
         private Wynik Oblicz(int a, int b, int c)
         {
-            Wynik w = new Wynik();
-            w.Oblicz(a, b, c);
-            return w;
+            //Wynik w = new Wynik();
+            //w.Oblicz(a, b, c);
+            //return w;
+            double delta = b * b - 4 * a * c;
+            var x1 = (-b - Math.Sqrt(delta)) / (2 * a);
+            var x2 = (-b + Math.Sqrt(delta)) / (2 * a);
+            return new Wynik { MiejscePierwsze = x1, MiejsceDrugie = x2 };
         }
     }
 }
