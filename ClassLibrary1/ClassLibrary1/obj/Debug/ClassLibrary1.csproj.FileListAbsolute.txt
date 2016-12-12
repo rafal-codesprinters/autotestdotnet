@@ -1,0 +1,17 @@
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\xunit.abstractions.dll
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\xunit.runner.utility.desktop.dll
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\xunit.assert.dll
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\xunit.core.dll
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\xunit.execution.desktop.dll
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\xunit.assert.pdb
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\xunit.assert.xml
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\xunit.core.pdb
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\xunit.core.xml
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\xunit.execution.desktop.pdb
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\xunit.execution.desktop.xml
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+c:\users\m.pronobis\documents\visual studio 2015\Projects\ClassLibrary1\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
