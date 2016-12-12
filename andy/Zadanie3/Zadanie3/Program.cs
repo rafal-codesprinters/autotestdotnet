@@ -40,6 +40,8 @@ namespace Zadanie3
             if (delta > 0)
             {
 
+                
+
                 x1 = (Math.Sqrt(delta) - b) / (2 * a);
                 x2 = (-Math.Sqrt(delta) - b) / (2 * a);
 

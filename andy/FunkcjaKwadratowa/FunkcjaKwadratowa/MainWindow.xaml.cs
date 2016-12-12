@@ -24,9 +24,10 @@ namespace FunkcjaKwadratowa
         public MainWindow()
         {
             InitializeComponent();
+            miejsce_wyniku.Text = "Program wystartował.";
         }
 
-        private static void Calculate(double a, double b, double c)
+        private void Calculate(double a, double b, double c)
         {
             double x1 = 0;
             double x2 = 0;
@@ -43,15 +44,19 @@ namespace FunkcjaKwadratowa
 
             if (delta > 0)
             {
+                miejsce_wyniku.Text = "";
+                miejsce_wyniku.Text = "Delta: " + delta;
 
                 x1 = (Math.Sqrt(delta) - b) / (2 * a);
                 x2 = (-Math.Sqrt(delta) - b) / (2 * a);
 
+                miejsce_wyniku.Text += "\r\nX1 = " + x1 + "\r\n";
+                miejsce_wyniku.Text += "X2 = " + x2;
             }
             else
             {
-                miejsce_wyniku.Text = "Ujemna delta!";
-                
+                miejsce_wyniku.Text = ("Ujemna delta! Wyznaczenie niemożliwe.");
+                              
                 // Console.WriteLine("Ujemna delta ({0:G}) - x1 i x2 nie istnieją.", delta);
             }
         }
@@ -59,11 +64,20 @@ namespace FunkcjaKwadratowa
         private void guzik_wyczysc_Click(object sender, RoutedEventArgs e)
         {
             miejsce_wyniku.Text = "Wyczyszczone";
+            varA.Clear();
+            varB.Clear();
+            varC.Clear();
         }
 
         private void oblicz_Click(object sender, RoutedEventArgs e)
         {
+            double a, b, c = 0;
 
+            a = Double.Parse(varA.Text);
+            b = Double.Parse(varB.Text);
+            c = Double.Parse(varC.Text);
+
+            Calculate(a, b, c);
         }
     }
 }

@@ -7,12 +7,19 @@ using Xunit;
 
 namespace FunkcjaKwadratowaTest
 {
-    public class Class1
+    /// <summary>
+    /// Funkcja kwadratowa, wyliczanie miejsc zerowych
+    ///  
+    /// y = ax2 + bx + c
+    /// </summary>
+    public class ObliczanieDelty
     {
         [Fact]
-        public void First_test()
+        public void Delta()
         {
             Assert.True(true);
         }
+
+
     }
 }
