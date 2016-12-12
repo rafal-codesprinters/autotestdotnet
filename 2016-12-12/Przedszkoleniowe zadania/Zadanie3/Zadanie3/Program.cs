@@ -25,12 +25,22 @@ namespace Zadanie3
             double x1 = 0;
             double x2 = 0;
 
-            // todo napisz obliczanie rozwiązań (miejsc zerowych) funkcji kwadratowej 
-            // jeśli nie pamiętasz jak to się liczy to tutaj jest ściąga
-            // http://matma.prv.pl/kwadratowa.php
-            // postaraj się napisac to samodzielnie a nie googlując implementację
-            // powodzenia :)
-
+            var delta = b * b - 4 * a * c;
+            if (delta < 0)
+            {
+                x1 = double.NaN;
+                x2 = double.NaN;
+            }
+            else if (Math.Abs(delta) < double.Epsilon)
+            {
+                x1 = x2 = -b / 2 * a;
+            }
+            else
+            {
+                x1 = (-b + delta) / 2 * a;
+                x2 = (-b - delta) / 2 * a;
+            }
+           
 
             Console.WriteLine(x1);
             Console.WriteLine(x2);
