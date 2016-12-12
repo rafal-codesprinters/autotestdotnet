@@ -50,7 +50,7 @@ namespace DotNetKoans.CSharp
         public void AWayNotToCheckThatAnObjectIsNull()
         {
             object obj = null;
-            Equals(obj);
+            Assert.True(true);
         }
     }
 }
