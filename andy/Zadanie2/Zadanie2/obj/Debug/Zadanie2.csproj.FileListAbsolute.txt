@@ -1,0 +1,4 @@
+D:\szkolenie-automatyzacja\Przedszkoleniowe zadania\Zadanie2\Zadanie2\bin\Debug\Zadanie2.exe
+D:\szkolenie-automatyzacja\Przedszkoleniowe zadania\Zadanie2\Zadanie2\bin\Debug\Zadanie2.pdb
+D:\szkolenie-automatyzacja\Przedszkoleniowe zadania\Zadanie2\Zadanie2\obj\Debug\Zadanie2.exe
+D:\szkolenie-automatyzacja\Przedszkoleniowe zadania\Zadanie2\Zadanie2\obj\Debug\Zadanie2.pdb
