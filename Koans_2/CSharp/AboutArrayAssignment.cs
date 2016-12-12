@@ -21,7 +21,7 @@ namespace DotNetKoans.CSharp
             //Even though we don't specify types explicitly, the compiler
             //will pick one for us
             var name = "John";
-            Assert.Equal(typeof(FillMeIn), name.GetType());
+            Assert.Equal(typeof(string), name.GetType());
 
             //but only if it can. So this doesn't work
             //var array = null;

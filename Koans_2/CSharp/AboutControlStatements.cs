@@ -19,6 +19,7 @@ namespace DotNetKoans.CSharp
                 b = false;
             }
 
+            bool FILL_ME_IN = b;
             Assert.Equal(FILL_ME_IN, b);
         }
 
