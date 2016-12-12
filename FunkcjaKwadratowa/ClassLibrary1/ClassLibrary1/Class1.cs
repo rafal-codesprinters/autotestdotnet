@@ -44,7 +44,6 @@ namespace ClassLibrary1
             else if (delta < 0)
             {
                 return(null); //"brak miejsc zerowych"
-
             }
             else // delta = 0
             {
