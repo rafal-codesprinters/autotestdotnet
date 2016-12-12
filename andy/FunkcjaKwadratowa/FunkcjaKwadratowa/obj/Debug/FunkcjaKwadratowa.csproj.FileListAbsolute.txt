@@ -26,3 +26,6 @@ D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\MainWin
 D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.g.resources
 D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.Properties.Resources.resources
 D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.csproj.GenerateResource.Cache
+D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\FunkcjaKwadratowa.exe.config
+D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.exe
+D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.pdb

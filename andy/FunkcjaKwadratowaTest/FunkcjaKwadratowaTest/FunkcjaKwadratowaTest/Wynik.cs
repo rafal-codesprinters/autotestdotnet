@@ -12,14 +12,11 @@ namespace FunkcjaKwadratowaTest
     ///  
     /// y = ax2 + bx + c
     /// </summary>
-    public class ObliczanieDelty
+    internal class Wynik
     {
-        [Fact]
-        public void Delta()
-        {
-            Assert.True(true);
-        }
-
-
+     
+        public double? MiejscePierwsze { get ; set ; }
+        public double? MiejsceDrugie { get; set; }
+                
     }
 }

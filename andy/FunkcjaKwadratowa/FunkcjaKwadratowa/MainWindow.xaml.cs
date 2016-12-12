@@ -33,12 +33,6 @@ namespace FunkcjaKwadratowa
             double x2 = 0;
             double result = 0;
 
-            // todo napisz obliczanie rozwiązań (miejsc zerowych) funkcji kwadratowej 
-            // jeśli nie pamiętasz jak to się liczy to tutaj jest ściąga
-            // http://matma.prv.pl/kwadratowa.php
-            // postaraj się napisac to samodzielnie a nie googlując implementację
-            // powodzenia :)
-
             double delta = 0; // pośrednie obliczenie
             delta = Math.Pow(b, 2) - (4 * a * c);
 
