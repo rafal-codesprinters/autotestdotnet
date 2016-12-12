@@ -29,3 +29,14 @@ D:\szkolenie-automatyzacja\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\Funkcja
 D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\FunkcjaKwadratowa.exe.config
 D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.exe
 D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.pdb
+D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.csprojResolveAssemblyReference.cache
+D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\App.g.cs
+D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa_MarkupCompile.cache
+D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa_MarkupCompile.lref
+D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\FunkcjaKwadratowa.exe
+D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\FunkcjaKwadratowa.pdb
+D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.g.resources
+D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.Properties.Resources.resources
+D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.csproj.GenerateResource.Cache
+D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\Funkcja Kwadratowa.g.cs
+D:\szkolenie-automatyzacja\autotestdotnet\andy\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\Funkcja Kwadratowa.baml
