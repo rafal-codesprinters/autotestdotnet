@@ -29,13 +29,42 @@ namespace FunkcjaKwadratowaTest
 
             var wynik = Oblicz(a, b, c);
             Assert.Equal(2.0/3, wynik.MiejscePierwsze);
+            Assert.Equal(double.NaN, wynik.MiejsceDrugie);
         }
+        [Fact]
+        public void Funkcja_nie_zwraca_zadnych_miejsc_zerowych()
+        {
+            var a = -6;
+            var b = 3;
+            var c = -1;
 
+            var wynik = Oblicz(a, b, c);
+            Assert.Equal(double.NaN, wynik.MiejscePierwsze);
+            Assert.Equal(double.NaN, wynik.MiejsceDrugie);
+        }
         private Wynik Oblicz(int a, int b, int c)
         {
             double delta = b * b - 4 * a * c;
-            var x1 = (-b - Math.Sqrt(delta)) / (2 * a);
-            var x2 = (-b + Math.Sqrt(delta)) / (2 * a);
+            double x1;
+            double x2;
+
+            if (delta >= 0)
+            {
+                x1 = (-b - Math.Sqrt(delta)) / (2 * a);
+            }
+            else
+            {
+                x1 = double.NaN;
+            }
+            if (delta > 0)
+            {
+                x2 = (-b + Math.Sqrt(delta)) / (2 * a);
+            }
+            else
+            {
+                x2 = double.NaN;
+            }
+
             return new Wynik { MiejscePierwsze = x1, MiejsceDrugie = x2 };
         }
     }
