@@ -76,6 +76,51 @@ namespace SeleniumTests
             Assert.Equal("qqq235 | Site Title", driver.Title);
         }
 
+        [Fact]
+        public void Remove_Note()
+        {
+            var guid = Guid.NewGuid().ToString();
+            var title = "qwerty-" + guid;
+            driver.Navigate().GoToUrl(baseURL + "wp-admin/"); //driver.Navigate().GoToUrl(baseURL + "/wp-login.php?redirect_to=https%3A%2F%2Fautotestdotnet.wordpress.com%2Fwp-admin%2F&reauth=1");
+            driver.FindElement(By.Id("user_login")).Clear();
+            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+            driver.FindElement(By.Id("user_pass")).Clear();
+            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+            driver.FindElement(By.Id("rememberme")).Click();
+            driver.FindElement(By.Id("wp-submit")).Click();
+            driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
+            driver.FindElement(By.LinkText("Add New")).Click();
+            driver.FindElement(By.Id("title-prompt-text")).Click();
+            driver.FindElement(By.Id("title")).Clear();
+            driver.FindElement(By.Id("title")).SendKeys(title);
+            driver.FindElement(By.Id("content")).Clear();
+            driver.FindElement(By.Id("content")).SendKeys("qwerty");
+            driver.FindElement(By.Id("publish")).Click();
+            driver.FindElement(By.LinkText("My Site")).Click();
+            driver.FindElement(By.CssSelector("span.ab-site-title")).Click();
+            driver.FindElement(By.LinkText(title)).Click();
+            Assert.Equal(title + " | Site Title", driver.Title);
+
+            //driver.FindElement(By.CssSelector("img.avatar.avatar-32")).Click(); // logout
+            //driver.FindElement(By.CssSelector("button.ab-sign-out")).Click();
+
+            driver.Navigate().GoToUrl(baseURL + "wp-admin/");
+            //driver.FindElement(By.Id("user_login")).Clear();
+            //driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+            //driver.FindElement(By.Id("user_pass")).Clear();
+            //driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+            //driver.FindElement(By.Id("rememberme")).Click();
+            //driver.FindElement(By.Id("wp-submit")).Click();
+            driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
+            driver.FindElement(By.LinkText("All Posts")).Click();
+            driver.FindElement(By.LinkText(title)).Click();
+            driver.FindElement(By.LinkText("Move to Trash")).Click();
+
+            driver.FindElement(By.LinkText("My Site")).Click();
+            driver.FindElement(By.CssSelector("span.ab-site-title")).Click();
+            Assert.Throws<NoSuchElementException>(() => driver.FindElement(By.LinkText(title)).Click());
+        }
+
         private bool IsElementPresent(By by)
         {
             try
