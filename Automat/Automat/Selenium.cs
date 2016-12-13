@@ -5,6 +5,7 @@ using Xunit;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumTests
 {
@@ -116,5 +117,15 @@ namespace SeleniumTests
             }
         }
 
+        /// <summary>
+        /// wrapeer do oczekiwania na klikalnoœæ elementu
+        /// </summary>
+        /// <param name="by"></param>
+        /// <param name="milisec"></param>
+        private void WaitForElementClickable(By by, int milisec)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromMilliseconds(milisec));
+            wait.Until(ExpectedConditions.ElementToBeClickable(by));
+        }
     }
 }
