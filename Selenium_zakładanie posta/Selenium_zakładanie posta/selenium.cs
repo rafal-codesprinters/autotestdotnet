@@ -3,6 +3,8 @@ using System.Text;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using Xunit;
+using System.Threading;
+using OpenQA.Selenium.Chrome;
 
 namespace SeleniumTests
 {
@@ -15,8 +17,9 @@ namespace SeleniumTests
 
         public Selenium()
         {
-            driver = new FirefoxDriver();
+            driver = new ChromeDriver(); //FirefoxDriver();
             driver.Manage().Window.Maximize();
+            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromMilliseconds (10000));
             baseURL = "https://autotestdotnet.wordpress.com/wp-admin/";
             verificationErrors = new StringBuilder();
         }
@@ -25,6 +28,7 @@ namespace SeleniumTests
         public void The2DodaniePostuV2CsTest()
         {
             driver.Navigate().GoToUrl(baseURL + "");
+            //Thread.Sleep(1000);
             driver.FindElement(By.Id("user_login")).Clear();
             driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
             driver.FindElement(By.Id("user_pass")).Clear();
