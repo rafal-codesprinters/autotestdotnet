@@ -35,17 +35,27 @@ namespace FunkcjaKwadratowa
             Assert.Empty(wynik);
         }
 
+        [Theory]
+        [InlineData(1, -4, 3, new double[] { 1, 3 })]
+        [InlineData(9, -12, 4, new double[] { 2.0/3 })]
+        [InlineData(-6, 3, -1, new double[] { })]
+        public void MiejscaZerowe(double a, double b, double c, double[] oczekiwanyWynik)
+        {
+            var wynik = Oblicz(a, b, c);
+            Assert.Equal(oczekiwanyWynik, wynik);
+        }
+
         private WynikOblicz Oblicz(double a, double b, double c)
         {
             var miejscaZerowe = new List<double>();
             var delta = b * b - 4 * a * c;
             if (delta > 0)
             {
-                miejscaZerowe.Add((-b - Math.Sqrt(delta)) / 2 * a);
-                miejscaZerowe.Add((-b + Math.Sqrt(delta)) / 2 * a);
+                miejscaZerowe.Add((-b - Math.Sqrt(delta)) / (2 * a));
+                miejscaZerowe.Add((-b + Math.Sqrt(delta)) / (2 * a));
             }
             else if (Math.Abs(delta) < double.Epsilon)
-                miejscaZerowe.Add(-b / 2 * a);
+                miejscaZerowe.Add(-b / (2 * a));
          
             return new WynikOblicz(miejscaZerowe.ToArray());
         }
