@@ -16,3 +16,4 @@ C:\autotestdotnet\Seleniuym_automat_visual\Automat\Automat\bin\Debug\xunit.core.
 C:\autotestdotnet\Seleniuym_automat_visual\Automat\Automat\bin\Debug\xunit.core.xml
 C:\autotestdotnet\Seleniuym_automat_visual\Automat\Automat\bin\Debug\xunit.execution.desktop.pdb
 C:\autotestdotnet\Seleniuym_automat_visual\Automat\Automat\bin\Debug\xunit.execution.desktop.xml
+C:\autotestdotnet\Seleniuym_automat_visual\Automat\Automat\obj\Debug\Automat.csprojResolveAssemblyReference.cache

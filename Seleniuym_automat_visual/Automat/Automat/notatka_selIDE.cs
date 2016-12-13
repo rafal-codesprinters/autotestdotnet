@@ -24,6 +24,9 @@ namespace SeleniumTests
             driver.Manage().Window.Maximize();
             baseURL = "https://autotestdotnet.wordpress.com/";
             verificationErrors = new StringBuilder();
+            driver.Manage()
+                .Timeouts()
+                .ImplicitlyWait(TimeSpan.FromSeconds(10));
         }
        
         
