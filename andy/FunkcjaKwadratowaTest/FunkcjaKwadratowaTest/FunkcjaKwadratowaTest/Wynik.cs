@@ -16,6 +16,16 @@ namespace FunkcjaKwadratowaTest
 
     public class Testy
     {
+        [Theory,
+            InlineData(1,-4,3, new double[] { 3,1}),
+            InlineData(9, -12, 4, new double[] { 2.0/3 }),
+            InlineData(-6, 3, -1, new double[] { })
+            ]
+        public void FunkcjaKwadratowaTest(double a, double b, double c, double[] oczekiwane)
+        {
+            var wynik = new Implementacja().Calculate(a, b, c);
+            Assert.Equal(oczekiwane, wynik);
+        }
 
         [Fact]
         public void WeryfikacjaDwaMiejscaZerowe()
