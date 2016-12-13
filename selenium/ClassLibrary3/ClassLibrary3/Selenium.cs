@@ -183,7 +183,7 @@ namespace SeleniumTests
         {
             try
             {
-                driver.Quit();
+                //driver.Quit();
             }
             catch (Exception)
             {
