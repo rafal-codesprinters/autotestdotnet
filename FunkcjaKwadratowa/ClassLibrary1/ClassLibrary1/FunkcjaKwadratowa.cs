@@ -49,7 +49,7 @@ namespace ClassLibrary1
             //Assert.NotEmpty(wynik);
             var list = new List<int>();
 
-            Assert.Collection(wynik, item => Assert.Null(wynik));
+            Assert.Collection(wynik, item => Assert.True(false));
             //Assert.Collection(item => Assert.True(false), wynik);
 
         }
