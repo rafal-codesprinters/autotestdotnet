@@ -102,10 +102,12 @@ namespace SeleniumTests
             driver.FindElement(By.CssSelector("#menu-posts > a > div.wp-menu-name")).Click();
             driver.FindElement(By.Id("post-search-input")).SendKeys(guid);
             driver.FindElement(By.Id("search-submit")).Click();
-            driver.FindElement(By.XPath("//*[contains(@class,'screen-reader-text') and .//text()='"+guid+"']"));
+            //driver.FindElement(By.XPath("//*[contains(@class,'screen-reader-text') and .//text()='"+guid+"']"));
+            driver.FindElement(By.Id("cb-select-all-1")).Click();
 
 
-           
+
+
 
 
 
