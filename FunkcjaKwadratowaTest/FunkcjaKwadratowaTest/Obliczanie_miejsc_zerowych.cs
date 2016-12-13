@@ -9,7 +9,18 @@ namespace FunkcjaKwadratowaTest
 {
     public class Obliczanie_miejsc_zerowych
     {
-        [Fact]
+        [Theory,
+            InlineData(1,-4,3, new double[] { 1, 3 }),
+            //InlineData(9, -12, 4, new double[] { 2/3 }),
+            InlineData(9, -12, 4, new double[] { 2.0/3 }),
+            InlineData(-6, 3, -1, new double[] { })]
+        public void FKwadratowa(double a, double b, double c, double[] oczekiwane)
+        {
+            var wynik = Oblicz(a, b, c).ToList();
+            Assert.Equal(oczekiwane, wynik);
+        }
+
+        //[Fact]
         public void Weryfikacja_ze_potrafimy_znalezc_dwa_miejsca_zerowe()
         {
             var a = 1;
@@ -21,7 +32,7 @@ namespace FunkcjaKwadratowaTest
             Assert.Equal(3, wynik[1]); //wynik.MiejsceDrugie
         }
 
-        [Fact]
+        //[Fact]
         public void Weryfikacja_ze_potrafimy_znalezc_jedno_miejsce_zerowe()
         {
             var a = 9;
@@ -32,7 +43,7 @@ namespace FunkcjaKwadratowaTest
             Assert.Equal(2.0/3, wynik.First());
         }
 
-        [Fact]
+        //[Fact]
         public void Weryfikacja_ze_nie_ma_miejsc_zerowych()
         {
             var a = -6;
