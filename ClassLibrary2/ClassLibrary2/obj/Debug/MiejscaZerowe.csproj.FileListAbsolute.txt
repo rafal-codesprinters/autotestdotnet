@@ -12,6 +12,5 @@ C:\autotestdotnet\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.core.pdb
 C:\autotestdotnet\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.core.xml
 C:\autotestdotnet\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.execution.desktop.pdb
 C:\autotestdotnet\ClassLibrary2\ClassLibrary2\bin\Debug\xunit.execution.desktop.xml
-C:\autotestdotnet\ClassLibrary2\ClassLibrary2\obj\Debug\MiejscaZerowe.csprojResolveAssemblyReference.cache
 C:\autotestdotnet\ClassLibrary2\ClassLibrary2\obj\Debug\ClassLibrary2.dll
 C:\autotestdotnet\ClassLibrary2\ClassLibrary2\obj\Debug\ClassLibrary2.pdb

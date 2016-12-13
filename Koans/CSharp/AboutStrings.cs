@@ -18,21 +18,21 @@ namespace DotNetKoans.CSharp
         public void DoubleQuotedStringsAreStrings()
         {
             var str = "Hello, World";
-            Assert.Equal(typeof(FillMeIn), str.GetType());
+            Assert.Equal(typeof(String), str.GetType());
         }
 
         [Koan(2)]
         public void SingleQuotedStringsAreNotStrings()
         {
             var str = 'H';
-			Assert.Equal(typeof(FillMeIn), str.GetType());
+			Assert.Equal(typeof(Char), str.GetType());
         }
 
         [Koan(3)]
         public void CreateAStringWhichContainsDoubleQuotes()
         {
             var str = "Hello, \"World\"";
-            Assert.Equal(FILL_ME_IN, str.Length);
+            Assert.Equal(14, str.Length);
         }
 
         [Koan(4)]
@@ -41,7 +41,7 @@ namespace DotNetKoans.CSharp
             //The @ symbol creates a 'verbatim string literal'. 
             //Here's one thing you can do with it:
             var str = @"Hello, ""World""";
-            Assert.Equal(FILL_ME_IN, str.Length);
+            Assert.Equal(14, str.Length);
         }
 
         [Koan(5)]
@@ -49,7 +49,7 @@ namespace DotNetKoans.CSharp
         {
             var strA = @"Verbatim Strings can handle both ' and "" characters (when escaped)";
             var strB = "Verbatim Strings can handle both ' and \" characters (when escaped)";
-            Assert.Equal(FILL_ME_IN, strA.Equals(strB));
+            Assert.Equal(true, strA.Equals(strB));
         }
 
         [Koan(6)]
@@ -63,7 +63,7 @@ namespace DotNetKoans.CSharp
 am a
 broken line";
             Assert.Equal(20, verbatimString.Length);
-            var literalString = FILL_ME_IN;
+            var literalString = "I\r\nam a\r\nbroken line";
             Assert.Equal(literalString, verbatimString);
         }
 
@@ -75,7 +75,9 @@ broken line";
             //the hardcoded escape sequence. A much better way
             //(We'll handle concatenation and better ways of that in a bit)
             var literalString = "I" + System.Environment.NewLine + "am a" + System.Environment.NewLine + "broken line";
-            var vebatimString = FILL_ME_IN;
+            var vebatimString = @"I
+am a
+broken line";
             Assert.Equal(literalString, vebatimString);
         }
 
@@ -83,7 +85,7 @@ broken line";
         public void PlusWillConcatenateTwoStrings()
         {
             var str = "Hello, " + "World";
-            Assert.Equal(FILL_ME_IN, str);
+            Assert.Equal("Hello, World", str);
         }
 
         [Koan(9)]
@@ -92,8 +94,8 @@ broken line";
             var strA = "Hello, ";
             var strB = "World";
             var fullString = strA + strB;
-            Assert.Equal(FILL_ME_IN, strA);
-            Assert.Equal(FILL_ME_IN, strB);
+            Assert.Equal("Hello, ", strA);
+            Assert.Equal("World", strB);
         }
 
         [Koan(10)]
@@ -102,8 +104,8 @@ broken line";
             var strA = "Hello, ";
             var strB = "World";
             strA += strB;
-            Assert.Equal(FILL_ME_IN, strA);
-            Assert.Equal(FILL_ME_IN, strB);
+            Assert.Equal("Hello, World", strA);
+            Assert.Equal("World", strB);
         }
 
         [Koan(11)]
@@ -117,7 +119,7 @@ broken line";
             var originalString = strA;
             var strB = "World";
             strA += strB;
-            Assert.Equal(FILL_ME_IN, originalString);
+            Assert.Equal("Hello, ", originalString);
 
             //What just happened? Well, the string concatenation actually
             //takes strA and strB and creates a *new* string in memory
@@ -134,14 +136,14 @@ broken line";
 		{
 			var world = "World";
 			var str = String.Format("Hello, {0}", world);
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("Hello, World", str);
 		}
 
 		[Koan(13)]
 		public void AnyExpressionCanBeUsedInFormatString()
 		{
 			var str = String.Format("The square root of 9 is {0}", Math.Sqrt(9));
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("The square root of 9 is 3", str);
 		}
 
 		[Koan(14)]
@@ -149,56 +151,56 @@ broken line";
 		{
 			//You can modify the value inserted into the result
 			var str = string.Format("{0,3:}", "x");
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("  x", str);
 		}
 
 		[Koan(15)]
 		public void StringsCanBePaddedToTheRight()
 		{
 			var str = string.Format("{0,-3:}", "x");
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("x  ", str);
 		}
 
 		[Koan(16)]
 		public void SeperatorsCanBeAdded()
 		{
 			var str = string.Format("{0:n}", 123456);
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("123 456,00", str);
 		}
 
 		[Koan(17)]
 		public void CurrencyDesignatorsCanBeAdded()
 		{
 			var str = string.Format("{0:n}", 123456);
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("123 456,00", str);
 		}
 
 		[Koan(18)]
 		public void NumberOfDisplayedDecimalsCanBeControled()
 		{
 			var str = string.Format("{0:.##}", 12.3456);
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("12,35", str);
 		}
 
 		[Koan(19)]
 		public void MinimumNumberOfDisplayedDecimalsCanBeControled()
 		{
 			var str = string.Format("{0:.00}", 12.3);
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("12,30", str);
 		}
 
 		[Koan(20)]
 		public void BuiltInDateFormaters()
 		{
 			var str = string.Format("{0:t}", DateTime.Parse("12/16/2011 2:35:02 PM"));
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("14:35", str);
 		}
 
 		[Koan(21)]
 		public void CustomeDateFormaters()
 		{
 			var str = string.Format("{0:t m}", DateTime.Parse("12/16/2011 2:35:02 PM"));
-			Assert.Equal(FILL_ME_IN, str);
+			Assert.Equal("35", str);
 		}
 		//These are just a few of the formatters available. Dig some and you may find what you need.
 

@@ -4,10 +4,10 @@ namespace FunkcjaKwadratowa
 {
     internal class Wynik
     {
-        public double JednoMiejsce { get; set; }
-        public double MiejsceDrugie { get; set; }
-        public double MiejscePierwsze { get; set; }
-        public string BrakMiejsca { get; set; }
+        public double? JednoMiejsce { get; set; }
+        public double? MiejsceDrugie { get; set; }
+        public double? MiejscePierwsze { get; set; }
+        public int IloscMiejscZerowych { get; set; }
 
         //private
     }
