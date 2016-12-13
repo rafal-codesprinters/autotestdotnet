@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Chrome;
 using Xunit;
 
 namespace SeleniumTests
@@ -19,8 +19,10 @@ namespace SeleniumTests
     
         public Selenium()
         {
-            driver = new FirefoxDriver();
-            baseURL = "https://autotestdotnet.wordpress.com/wp-admin/";
+            driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
+            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
+            baseURL = "https://autotestdotnet.wordpress.com";
             verificationErrors = new StringBuilder();
         }
         
@@ -34,8 +36,8 @@ namespace SeleniumTests
             driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
             driver.FindElement(By.Id("user_pass")).Clear();
             driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
-            driver.Navigate().GoToUrl(baseURL + "/wp-admin/");
             driver.FindElement(By.Id("wp-submit")).Click();
+            driver.FindElement(By.CssSelector("#menu-posts > a > div.wp-menu-name")).Click();
             driver.FindElement(By.LinkText("Add New")).Click();
             driver.FindElement(By.Id("title-prompt-text")).Click();
             driver.FindElement(By.Id("title")).Click();
@@ -45,11 +47,17 @@ namespace SeleniumTests
             driver.FindElement(By.Id("content")).SendKeys("test w 41");
             driver.FindElement(By.Id("publish")).Click();
             driver.Navigate().GoToUrl(baseURL + "/");
-            Assert.Equal("Site Title", driver.Title);
+            //driver.FindElement(By.XPath("//*[contains(@class,'post-title') and .//text()='test w 4']"));
+           var link =  driver.FindElement(By.XPath("//a[contains(@href, 'test-w-4')]")).Text;
+            Console.WriteLine(link);
+           
+
+            //Assert.Equal("test w 4", driver.FindElement(By.XPath("//*[contains(@class,'post-title') and .//text()='test w 4']")).ToString());
             driver.FindElement(By.Id("wp-admin-bar-my-account")).Click();
-            // ERROR: Caught exception [Error: unknown strategy [class] for locator [class=ab-sign-out]]
             driver.Navigate().GoToUrl(baseURL + "/");
             Assert.Equal("Site Title", driver.Title);
+
+
         }
         private bool IsElementPresent(By by)
         {
