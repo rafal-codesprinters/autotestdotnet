@@ -39,8 +39,8 @@ namespace FunkcjaKwadratowaTest
             var b = 3;
             var c = -1;
 
-            var wynik = Oblicz(a, b, c);
-            Assert.Equal(double.NaN, wynik.First());
+            var wynik = Oblicz(a, b, c).ToList();
+            Assert.Equal(0, wynik.Count);
         }
 
         private Wynik Oblicz_v1(int a, int b, int c)
@@ -54,8 +54,15 @@ namespace FunkcjaKwadratowaTest
         private IEnumerable<double> Oblicz(double a, double b, double c)
         {
             double delta = b * b - 4 * a * c;
-            yield return (-b - Math.Sqrt(delta)) / (2 * a);
-            yield return (-b + Math.Sqrt(delta)) / (2 * a);
+            //Func<double, double, double> x1 =(a1, b1) => ((-b1 - Math.Sqrt(delta)) / (2 * a1));
+
+            if (delta > 0)
+            {
+                yield return (-b - Math.Sqrt(delta)) / (2 * a);
+                yield return (-b + Math.Sqrt(delta)) / (2 * a);
+            }
+            if(delta==0)
+                yield return -b / (2 * a);
         }
     }
 }
