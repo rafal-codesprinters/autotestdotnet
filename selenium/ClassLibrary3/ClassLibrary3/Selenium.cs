@@ -48,10 +48,8 @@ namespace SeleniumTests
             }
             string myLink = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).Text;
             driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).Click();
-
-            //wyloguj sie z konta admina
-            driver.FindElement(By.Id("wp-admin-bar-my-account")).Click();
-            driver.FindElement(By.ClassName("ab-sign-out")).Click();
+            
+            Logoff();
             
             driver.Navigate().GoToUrl(myLink);
             Assert.Equal("szy 3", driver.FindElement(By.CssSelector("header.post-title > h1")).Text);
@@ -63,34 +61,29 @@ namespace SeleniumTests
         {
             Logon();
 
-            driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
-            driver.FindElement(By.CssSelector("a.page-title-action")).Click();
-            driver.FindElement(By.Id("title")).Clear();
-            driver.FindElement(By.Id("title")).SendKeys("szy 3");
-            driver.FindElement(By.Id("content")).Clear();
-            driver.FindElement(By.Id("content")).SendKeys("notatka 5");
-            driver.FindElement(By.Id("publish")).Click();
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) throw new Exception("timeout");
-                try
-                {
-                    if (IsElementPresent(By.Id("sample-permalink"))) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
-            string myLink = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).Text;
+            var guid = Guid.NewGuid().ToString();
+
+            string LinkDoNowejNotatki = UtworzNotatkeOrazLinkDoNiejNotatkiJakoGUID(guid);
+
             driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).Click();
 
-            //wyloguj sie z konta admina
-            driver.FindElement(By.Id("wp-admin-bar-my-account")).Click();
-            driver.FindElement(By.ClassName("ab-sign-out")).Click();
+            Logoff();            
 
-            driver.Navigate().GoToUrl(myLink);
-            Assert.Equal("szy 3", driver.FindElement(By.CssSelector("header.post-title > h1")).Text);
-            Assert.Equal("notatka 5", driver.FindElement(By.CssSelector("div.post-entry > p")).Text);
+            driver.Navigate().GoToUrl(LinkDoNowejNotatki);
+
+            Assert.Equal(guid, driver.FindElement(By.CssSelector("header.post-title > h1")).Text);
+
+            Logon();
+
+            string AriaLabel = @"Move" + guid + " to the Trash";
+            driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[2]")).Click();
+            driver.FindElement(By.XPath("//span[@aria-label=" + AriaLabel)).Click();
+
+            Logoff();
+
+            driver.Navigate().GoToUrl(LinkDoNowejNotatki);
+
+            Assert.Equal("Not Found!", driver.FindElement(By.CssSelector("header.post-title > h1")).Text);
         }
 
         private void Logon()
@@ -112,6 +105,37 @@ namespace SeleniumTests
                 { }
                 Thread.Sleep(3000);
             }
+        }
+
+        private void Logoff()
+        {
+            driver.FindElement(By.Id("wp-admin-bar-my-account")).Click();
+            driver.FindElement(By.ClassName("ab-sign-out")).Click();
+        }
+
+        private String UtworzNotatkeOrazLinkDoNiejNotatkiJakoGUID(string guid)
+        {
+            driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
+            driver.FindElement(By.CssSelector("a.page-title-action")).Click();
+            driver.FindElement(By.Id("title")).Clear();
+            driver.FindElement(By.Id("title")).SendKeys(guid);
+            driver.FindElement(By.Id("content")).Clear();
+            driver.FindElement(By.Id("content")).SendKeys("notatka 5");
+            driver.FindElement(By.Id("publish")).Click();
+            for (int second = 0; ; second++)
+            {
+                if (second >= 60) throw new Exception("timeout");
+                try
+                {
+                    if (IsElementPresent(By.Id("sample-permalink"))) break;
+                }
+                catch (Exception)
+                { }
+                Thread.Sleep(1000);
+            }
+            string myLink = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).Text;
+
+            return myLink;
         }
 
         private bool IsElementPresent(By by)
