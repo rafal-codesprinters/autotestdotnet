@@ -24,7 +24,7 @@ namespace FunkcjaKwadratowaTest
     {
 
         [Fact]
-        public void SzybkiTest()
+        public void WeryfikacjaDwaMiejscaZerowe()
         {
             var a = 1;
             var b = -4;
@@ -34,5 +34,19 @@ namespace FunkcjaKwadratowaTest
             Assert.Equal(1, rezultat.MiejsceDrugie);
             Assert.Equal(3, rezultat.MiejscePierwsze);
         }
+
+        [Fact]
+        public void WeryfikacjaJednoMiejsceZerowe()
+        {
+            var a = 9;
+            var b = -12;
+            var c = 4;
+
+            Wynik rezultat = new Implementacja().Calculate(a, b, c);
+            // Assert.Equal(1, rezultat.MiejsceDrugie);
+            Assert.Equal(2/3, rezultat.MiejscePierwsze);
+        }
+
+
     }
 }
