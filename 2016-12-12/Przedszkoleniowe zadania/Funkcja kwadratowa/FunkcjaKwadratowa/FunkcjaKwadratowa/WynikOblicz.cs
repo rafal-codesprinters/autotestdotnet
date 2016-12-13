@@ -1,10 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace FunkcjaKwadratowa
 {
-    internal class WynikOblicz
+    internal class WynikOblicz : IEnumerable<double>
     {
-        public double X1 { get; set; }
-        public double X2 { get; set; }
+        private double[] m_miejscaZerowe;
+
+        public WynikOblicz(params double[] miejscaZerowe)
+        {
+            m_miejscaZerowe = miejscaZerowe;
+        }
+
+        public IEnumerator<double> GetEnumerator()
+        {
+            return ((IEnumerable<double>)m_miejscaZerowe).GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }

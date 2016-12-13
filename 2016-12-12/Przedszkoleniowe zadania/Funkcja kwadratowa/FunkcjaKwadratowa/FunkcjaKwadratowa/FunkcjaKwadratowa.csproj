@@ -59,7 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ObliczanieMiejscZerowych.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WynikOblicz.cs" />
   </ItemGroup>
