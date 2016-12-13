@@ -13,7 +13,7 @@ namespace FunkcjaKwadratowa
             InlineData(9, -12, 4, new double[] { 2.0 / 3 }),
             InlineData(9, -12, 4, new double[] { 2 / 3 }),
             InlineData(-6, 3, -1, new double[] { })]
-        public void FKwadratowa(double a, double b, double c, double[] oczekiwane)
+        public void Funkcja_kwadratowa_zwraca_miejsca_zerowe(double a, double b, double c, double[] oczekiwane)
         {
             var wynik = Oblicz(a, b, c);
 
