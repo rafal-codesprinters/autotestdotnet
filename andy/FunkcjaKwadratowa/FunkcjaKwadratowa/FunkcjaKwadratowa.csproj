@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SquareFunction.cs" />
     <Page Include="Funkcja Kwadratowa.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

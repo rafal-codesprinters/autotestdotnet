@@ -21,42 +21,10 @@ namespace FunkcjaKwadratowa
     public partial class MainWindow : Window
     {
 
-        internal class Wynik
-        {
-
-            public double? MiejscePierwsze { get; set; }
-            public double? MiejsceDrugie { get; set; }
-            public double Delta { get; set;  }
-        }
-
         public MainWindow()
         {
             InitializeComponent();
             miejsce_wyniku.Text = "Program wystartował.";
-        }
-
-        Wynik Calculate(double a, double b, double c)
-        {
-            double x1 = 0;
-            double x2 = 0;
-            double result = 0;
-
-            double delta = 0; // pośrednie obliczenie
-            delta = Math.Pow(b, 2) - (4 * a * c);
-
-            if (delta > 0)
-            {
-                x1 = (Math.Sqrt(delta) - b) / (2 * a);
-                x2 = (-Math.Sqrt(delta) - b) / (2 * a);
-
-                return new Wynik { MiejscePierwsze = x1, MiejsceDrugie = x2, Delta = delta };
-
-            }
-            else
-            {
-                return new Wynik { MiejscePierwsze = null, MiejsceDrugie = null, Delta = delta };
-                              
-            }
         }
 
         private void guzik_wyczysc_Click(object sender, RoutedEventArgs e)
@@ -75,7 +43,7 @@ namespace FunkcjaKwadratowa
             if (Double.TryParse(varA.Text, out a) && Double.TryParse(varB.Text, out b) && Double.TryParse(varC.Text, out c))
             {
 
-                Wynik rezultat = Calculate(a, b, c);
+                Wynik rezultat = SquareFunction.Calculate(a, b, c);
 
                 if (rezultat.Delta < 0)
                 {
@@ -90,7 +58,7 @@ namespace FunkcjaKwadratowa
                     miejsce_wyniku.Text += "X2 = " + rezultat.MiejsceDrugie;
                 }
 
-            } else
+            } else // Walidacja się nie udała
             {
                 miejsce_wyniku.Text = "";
                 miejsce_wyniku.Text = "Wprowadzono błędne wartości \r\n(najpewniej nie są to liczby).";
