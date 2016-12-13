@@ -41,13 +41,13 @@ namespace FunkcjaKwadratowa
             var delta = b * b - 4 * a * c;
             if (delta > 0)
             {
-                miejscaZerowe.Add((-b + Math.Sqrt(delta)) / 2 * a);
                 miejscaZerowe.Add((-b - Math.Sqrt(delta)) / 2 * a);
+                miejscaZerowe.Add((-b + Math.Sqrt(delta)) / 2 * a);
             }
             else if (Math.Abs(delta) < double.Epsilon)
                 miejscaZerowe.Add(-b / 2 * a);
          
-            return new WynikOblicz(miejscaZerowe.OrderBy(n => n).ToArray());
+            return new WynikOblicz(miejscaZerowe.ToArray());
         }
     }
 }
