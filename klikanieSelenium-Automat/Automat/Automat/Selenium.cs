@@ -5,6 +5,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using Xunit;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumTests
 {
@@ -22,6 +23,12 @@ namespace SeleniumTests
             driver.Manage().Window.Maximize();
             baseURL = "https://autotestdotnet.wordpress.com/";
             verificationErrors = new StringBuilder();
+            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10)); //czekanie!!!
+        }
+        protected void waitForElementClickable(By by, int seconds)//czekanie!!!
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
+            wait.Until(ExpectedConditions.ElementToBeClickable(by));
         }
                        
         [Fact]
@@ -32,6 +39,9 @@ namespace SeleniumTests
 
             driver.FindElement(By.Id("user_login")).Clear();
             driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+
+            waitForElementClickable(By.Id("user_login"), 10); //wykorzystanie waita zaimplementowanego przez nas
+
             driver.FindElement(By.Id("user_pass")).Clear();
             driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
 
@@ -74,6 +84,68 @@ namespace SeleniumTests
             driver.Navigate().GoToUrl(baseURL + linkDoOpublikowanejStrony);
             Assert.Equal("Krzysztof Lubartowski | Site Title", driver.Title);
         }
+        [Fact]
+        public void UsuwanieJednejNotkiJakoAdminWSelenium()
+        {
+            driver.Navigate().GoToUrl(baseURL + "/wp-login.php");
+            Assert.Equal("Site Title ‹ Log In", driver.Title);
+
+            driver.FindElement(By.Id("user_login")).Clear();
+            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+
+            waitForElementClickable(By.Id("user_login"), 10); //wykorzystanie waita zaimplementowanego przez nas
+
+            driver.FindElement(By.Id("user_pass")).Clear();
+            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+
+            driver.FindElement(By.Id("wp-submit")).Click();
+            Assert.Equal("Dashboard ‹ Site Title — WordPress", driver.Title);
+
+
+            driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
+            Assert.Equal("Posts ‹ Site Title — WordPress", driver.Title);
+            
+                driver.FindElement(By.Id("post-search-input")).Clear();
+                driver.FindElement(By.Id("post-search-input")).SendKeys("Lubartowski");
+                driver.FindElement(By.Id("search-submit")).Click();
+
+
+                Assert.Equal("Posts Add New Search results for “Lubartowski”", driver.FindElement(By.CssSelector("h1")).Text);
+                driver.FindElement(By.LinkText("Krzysztof Lubartowski")).Click();
+
+                Assert.Equal("Edit Post Add New", driver.FindElement(By.CssSelector("h1")).Text);
+                driver.FindElement(By.LinkText("Move to Trash")).Click();
+        }
+        [Fact]
+        public void UsuwanieWsyzstkichNotatekJakoAdminWSelenium()
+        {
+            driver.Navigate().GoToUrl(baseURL + "/wp-login.php");
+            Assert.Equal("Site Title ‹ Log In", driver.Title);
+
+            driver.FindElement(By.Id("user_login")).Clear();
+            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+
+            waitForElementClickable(By.Id("user_login"), 10); //wykorzystanie waita zaimplementowanego przez nas
+
+            driver.FindElement(By.Id("user_pass")).Clear();
+            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+
+            driver.FindElement(By.Id("wp-submit")).Click();
+            Assert.Equal("Dashboard ‹ Site Title — WordPress", driver.Title);
+
+            driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
+            driver.FindElement(By.Id("post-search-input")).Clear();
+            driver.FindElement(By.Id("post-search-input")).SendKeys("Lubartowski");
+            driver.FindElement(By.Id("search-submit")).Click();
+            driver.FindElement(By.Id("cb-select-all-1")).Click();
+            new SelectElement(driver.FindElement(By.Id("bulk-action-selector-top"))).SelectByText("Move to Trash");
+            driver.FindElement(By.Id("doaction")).Click();
+            Assert.Equal("Congratulations", driver.FindElement(By.CssSelector("p > strong")).Text);
+            driver.FindElement(By.CssSelector("img.avatar.avatar-32")).Click();
+            driver.FindElement(By.CssSelector("button.ab-sign-out")).Click();
+        }
+
+
         private bool IsElementPresent(By by)
         {
             try
