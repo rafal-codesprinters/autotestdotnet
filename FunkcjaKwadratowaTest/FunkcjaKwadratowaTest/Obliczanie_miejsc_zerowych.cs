@@ -32,6 +32,17 @@ namespace FunkcjaKwadratowaTest
             Assert.Equal(2.0/3, wynik.First());
         }
 
+        [Fact]
+        public void Weryfikacja_ze_nie_ma_miejsc_zerowych()
+        {
+            var a = -6;
+            var b = 3;
+            var c = -1;
+
+            var wynik = Oblicz(a, b, c);
+            Assert.Equal(double.NaN, wynik.First());
+        }
+
         private Wynik Oblicz_v1(int a, int b, int c)
         {
             double delta = b * b - 4 * a * c;
