@@ -11,48 +11,63 @@ namespace FunkcjaKwadratowa
     {
 
         [Fact]
-        public void DwaMiejscaZerowe()
+        public void Weryfikacja_ze_otrafimy_znalesc_dwa_miejsca_zerowe()
         {
             var a = 1;
             var b = -4;
             var c = 3;
 
-            var wynik = Oblicz(a, b, c);
-            Assert.Equal(3, wynik.MiejscePierwsze);
-            Assert.Equal(1, wynik.MiejsceDrugie);
+            var wynik = Oblicz(a, b, c).ToList();
+            Assert.Equal(1, wynik[0]);
+            Assert.Equal(3, wynik[1]);
         }
 
-        private wynik Oblicz(int a, int b, int c)
+        [Fact]
+        public void Weryfikacja_ze_potrafimy_znalesc_jedno_miejsca_zerowe()
+        {
+            var a = 9;
+            var b = -12;
+            var c = 4;
+
+            var wynik = Oblicz(a, b, c);
+            Assert.Equal(2.0 / 3, wynik.First()); //pierwszy sposob
+            Assert.Equal((double)2 / 3, wynik.First()); //drugi sposob
+
+        }
+
+        [Fact]
+        public void Weryfikacja_ze_funkcja_nie_zwraca_miejsc_zerowych()
+        {
+            var a = -6;
+            var b = 3;
+            var c = -1;
+
+            var wynik = Oblicz(a, b, c);
+            Assert.Empty(wynik);
+
+
+
+        }
+
+        private IEnumerable<double> Oblicz(double a, double b, double c)
         {
             double delta;
-            double x1;
-            double x2;
             delta = (b * b) - (4 * a * c);
 
             if (delta > 0)
             {
-               x1 = (-b + Math.Sqrt(delta)) / (2 * a);
-
-               x2 = (-b - Math.Sqrt(delta)) / (2 * a);
-
-                return new wynik
-                {
-                    MiejscePierwsze = x1,
-                    MiejsceDrugie = x2
-                };
+                yield return (-b - Math.Sqrt(delta)) / (2 * a);
+                yield return (-b + Math.Sqrt(delta)) / (2 * a);
+            }
+            if (delta == 0)
+            {
+                yield return (-b - Math.Sqrt(delta)) / (2 * a);
             }
 
-
-            return new wynik();
 
         }
 
     }
-     
 
-    internal class wynik
-    {
-    public double MiejsceDrugie { get; internal set; }
-    public double MiejscePierwsze { get; internal set; }
-    }
+
 }
