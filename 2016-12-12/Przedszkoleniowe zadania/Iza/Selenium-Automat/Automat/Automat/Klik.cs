@@ -1,8 +1,11 @@
 using System;
 using System.Text;
+using System.Threading;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using Xunit;
+using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumTests
 {
@@ -16,7 +19,9 @@ namespace SeleniumTests
 
         public Klik()
         {
-            driver = new FirefoxDriver();
+            driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
+            driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(5000));
             baseURL = "https://autotestdotnet.wordpress.com/wp-admin/";
             verificationErrors = new StringBuilder();
 
@@ -27,28 +32,40 @@ namespace SeleniumTests
         [Fact]
         public void TheKlikTest()
         {
-            driver.Navigate().GoToUrl(baseURL + "/wp-login.php?redirect_to=https%3A%2F%2Fautotestdotnet.wordpress.com%2Fwp-admin%2F&reauth=1");
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+            driver.Navigate().GoToUrl(baseURL);
+           
             driver.FindElement(By.Id("user_login")).Clear();
             driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+           
             driver.FindElement(By.Id("user_pass")).Clear();
             driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+          
             driver.FindElement(By.Id("wp-submit")).Click();
             driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
             driver.FindElement(By.CssSelector("a.page-title-action")).Click();
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+         
             driver.FindElement(By.Id("title")).Clear();
             driver.FindElement(By.Id("title")).SendKeys("Nowy post ILO");
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+          
             driver.FindElement(By.Id("content")).Click();
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
             driver.FindElement(By.Id("content")).Clear();
             driver.FindElement(By.Id("content")).SendKeys("Testowy post dla");
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+       
+            //Thread.Sleep(5000);
+
+            WebDriverWait waite = new WebDriverWait(driver,TimeSpan.FromSeconds(15));
+            // czekamy az sie pojawi permalink
+            waite.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='sample-permalink']/a")));
+            // czekamy az element bedzie klikalny
+            waite.Until(ExpectedConditions.ElementToBeClickable(By.Id("publish")));
+            
+
             driver.FindElement(By.Id("publish")).Click();
+
             // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+
+           //Thread.Sleep(5000);
+
             Assert.Equal("Published", driver.FindElement(By.Id("post-status-display")).Text);
             driver.FindElement(By.LinkText("View post")).Click();
             // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
