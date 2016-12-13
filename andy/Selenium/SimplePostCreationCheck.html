@@ -117,14 +117,14 @@
 	<td>AKBTEST</td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
+	<td>selectWindow</td>
+	<td>null</td>
 	<td></td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
+	<td>type</td>
+	<td>id=content</td>
+	<td>Test content.</td>
 </tr>
 <tr>
 	<td>selectWindow</td>
@@ -137,18 +137,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>selectWindow</td>
-	<td>null</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>id=message</td>
 	<td>30</td>
 </tr>
 <tr>
 	<td>assertText</td>
-	<td>id=message</td>
+	<td>css=#message &gt; p</td>
 	<td>Post published. View post</td>
 </tr>
 <tr>
@@ -187,89 +182,39 @@
 	<td></td>
 </tr>
 <tr>
+	<td>open</td>
+	<td></td>
+	<td>https://autotestdotnet.wordpress.com/wp-admin/</td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>link=Edit</td>
+	<td>link=All Posts</td>
 	<td></td>
 </tr>
 <tr>
-	<td>selectWindow</td>
-	<td>name=oktab7732176380738399</td>
+	<td>clickAndWait</td>
+	<td>link=AKBTEST</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>xpath=(//button[@type='button'])[40]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>selectWindow</td>
-	<td>name=oktab7732176380738399</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>xpath=(//button[@type='button'])[31]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>selectWindow</td>
-	<td>name=oktab7732176380738399</td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertText</td>
-	<td>css=textarea.textarea-autosize.editor-title__input</td>
+	<td>verifyValue</td>
+	<td>id=title</td>
 	<td>AKBTEST</td>
 </tr>
 <tr>
-	<td>selectWindow</td>
-	<td>name=oktab7732176380738399</td>
+	<td>clickAndWait</td>
+	<td>link=Move to Trash</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>xpath=(//button[@type='button'])[3]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>selectWindow</td>
-	<td>name=oktab7732176380738399</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>css=div.dialog__action-buttons &gt; button.button.is-primary</td>
-	<td></td>
-</tr>
-<tr>
-	<td>selectWindow</td>
-	<td>name=oktab7732176380738399</td>
-	<td></td>
+	<td>waitForElementPresent</td>
+	<td>id=message</td>
+	<td>30</td>
 </tr>
 <tr>
 	<td>assertText</td>
-	<td>css=h1</td>
-	<td>Deleted Post</td>
-</tr>
-<tr>
-	<td>selectWindow</td>
-	<td>name=oktab7732176380738399</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>xpath=(//button[@type='submit'])[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>selectWindow</td>
-	<td>name=oktab7732176380738399</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>css=span.masterbar__item-content</td>
-	<td></td>
+	<td>css=#message &gt; p</td>
+	<td>1 post moved to the Trash. Undo</td>
 </tr>
 </tbody></table>
 </body>
