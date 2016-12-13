@@ -7,60 +7,50 @@ using Xunit;
 
 namespace FunkcjaKwadratowa
 {
+    
     public class Obliczanie_miejsc_zerowych
     {
         [Fact]
-        public void TestDla2()
+        public void Potrafimy_znalesc_dwa_miejsca_zerowe()
         {
             var a = 1;
             var b = -4;
             var c = 3;
-            var wynik = Oblicz(a, b, c);
-            Assert.Equal(1, wynik.MiejscePierwsze);
-            Assert.Equal(3, wynik.MiejsceDrugie);
-            Assert.Equal(2, wynik.IloscRozwiazan);
+            var wynik = Oblicz(a, b, c).ToList();
+            Assert.Equal(1, wynik[0]);
+            Assert.Equal(3, wynik[1]);
         }
         [Fact]
-        public void TestDla1()
+        public void Potrafimy_znalesc_jedno_miejsce_zerowe()
         {
-            var a = 2;
-            var b = 4;
-            var c = 2;
-            var wynik = Oblicz(a, b, c);
-            Assert.Equal(-1, wynik.MiejscePierwsze);
-            Assert.Equal(1, wynik.IloscRozwiazan);
+            var a = 9;
+            var b = -12;
+            var c = 4;
+            var wynik = Oblicz(a, b, c).ToList();
+            Assert.Equal( (double) 2 / (double) 3, wynik[0]);
         }
         [Fact]
-        public void TestDla0()
+        public void Potrafimy_znalesc_zero_miejsc_zerowe()
         {
             var a = -4;
             var b = 2;
             var c = -5;
-            var wynik = Oblicz(a, b, c);
-            Assert.Equal(0, wynik.IloscRozwiazan);
+            var wynik = Oblicz(a, b, c).ToList();
+            Assert.Empty(wynik);
         }
 
-        private Wynik Oblicz(int a, int b, int c)
+        private IEnumerable<double> Oblicz(double a, double b, double c)
         {
-            Wynik Obliczenie = new Wynik();
             var delta = b * b - 4 * a * c;
             if (delta > 0)
             {
-                Obliczenie.MiejscePierwsze = (int)(-b - (double)Math.Sqrt(delta)) / 2 * a;
-                Obliczenie.MiejsceDrugie = (int)(-b + (double)Math.Sqrt(delta)) / 2 * a;
-                Obliczenie.IloscRozwiazan = 2;
+                yield return (-b - Math.Sqrt(delta)) / (2 * a);
+                yield return (-b + Math.Sqrt(delta)) / (2 * a);
             }
             else if (delta == 0)
             {
-                Obliczenie.MiejscePierwsze = -b / 2 * a;
-                Obliczenie.IloscRozwiazan = 1;
+                yield return (-b / (2 * a));
             }
-            else
-            {
-                Obliczenie.IloscRozwiazan = 0;
-            }
-            return Obliczenie;
-            throw new NotImplementedException();
         }
     }
 }

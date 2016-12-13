@@ -165,14 +165,14 @@ broken line";
 		public void SeperatorsCanBeAdded()
 		{
 			var str = string.Format("{0:n}", 123456);
-			//Assert.Equal("123 456,00", str);
+			Assert.Equal("123 456,00", str);
 		}
 
 		[Koan(17)]
 		public void CurrencyDesignatorsCanBeAdded()
 		{
 			var str = string.Format("{0:n}", 123456);
-			//Assert.Equal("123 456,00", str);
+			Assert.Equal("123 456,00", str);
 		}
 
 		[Koan(18)]
@@ -192,15 +192,15 @@ broken line";
 		[Koan(20)]
 		public void BuiltInDateFormaters()
 		{
-			var str = string.Format("{0:t}", DateTime.Parse("16/12/2011 2:35:02 PM"));
+			var str = string.Format("{0:t}", DateTime.Parse("12/16/2011 2:35:02 PM"));
 			Assert.Equal("14:35", str);
 		}
 
 		[Koan(21)]
 		public void CustomeDateFormaters()
 		{
-			var str = string.Format("{0:t m}", DateTime.Parse("16/12/2011 2:35:02 PM"));
-			Assert.Equal("P 35", str);
+			var str = string.Format("{0:t m}", DateTime.Parse("12/16/2011 2:35:02 PM"));
+			Assert.Equal(" 35", str);
 		}
 		//These are just a few of the formatters available. Dig some and you may find what you need.
 
