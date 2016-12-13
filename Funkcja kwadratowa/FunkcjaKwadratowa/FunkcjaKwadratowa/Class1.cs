@@ -9,6 +9,18 @@ namespace FunkcjaKwadratowa
 {
     public class Obliczenie_miejsc_zerwych
     {
+        [Theory,
+             InlineData(1, -4, 3, new double[] { 1, 3 }),
+             InlineData(9, -12, 4, new double[] { 2.0 / 3 }),
+             InlineData(9, -12, 4, new double[] { 2 / 3 }),
+             InlineData(-6, 3, -1, new double[] { })]
+        public void FKwadratowa(double a, double b, double c, double[] oczekiwana)
+        {
+            var wynik = Oblicz(a, b, c);
+            Assert.Equal(oczekiwana, wynik);
+
+        }
+
 
         [Fact]
         public void Weryfikacja_ze_otrafimy_znalesc_dwa_miejsca_zerowe()
@@ -44,8 +56,6 @@ namespace FunkcjaKwadratowa
 
             var wynik = Oblicz(a, b, c);
             Assert.Empty(wynik);
-
-
 
         }
 
