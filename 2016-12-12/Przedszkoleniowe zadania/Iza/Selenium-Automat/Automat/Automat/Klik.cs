@@ -32,7 +32,12 @@ namespace SeleniumTests
             WebDriverWait waite = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
             waite.Until(ExpectedConditions.ElementToBeClickable(by));
         }
-        
+
+        public void MyGuid()
+        {
+            var guid = Guid.NewGuid().ToString();
+        }
+
         
         [Fact]
         public void DodajUsunTest()
