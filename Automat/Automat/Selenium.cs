@@ -23,7 +23,7 @@ namespace SeleniumTests
             verificationErrors = new StringBuilder();
 
             driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromMilliseconds(10));
+            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromMilliseconds(100));
         }
 
         public void Dispose()
