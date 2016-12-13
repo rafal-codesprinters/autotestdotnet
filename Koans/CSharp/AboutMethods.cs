@@ -40,13 +40,13 @@ namespace DotNetKoans.CSharp
         [Koan(1)]
         public void ExtensionMethodsShowUpInTheCurrentClass()
         {
-            Assert.Equal(FILL_ME_IN, this.HelloWorld());
+            Assert.Equal("Hello!", this.HelloWorld());
         }
 
         [Koan(2)]
         public void ExtensionMethodsWithParameters()
         {
-            Assert.Equal(FILL_ME_IN, this.SayHello("Cory"));
+            Assert.Equal("Hello, Cory!", this.SayHello("Cory"));
         }
 
         [Koan(3)]
