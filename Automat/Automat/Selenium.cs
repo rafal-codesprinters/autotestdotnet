@@ -16,7 +16,8 @@ namespace Automat
         private StringBuilder verificationErrors;
         private string baseURL;
         private bool acceptNextAlert = true;
-
+        private String PostTitle = "Demo6661";
+        private String PostBody = "Lubię placki 6661";
 
         public AddNote()
         {
@@ -38,11 +39,10 @@ namespace Automat
         [Fact]
         public void TheAddNoteTest()
         {
-            String PostTitle = "Demo6661";
-            String PostBody = "Lubię placki 6661";
+
             driver.Navigate().GoToUrl(baseURL + "/");
             driver.FindElement(By.LinkText("Log in")).Click();
-           
+
             ///       Thread.Sleep(3000);
             driver.FindElement(By.Id("user_login")).Clear();
             driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
@@ -55,20 +55,99 @@ namespace Automat
             String myWindowHandle = driver.WindowHandles[1];
             driver.SwitchTo().Window(myWindowHandle);
 
-            //     driver.Navigate().GoToUrl(baseURL + "/wp-admin/post-new.php");
-            //Thread.Sleep(3000);
             driver.FindElement(By.Id("title")).Clear();
             driver.FindElement(By.Id("title")).SendKeys(PostTitle);
             driver.FindElement(By.Id("content")).Clear();
             driver.FindElement(By.Id("content")).SendKeys(PostBody);
-            WaitForClickable(By.Id("publish"), 5);
+            WaitForClickable(By.Id("publish"), 10);
             driver.FindElement(By.Id("publish")).Click();
+
+
             WaitForElementExists(By.XPath("//span[@id='sample-permalink']/a"), 5);
-            String link = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).GetAttribute("href");
+            String link = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).Text;
             driver.FindElement(By.CssSelector("img.avatar.avatar-32")).Click();
-            WaitForClickable(By.CssSelector("button.ab-sign-out"),5);
+            WaitForClickable(By.CssSelector("button.ab-sign-out"), 5);
             driver.FindElement(By.CssSelector("button.ab-sign-out")).Click();
-            driver.Navigate().GoToUrl(baseURL + link);
+
+            driver.Navigate().GoToUrl(link);
+
+        }
+        [Fact]
+        public void TheRemoveNote()
+        {
+
+            driver.FindElement(By.ClassName("resource-post")).Click();
+            String myWindowHandle = driver.WindowHandles[1];
+            driver.SwitchTo().Window(myWindowHandle);
+
+            driver.FindElement(By.Id("title")).Clear();
+            driver.FindElement(By.Id("title")).SendKeys(PostTitle);
+            driver.FindElement(By.Id("content")).Clear();
+            driver.FindElement(By.Id("content")).SendKeys(PostBody);
+            WaitForClickable(By.Id("publish"), 10);
+            driver.FindElement(By.Id("publish")).Click();
+
+
+            driver.Navigate().GoToUrl(baseURL + "/");
+            driver.FindElement(By.LinkText("Log in")).Click();
+            driver.FindElement(By.Id("user_login")).Clear();
+            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+            driver.FindElement(By.Id("user_pass")).Clear();
+            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+            driver.FindElement(By.Id("wp-submit")).Submit();
+
+
+            driver.FindElement(By.XPath("//li[@id='menu-posts']")).Click();
+            driver.FindElement(By.Id("post-search-input")).Clear();
+            driver.FindElement(By.Id("post-search-input")).SendKeys(PostTitle);
+            driver.FindElement(By.Id("search-submit")).Click();
+            driver.FindElement(By.Id("cb-select-all-1")).Click();
+            new SelectElement(driver.FindElement(By.Id("bulk-action-selector-top"))).SelectByText("Move to Trash");
+            driver.FindElement(By.Id("doaction")).Click();
+
+
+        }
+        [Fact]
+        public void TheRemoveNotePerm()
+        {
+            driver.Navigate().GoToUrl(baseURL + "/");
+            driver.FindElement(By.LinkText("Log in")).Click();
+            driver.FindElement(By.Id("user_login")).Clear();
+            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+            driver.FindElement(By.Id("user_pass")).Clear();
+            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+            driver.FindElement(By.Id("wp-submit")).Submit();
+
+            driver.FindElement(By.ClassName("resource-post")).Click();
+            String myWindowHandle = driver.WindowHandles[1];
+            driver.SwitchTo().Window(myWindowHandle);
+
+            driver.FindElement(By.Id("title")).Clear();
+            driver.FindElement(By.Id("title")).SendKeys(PostTitle);
+            driver.FindElement(By.Id("content")).Clear();
+            driver.FindElement(By.Id("content")).SendKeys(PostBody);
+            WaitForClickable(By.Id("publish"), 10);
+            driver.FindElement(By.Id("publish")).Click();
+
+
+            driver.FindElement(By.XPath("//li[@id='menu-posts']")).Click();
+            driver.SwitchTo().Alert().Accept();
+            driver.FindElement(By.Id("post-search-input")).Clear();
+            driver.FindElement(By.Id("post-search-input")).SendKeys(PostTitle);
+            driver.FindElement(By.Id("search-submit")).Click();
+            driver.FindElement(By.Id("cb-select-all-1")).Click();
+            new SelectElement(driver.FindElement(By.Id("bulk-action-selector-top"))).SelectByText("Move to Trash");
+            driver.FindElement(By.Id("doaction")).Click();
+
+
+            driver.FindElement(By.XPath("//li[@id='menu-posts']")).Click();
+            driver.FindElement(By.XPath("//li[@class='trash']")).Click();
+            driver.FindElement(By.Id("post-search-input")).Clear();
+            driver.FindElement(By.Id("post-search-input")).SendKeys(PostTitle);
+            driver.FindElement(By.Id("search-submit")).Click();
+            driver.FindElement(By.Id("cb-select-all-1")).Click();
+            new SelectElement(driver.FindElement(By.Id("bulk-action-selector-top"))).SelectByText("Delete Permanently");
+            driver.FindElement(By.Id("doaction")).Click();
         }
         private bool IsElementPresent(By by)
         {
