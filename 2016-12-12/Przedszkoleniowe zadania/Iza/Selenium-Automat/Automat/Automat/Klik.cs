@@ -26,11 +26,16 @@ namespace SeleniumTests
             verificationErrors = new StringBuilder();
 
         }
-       
+
+        public void waiteForElementClickable(By by, int seconds)
+        {
+            WebDriverWait waite = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
+            waite.Until(ExpectedConditions.ElementToBeClickable(by));
+        }
         
         
         [Fact]
-        public void TheKlikTest()
+        public void DodajUsunTest()
         {
             driver.Navigate().GoToUrl(baseURL);
            
@@ -51,26 +56,58 @@ namespace SeleniumTests
             driver.FindElement(By.Id("content")).Clear();
             driver.FindElement(By.Id("content")).SendKeys("Testowy post dla");
        
-            //Thread.Sleep(5000);
+            waiteForElementClickable(By.XPath("//*[@id='sample-permalink']/a"),10);
 
-            WebDriverWait waite = new WebDriverWait(driver,TimeSpan.FromSeconds(15));
-            // czekamy az sie pojawi permalink
-            waite.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='sample-permalink']/a")));
-            // czekamy az element bedzie klikalny
-            waite.Until(ExpectedConditions.ElementToBeClickable(By.Id("publish")));
+            driver.FindElement(By.Id("publish")).Click();
             
+            Assert.Equal("Published", driver.FindElement(By.Id("post-status-display")).Text);
+
+            driver.FindElement(By.LinkText("View post")).Click();
+            Assert.Equal("Nowy post ILO | Site Title", driver.Title);
+
+            driver.Navigate().GoToUrl(baseURL);
+            waiteForElementClickable(By.XPath("//li[@id='menu-posts']/a/div[3]"),10);
+            driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
+
+
+
+
+
+        }
+
+        [Fact]
+        public void TheKlikTest()
+        {
+            driver.Navigate().GoToUrl(baseURL);
+
+            driver.FindElement(By.Id("user_login")).Clear();
+            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+
+            driver.FindElement(By.Id("user_pass")).Clear();
+            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+
+            driver.FindElement(By.Id("wp-submit")).Click();
+            driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
+            driver.FindElement(By.CssSelector("a.page-title-action")).Click();
+
+            driver.FindElement(By.Id("title")).Clear();
+            driver.FindElement(By.Id("title")).SendKeys("Nowy post ILO");
+
+            driver.FindElement(By.Id("content")).Click();
+            driver.FindElement(By.Id("content")).Clear();
+            driver.FindElement(By.Id("content")).SendKeys("Testowy post dla");
+
+            waiteForElementClickable(By.XPath("//*[@id='sample-permalink']/a"), 10);
 
             driver.FindElement(By.Id("publish")).Click();
 
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
 
-           //Thread.Sleep(5000);
 
             Assert.Equal("Published", driver.FindElement(By.Id("post-status-display")).Text);
             driver.FindElement(By.LinkText("View post")).Click();
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
             Assert.Equal("Nowy post ILO | Site Title", driver.Title);
         }
+
         private bool IsElementPresent(By by)
         {
             try
