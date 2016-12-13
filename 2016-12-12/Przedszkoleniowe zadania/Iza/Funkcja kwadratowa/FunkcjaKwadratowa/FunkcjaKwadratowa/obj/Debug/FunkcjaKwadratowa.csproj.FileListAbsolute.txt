@@ -17,3 +17,22 @@ D:\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.execut
 D:\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.csprojResolveAssemblyReference.cache
 D:\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.dll
 D:\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.pdb
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.runner.utility.desktop.dll
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.abstractions.dll
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\FunkcjaKwadratowa.dll
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\FunkcjaKwadratowa.pdb
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\Microsoft.Web.XmlTransform.dll
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\NuGet.Core.dll
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.assert.dll
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.core.dll
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.execution.desktop.dll
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.assert.pdb
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.assert.xml
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.core.pdb
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.core.xml
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.execution.desktop.pdb
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\bin\Debug\xunit.execution.desktop.xml
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.csprojResolveAssemblyReference.cache
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.dll
+C:\autotestdotnet\2016-12-12\Przedszkoleniowe zadania\Iza\Funkcja kwadratowa\FunkcjaKwadratowa\FunkcjaKwadratowa\obj\Debug\FunkcjaKwadratowa.pdb
