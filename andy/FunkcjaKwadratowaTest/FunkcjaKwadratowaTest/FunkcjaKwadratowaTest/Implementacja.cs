@@ -8,7 +8,8 @@ namespace FunkcjaKwadratowaTest
 {
     class Implementacja
     {
-        public Wynik Calculate(double a, double b, double c)
+        
+        public IEnumerable<double> Calculate(double a, double b, double c)
         {
             double x1 = 0;
             double x2 = 0;
@@ -23,12 +24,19 @@ namespace FunkcjaKwadratowaTest
                 x1 = (Math.Sqrt(delta) - b) / (2 * a);
                 x2 = (-Math.Sqrt(delta) - b) / (2 * a);
 
-                return new Wynik { MiejscePierwsze = x1, MiejsceDrugie = x2 };
+                yield return x1;
+                yield return x2;
 
             }
             else
             {
-                return new Wynik { MiejsceDrugie = null, MiejscePierwsze = null };
+                if (delta == 0)
+                {
+
+                    x1 = (Math.Sqrt(delta) - b) / (2 * a);
+                    yield return x1;
+                } 
+                
             }
         }
     }

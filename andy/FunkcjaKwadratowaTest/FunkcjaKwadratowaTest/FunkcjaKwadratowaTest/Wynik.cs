@@ -12,13 +12,7 @@ namespace FunkcjaKwadratowaTest
     ///  
     /// y = ax2 + bx + c
     /// </summary>
-    internal class Wynik
-    {
-     
-        public double? MiejscePierwsze { get ; set ; }
-        public double? MiejsceDrugie { get; set; }
-                
-    }
+   
 
     public class Testy
     {
@@ -30,9 +24,9 @@ namespace FunkcjaKwadratowaTest
             var b = -4;
             var c = 3;
 
-            Wynik rezultat = new Implementacja().Calculate(a, b, c);
-            Assert.Equal(1, rezultat.MiejsceDrugie);
-            Assert.Equal(3, rezultat.MiejscePierwsze);
+            var rezultat = new Implementacja().Calculate(a, b, c).ToList();
+            Assert.Equal(3, rezultat[0]);
+            Assert.Equal(1, rezultat[1]);
         }
 
         [Fact]
@@ -42,11 +36,20 @@ namespace FunkcjaKwadratowaTest
             var b = -12;
             var c = 4;
 
-            Wynik rezultat = new Implementacja().Calculate(a, b, c);
-            // Assert.Equal(1, rezultat.MiejsceDrugie);
-            Assert.Equal(2/3, rezultat.MiejscePierwsze);
+            var  rezultat = new Implementacja().Calculate(a, b, c);
+            Assert.Equal((double)2/3, rezultat.First());
         }
 
+        [Fact]
+        public void WeryfikacjaBrakMejscaZerowego()
+        {
+            var a = -6;
+            var b = 3;
+            var c = -1;
+
+            var rezultat = new Implementacja().Calculate(a, b, c);
+            Assert.Empty(rezultat);
+        }
 
     }
 }
