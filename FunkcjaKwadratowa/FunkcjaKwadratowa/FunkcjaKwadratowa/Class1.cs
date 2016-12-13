@@ -10,6 +10,19 @@ namespace FunkcjaKwadratowa
     
     public class Obliczanie_miejsc_zerowych
     {
+
+        //ZAsianie danych do testow
+        [Theory,
+            InlineData(1, -4, 3, new double[] { 1, 3 }),
+            InlineData(9, -12, 4, new double[] { 2.0 / 3 }),
+            InlineData(-6, 3, -1, new double[] { })]
+        //Koniec zasianych danych
+        public void FKwadratowa(double a, double b, double c, double[] oczekiwane)
+        {
+            var wynik = Oblicz(a, b, c);
+            Assert.Equal(oczekiwane, wynik);
+        }
+
         [Fact]
         public void Potrafimy_znalesc_dwa_miejsca_zerowe()
         {
