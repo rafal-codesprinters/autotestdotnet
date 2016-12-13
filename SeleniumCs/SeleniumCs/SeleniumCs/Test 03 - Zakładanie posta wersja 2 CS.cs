@@ -4,6 +4,7 @@ using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using Xunit;
+using OpenQA.Selenium.Chrome;
 
 namespace SeleniumTests
 {
@@ -16,7 +17,8 @@ namespace SeleniumTests
         
         public Test03ZakAdaniePostaWersja2CS()
         {
-            driver = new FirefoxDriver();
+            driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
             baseURL = "https://autotestdotnet.wordpress.com/";
             verificationErrors = new StringBuilder();
         }
@@ -43,6 +45,7 @@ namespace SeleniumTests
             driver.FindElement(By.Id("user_pass")).Clear();
             driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
             driver.FindElement(By.Id("wp-submit")).Click();
+            driver.FindElement(By.XPath(@"//li[@id='menu-posts']/a")).Click();
             driver.FindElement(By.LinkText("Add New")).Click();
             // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
             driver.FindElement(By.Id("title")).Clear();
@@ -66,9 +69,9 @@ namespace SeleniumTests
             // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
             driver.FindElement(By.Id("publish")).Click();
             // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
-            String linkToPost = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a/@href")).Text;
+            String linkToPost = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).GetAttribute("href");
             // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
-            driver.FindElement(By.LinkText("Me")).Click();
+            driver.FindElement(By.XPath(@"//*[@id=""wp-admin-bar-my-account""]/a")).Click();
             // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
             driver.FindElement(By.CssSelector("button.ab-sign-out")).Click();
             driver.Navigate().GoToUrl(baseURL + linkToPost);
