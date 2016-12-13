@@ -3,7 +3,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using Xunit;
 
 namespace SeleniumTests
@@ -14,35 +15,44 @@ namespace SeleniumTests
         private StringBuilder verificationErrors;
         private string baseURL;
         private bool acceptNextAlert = true;
+        private WebDriverWait wait;
 
         public ZSelenium()
         {
 
-            driver = new FirefoxDriver();
+            driver = new ChromeDriver();
             baseURL = "https://autotestdotnet.wordpress.com/";
             verificationErrors = new StringBuilder();
+            //driver.Manage().Window.Maximize();
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
+            driver.Manage()
+                .Timeouts()
+                .ImplicitlyWait(TimeSpan.FromSeconds(10));
         }
     
         
         [Fact]
         public void TheZSeleniumTest()
         {
-            driver.Navigate().GoToUrl(baseURL + "/wp-admin/index.php");
+            driver.Navigate().GoToUrl(baseURL + "/wp-login.php?redirect_to=https%3A%2F%2Fautotestdotnet.wordpress.com%2Fwp-admin%2F&reauth=1");
+            driver.FindElement(By.Id("user_login")).Clear();
+            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet");
+            driver.FindElement(By.Id("user_pass")).Clear();
+            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+            driver.FindElement(By.Id("user_pass")).Click();
+            driver.FindElement(By.Id("wp-submit")).Click();
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='menu-posts']/a/div[3]")));
+            driver.FindElement(By.XPath("//*[@id='menu-posts']/a/div[3]")).Click();
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//li[@id='menu-posts']/a/div[3]")));
             driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
             driver.FindElement(By.CssSelector("a.page-title-action")).Click();
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
             driver.FindElement(By.Id("title")).Clear();
             driver.FindElement(By.Id("title")).SendKeys("Olaboga");
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
             driver.FindElement(By.Id("content-tmce")).Click();
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
             driver.FindElement(By.Id("content-html")).Click();
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
             driver.FindElement(By.Id("content")).Clear();
             driver.FindElement(By.Id("content")).SendKeys("COś tu nie jest halo");
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
             driver.FindElement(By.Id("publish")).Click();
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
             driver.FindElement(By.LinkText("View post")).Click();
         }
         private bool IsElementPresent(By by)
