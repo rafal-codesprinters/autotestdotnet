@@ -4,6 +4,7 @@ using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using Xunit;
+using OpenQA.Selenium.Chrome;
 
 namespace SeleniumTests
 {
@@ -16,7 +17,9 @@ namespace SeleniumTests
 
         public Selenium()
         {
-            driver = new FirefoxDriver();
+            //driver = new FirefoxDriver();
+            driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
             baseURL = "https://autotestdotnet.wordpress.com/";
             verificationErrors = new StringBuilder();
         }
@@ -24,8 +27,14 @@ namespace SeleniumTests
         [Fact]
         public void TheSeleniumTest()
         {
-            driver.Navigate().GoToUrl(baseURL + "/wp-login.php?redirect_to=https%3A%2F%2Fautotestdotnet.wordpress.com%2Fwp-admin%2F&reauth=1");
+            driver.Navigate().GoToUrl(baseURL + "/wp-login.php");
             Assert.Equal("Site Title ‹ Log In", driver.Title);
+
+            driver.FindElement(By.Id("user_login")).Clear();
+            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+            driver.FindElement(By.Id("user_pass")).Clear();
+            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+
             driver.FindElement(By.Id("wp-submit")).Click();
             Assert.Equal("Dashboard ‹ Site Title — WordPress", driver.Title);
             driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
@@ -45,7 +54,10 @@ namespace SeleniumTests
                 {}
                 Thread.Sleep(1000);
             }
-            String linkDoOpublikowanejStrony = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a/@href")).GetAttribute("value");
+
+            String linkDoOpublikowanejStrony = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).GetAttribute("href");
+
+
             for (int second = 0;; second++) {
                 if (second >= 60) throw new Exception("timeout");
                 try
