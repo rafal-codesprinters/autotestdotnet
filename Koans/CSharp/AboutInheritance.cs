@@ -62,21 +62,21 @@ namespace DotNetKoans.CSharp
         [Koan(2)]
         public void AllClassesUltimatelyInheritFromAnObject()
         {
-            Assert.True(typeof(FillMeIn).IsAssignableFrom(typeof(Chihuahua)));
+            Assert.True(typeof(System.Object).IsAssignableFrom(typeof(Chihuahua)));
         }
 
         [Koan(3)]
         public void SubclassesInheritBehaviorFromParentClass()
         {
             var chico = new Chihuahua("Chico");
-            Assert.Equal(FILL_ME_IN, chico.Name);
+            Assert.Equal("Chico", chico.Name);
         }
 
         [Koan(4)]
         public void SubclassesAddNewBehavior()
         {
             var chico = new Chihuahua("Chico");
-            Assert.Equal(FILL_ME_IN, chico.Wag());
+            Assert.Equal("Happy", chico.Wag());
 
             //We can search the public methods of an object 
             //instance like this:
@@ -92,16 +92,16 @@ namespace DotNetKoans.CSharp
         public void SubclassesCanModifyExistingBehavior()
         {
             var chico = new Chihuahua("Chico");
-            Assert.Equal(FILL_ME_IN, chico.Bark());
+            Assert.Equal("yip", chico.Bark());
 
             //Note that even if we cast the object back to a dog
             //we still get the Chihuahua's behavior. It truly
             //"is-a" Chihuahua
             Dog dog = chico as Dog;
-            Assert.Equal(FILL_ME_IN, dog.Bark());
+            Assert.Equal("yip", dog.Bark());
 
             var fido = new Dog("Fido");
-            Assert.Equal(FILL_ME_IN, fido.Bark());
+            Assert.Equal("WOOF", fido.Bark());
         }
 
         public class ReallyYippyChihuahua : Chihuahua
@@ -123,7 +123,7 @@ namespace DotNetKoans.CSharp
         public void SubclassesCanRedefineBehaviorThatIsNotVirtual()
         {
             ReallyYippyChihuahua suzie = new ReallyYippyChihuahua("Suzie");
-            Assert.Equal(FILL_ME_IN, suzie.Wag());
+            Assert.Equal("WAG WAG WAG!!", suzie.Wag());
         }
 
         [Koan(7)]

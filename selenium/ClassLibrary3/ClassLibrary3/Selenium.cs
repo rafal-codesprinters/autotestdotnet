@@ -4,6 +4,7 @@ using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using Xunit;
+using OpenQA.Selenium.Chrome;
 
 namespace SeleniumTests
 {
@@ -16,7 +17,9 @@ namespace SeleniumTests
 
         public Selenium()
         {
-            driver = new FirefoxDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--start-maximized");
+            driver = new ChromeDriver(options);
             baseURL = "https://autotestdotnet.wordpress.com/";
             verificationErrors = new StringBuilder();
         }
@@ -24,7 +27,23 @@ namespace SeleniumTests
         [Fact]
         public void TheSeleniumTest()
         {
-            driver.Navigate().GoToUrl(baseURL + "/wp-admin/");
+            driver.Navigate().GoToUrl(baseURL + "wp-admin/");
+            driver.FindElement(By.Id("user_login")).Clear();
+            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+            driver.FindElement(By.Id("user_pass")).Clear();
+            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+            driver.FindElement(By.Id("wp-submit")).Click();
+            for (int second = 0; ; second++)
+            {
+                if (second >= 60) throw new Exception("timeout");
+                try
+                {
+                    if (IsElementPresent(By.Id("menu-posts"))) break;
+                }
+                catch (Exception)
+                { }
+                Thread.Sleep(3000);
+            }
             driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
             driver.FindElement(By.CssSelector("a.page-title-action")).Click();
             driver.FindElement(By.Id("title")).Clear();
@@ -98,8 +117,6 @@ namespace SeleniumTests
                 // Ignore errors if unable to close the browser
             }
             Assert.Equal("", verificationErrors.ToString());
-
-            throw new NotImplementedException();
         }
     }
 }
