@@ -25,7 +25,7 @@ namespace SeleniumTests
         }
         
         [Fact]
-        public void TheSeleniumTest()
+        public void TestCzyNowoUtworzonaNotatkaPublikujeSieNaStronie()
         {
             driver.Navigate().GoToUrl(baseURL + "wp-admin/");
             driver.FindElement(By.Id("user_login")).Clear();
@@ -62,14 +62,12 @@ namespace SeleniumTests
                 Thread.Sleep(1000);
             }
             string myLink = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).Text;
-            //string myLink = "fff";
-            //Console.WriteLine(myLink);
-            //Console.ReadKey();
-
             driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).Click();
+
             //wyloguj sie z konta admina
             driver.FindElement(By.Id("wp-admin-bar-my-account")).Click();
             driver.FindElement(By.ClassName("ab-sign-out")).Click();
+            
             driver.Navigate().GoToUrl(myLink);
             Assert.Equal("szy 3", driver.FindElement(By.CssSelector("header.post-title > h1")).Text);
             Assert.Equal("notatka 5", driver.FindElement(By.CssSelector("div.post-entry > p")).Text);
