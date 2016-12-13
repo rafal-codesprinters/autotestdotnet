@@ -133,11 +133,10 @@ broken line";
 		[Koan(12)]
 		public void YouDoNotNeedConcatenationToInsertVariablesInAString()
 		{
-			//var world = "World";
-			//var str = String.Format("Hello, {0}", world);
-			//Assert.Equal("Hello, World", str);
-            //XXX
-		}
+            var world = "World";
+            var str = String.Format("Hello, {0}", world);
+            Assert.Equal("Hello, World", str);
+        }
 
 		[Koan(13)]
 		public void AnyExpressionCanBeUsedInFormatString()
