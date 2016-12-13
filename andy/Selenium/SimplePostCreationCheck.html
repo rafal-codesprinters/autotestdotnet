@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://autotestdotnet.wordpress.com/wp-admin/" />
+<title>SimplePostCreationCheck</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SimplePostCreationCheck</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/wp-login.php?redirect_to=https%3A%2F%2Fautotestdotnet.wordpress.com%2Fwp-admin%2F&amp;reauth=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_login</td>
+	<td>autotestdotnet@gmail.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_pass</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_pass</td>
+	<td>codesprinters2016</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=wp-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Dashboard ‹ Site Title — WordPress</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.ab-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='menu-posts']/a/div[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=All Posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Posts ‹ Site Title — WordPress</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=a.page-title-action</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Add New Post ‹ Site Title — WordPress</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=title-prompt-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=title-prompt-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=title-prompt-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=title</td>
+	<td>AKBTEST</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=publish</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=message</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=message</td>
+	<td>Post published. View post</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=View post</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>AKBTEST | Site Title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.post-entry &gt; p</td>
+	<td>Test content.</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=oktab7732176380738399</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[40]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=oktab7732176380738399</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[31]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=oktab7732176380738399</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=textarea.textarea-autosize.editor-title__input</td>
+	<td>AKBTEST</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=oktab7732176380738399</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=oktab7732176380738399</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.dialog__action-buttons &gt; button.button.is-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=oktab7732176380738399</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=h1</td>
+	<td>Deleted Post</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=oktab7732176380738399</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='submit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=oktab7732176380738399</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.masterbar__item-content</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
