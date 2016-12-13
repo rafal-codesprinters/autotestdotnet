@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://autotestdotnet.wordpress.com/" />
+<title>addNote</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">addNote</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>Demo6661</td>
+	<td>PostTitle</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Lubię placki 6661</td>
+	<td>PostBody</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Log in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_login</td>
+	<td>autotestdotnet@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_pass</td>
+	<td>codesprinters2016</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=wp-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/wp-admin/post-new.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=title</td>
+	<td>${PostTitle}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=content</td>
+	<td>${PostBody}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=publish</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>//span[@id='sample-permalink']/a@href</td>
+	<td>link</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img.avatar.avatar-32</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=button.ab-sign-out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${link}</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

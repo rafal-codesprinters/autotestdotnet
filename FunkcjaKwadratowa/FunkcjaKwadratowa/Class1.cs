@@ -14,6 +14,7 @@ namespace FunkcjaKwadratowa
         [InlineData(9, -12, 5,new double[] {  })]
         [InlineData(1, -4, 3, new double[] { 1, 3 })]
         [InlineData(9, -12, 4, new double[] { (double)2 / 3 })]
+
         public void NieMaMiejsc(double a, double b, double c,double[] result)
         {
             var wynik = oblicz(a, b, c).ToList();
