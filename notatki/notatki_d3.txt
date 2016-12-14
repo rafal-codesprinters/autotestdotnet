@@ -44,3 +44,5 @@ triggers
 build step
 - command line
 - executable with parameters
+dodatkowe kroki: nuget-install, visualstudio sln
+plik cmd do g³ównego katalogu
