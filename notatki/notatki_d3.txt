@@ -7,3 +7,5 @@ xamarine
 wiêcej w podsumowaniu
 
 
+testy
+na blogu s¹ conajmniej 2 strony (aktywna paginacja)

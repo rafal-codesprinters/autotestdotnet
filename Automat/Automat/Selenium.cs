@@ -41,7 +41,7 @@ namespace SeleniumTests
         }
 
         [Fact]
-        public void TheTest()
+        public void Publish_Note()
         {
             driver.Navigate().GoToUrl(baseURL + "wp-admin/"); //driver.Navigate().GoToUrl(baseURL + "/wp-login.php?redirect_to=https%3A%2F%2Fautotestdotnet.wordpress.com%2Fwp-admin%2F&reauth=1");
             driver.FindElement(By.Id("user_login")).Clear();
@@ -101,16 +101,19 @@ namespace SeleniumTests
             driver.FindElement(By.LinkText(title)).Click();
             Assert.Equal(title + " | Site Title", driver.Title);
 
-            //driver.FindElement(By.CssSelector("img.avatar.avatar-32")).Click(); // logout
-            //driver.FindElement(By.CssSelector("button.ab-sign-out")).Click();
+            driver.FindElement(By.CssSelector("img.avatar.avatar-32")).Click(); // logout
+            driver.FindElement(By.CssSelector("button.ab-sign-out")).Click();
 
+            // login
             driver.Navigate().GoToUrl(baseURL + "wp-admin/");
-            //driver.FindElement(By.Id("user_login")).Clear();
-            //driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
-            //driver.FindElement(By.Id("user_pass")).Clear();
-            //driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
-            //driver.FindElement(By.Id("rememberme")).Click();
-            //driver.FindElement(By.Id("wp-submit")).Click();
+            WaitForElementVisible(By.Id("user_login"), 1000);
+            driver.FindElement(By.Id("user_login")).Clear();
+            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+            driver.FindElement(By.Id("user_pass")).Clear();
+            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+            driver.FindElement(By.Id("rememberme")).Click();
+            driver.FindElement(By.Id("wp-submit")).Click();
+
             driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
             driver.FindElement(By.LinkText("All Posts")).Click();
             driver.FindElement(By.LinkText(title)).Click();
@@ -171,6 +174,12 @@ namespace SeleniumTests
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromMilliseconds(milisec));
             wait.Until(ExpectedConditions.ElementToBeClickable(by));
+        }
+
+        private void WaitForElementVisible(By by, int milisec)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromMilliseconds(milisec));
+            wait.Until(ExpectedConditions.ElementIsVisible(by));
         }
     }
 }
