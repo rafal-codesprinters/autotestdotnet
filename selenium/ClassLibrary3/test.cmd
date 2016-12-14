@@ -1,1 +1,1 @@
-packages\xunit.runner.console.2.1.0\tools\xunit.console.exe ClassLibrary3\bin\Debug\ClassLibrary3.dll
+C:\autotestdotnet\selenium\ClassLibrary3\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe C:\autotestdotnet\selenium\ClassLibrary3\ClassLibrary3\bin\Debug\ClassLibrary3.dll
