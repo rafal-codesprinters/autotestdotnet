@@ -39,7 +39,7 @@ namespace SeleniumTests
         }
 
         [Fact]
-        public void Logowanie_TworzenieNotatki_Wylogowanie_i_Sprawdzenie_Czy_Widoczna ()
+        public void Logowanie_TworzenieNotatki_Wylogowanie_i_Sprawdzenie_Czy_Widoczna()
         {
             MetodaLogowania();
             MetodaTworzenieNotatki();
@@ -52,15 +52,15 @@ namespace SeleniumTests
         }
 
         [Fact]
-        public void TworzenieIUsuniecieNotatki ()
+        public void TworzenieIUsuniecieNotatki()
         {
             MetodaLogowania();
             MetodaTworzenieNotatki();
-        driver.Navigate().GoToUrl("https://wordpress.com/posts/autotestdotnet.wordpress.com");
+            driver.Navigate().GoToUrl("https://wordpress.com/posts/autotestdotnet.wordpress.com");
             waitForElementClickable(By.CssSelector("div.search__icon-navigation"), 10);
 
             driver.FindElement(By.CssSelector("div.search__icon-navigation")).Click();
-            //driver.FindElement(By.CssSelector("#search-component-5")).Click();
+            driver.FindElement(By.CssSelector("#search-component-5")).Click();
         }
 
         [Fact]

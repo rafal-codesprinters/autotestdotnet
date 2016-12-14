@@ -26,8 +26,6 @@ bêd¹c na branchu: git merge master - mergowanie mastera do brancha
 git reflog - lista komend która by³a robiona na repozytorium - mo¿na cofn¹æ siê x komend wstecz
 
 
-
-
 Choæby przysz³o tysi¹c testerów i testowaliby tysi¹c lat - nie wyklikaliby wszystkich wad.
 
 
@@ -37,11 +35,6 @@ Debug > Windows > Immediate Window  - pozwala na ¿ywo coœ dodaæ do programu, np.
 
 Debug > Windows > Autos, locals, watch
 
-
-ZOSTA£O JESZCZE
-Data Driven Testing.
-Page Object Pattern.
-Selenium Grid
 
 
 Aplikacje do automatyzacji desktopowych:
@@ -88,31 +81,25 @@ Build Steps -
 Triggers - regu³y uruchamiaj¹ce testy 
 
 
+Pisanie testów od metod: 
+najpierw piszemy nazweKlasy.czynnosc pozniej korzystamy z podpowiedzi Visual Studio czyli kropka generate class, kropka generate method.
+
+
+Podkreœlony driver w metodach:
+na pocz¹tku testu dodajemy metodê z klasy TestStart, która bêdzie uruchamiaæ drivera dla ka¿dego testu który bêdzie ¿y³ na czas testu a na koñcu testu dodajemy metodê która robi driver quit. Ale w tym przypadku po failu testu nie bêdzie zamyka³ przegl¹darki.
 
 
 
+xunit how to run selected tests
+dotnet test -method <test name>
+<test name> is the full method name (namespace + class + method name)
 
 
+packages\xunit.runner.console.2.1.0\tools\xunit.console.exe IDE_WordPress\bin\Debug\IDE_WordPress.dll -method"SeleniumTests.ExportedTestCaseFromIDE.Logging"
 
+'MyNamespace.MyClass.MyTestMethod' IDE_WordPress.exported_test_case_from_IDE.Logging
 
-
-
-
-packages\xunit.runner.console.2.1.0\tools\xunit.console.exe IDE_WordPress\bin\Debug\IDE_WordPress.dll -trait "name=IDE_WordPress.exported_test_case_from_IDE.Logging"
-
-'MyNamespace.MyClass.MyTestMethod'
-IDE_WordPress.exported_test_case_from_IDE.Logging
-
-
-
-
-
-
-
-
-
-
-
+SeleniumTests.ExportedTestCaseFromIDE.Logging
 
 
 
