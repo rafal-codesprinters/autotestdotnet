@@ -6,6 +6,7 @@ using Xunit;
 using System.Threading;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using System.Text.RegularExpressions;
 
 namespace Automat
 {
@@ -75,7 +76,15 @@ namespace Automat
         [Fact]
         public void TheRemoveNote()
         {
+            driver.Navigate().GoToUrl(baseURL + "/");
+            driver.FindElement(By.LinkText("Log in")).Click();
 
+            ///       Thread.Sleep(3000);
+            driver.FindElement(By.Id("user_login")).Clear();
+            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+            driver.FindElement(By.Id("user_pass")).Clear();
+            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+            driver.FindElement(By.Id("wp-submit")).Submit();
             driver.FindElement(By.ClassName("resource-post")).Click();
             String myWindowHandle = driver.WindowHandles[1];
             driver.SwitchTo().Window(myWindowHandle);
@@ -87,17 +96,8 @@ namespace Automat
             WaitForClickable(By.Id("publish"), 10);
             driver.FindElement(By.Id("publish")).Click();
 
-
-            driver.Navigate().GoToUrl(baseURL + "/");
-            driver.FindElement(By.LinkText("Log in")).Click();
-            driver.FindElement(By.Id("user_login")).Clear();
-            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
-            driver.FindElement(By.Id("user_pass")).Clear();
-            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
-            driver.FindElement(By.Id("wp-submit")).Submit();
-
-
             driver.FindElement(By.XPath("//li[@id='menu-posts']")).Click();
+            driver.SwitchTo().Alert().Accept();
             driver.FindElement(By.Id("post-search-input")).Clear();
             driver.FindElement(By.Id("post-search-input")).SendKeys(PostTitle);
             driver.FindElement(By.Id("search-submit")).Click();
@@ -149,6 +149,22 @@ namespace Automat
             new SelectElement(driver.FindElement(By.Id("bulk-action-selector-top"))).SelectByText("Delete Permanently");
             driver.FindElement(By.Id("doaction")).Click();
         }
+        [Fact]
+        public void CheckPosts()
+        {
+            driver.Navigate().GoToUrl(baseURL + "/");
+            WaitForClickable(By.XPath("//div[@class='nav-previous']/a"), 10);
+            driver.FindElement(By.XPath("//div[@class='nav-previous']/a")).Click();
+
+            var url= new Uri(driver.Url);
+            Assert.Contains("page/", url.PathAndQuery);
+            Regex r = new Regex(@"\d+\/+$");
+            Assert.True(r.IsMatch(url.PathAndQuery));
+            driver.FindElement(By.XPath("//div[@id='content']/article[1]"));
+      
+
+        }
+
         private bool IsElementPresent(By by)
         {
             try
