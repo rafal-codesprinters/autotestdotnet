@@ -87,6 +87,59 @@ namespace SeleniumTests
         [Fact]
         public void UsuwanieJednejNotkiJakoAdminWSelenium()
         {
+            ///Dodawanie
+            driver.Navigate().GoToUrl(baseURL + "/wp-login.php");
+            Assert.Equal("Site Title ‹ Log In", driver.Title);
+
+            driver.FindElement(By.Id("user_login")).Clear();
+            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+
+            waitForElementClickable(By.Id("user_login"), 10); //wykorzystanie waita zaimplementowanego przez nas
+
+            driver.FindElement(By.Id("user_pass")).Clear();
+            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+
+            driver.FindElement(By.Id("wp-submit")).Click();
+            Assert.Equal("Dashboard ‹ Site Title — WordPress", driver.Title);
+            driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
+            Assert.Equal("Posts ‹ Site Title — WordPress", driver.Title);
+            driver.FindElement(By.CssSelector("a.page-title-action")).Click();
+            Assert.Equal("Add New Post ‹ Site Title — WordPress", driver.Title);
+            driver.FindElement(By.Id("title")).Clear();
+            driver.FindElement(By.Id("title")).SendKeys("Krzysztof Lubartowski");
+            driver.FindElement(By.Id("publish")).Click();
+            for (int second = 0; ; second++)
+            {
+                if (second >= 60) throw new Exception("timeout");
+                try
+                {
+                    if (IsElementPresent(By.XPath("//span[@id='sample-permalink']/a"))) break;
+                }
+                catch (Exception)
+                { }
+                Thread.Sleep(1000);
+            }
+
+            String linkDoOpublikowanejStrony = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).GetAttribute("href");
+
+
+            for (int second = 0; ; second++)
+            {
+                if (second >= 60) throw new Exception("timeout");
+                try
+                {
+                    if (IsElementPresent(By.Id("post-status-display"))) break;
+                }
+                catch (Exception)
+                { }
+                Thread.Sleep(1000);
+            }
+            Assert.Equal("Published", driver.FindElement(By.Id("post-status-display")).Text);
+            driver.FindElement(By.CssSelector("img.avatar.avatar-32")).Click();
+            driver.FindElement(By.CssSelector("button.ab-sign-out")).Click();
+            driver.Navigate().GoToUrl(baseURL + linkDoOpublikowanejStrony);
+            Assert.Equal("Krzysztof Lubartowski | Site Title", driver.Title);
+            ///Usuwanie
             driver.Navigate().GoToUrl(baseURL + "/wp-login.php");
             Assert.Equal("Site Title ‹ Log In", driver.Title);
 
@@ -116,7 +169,7 @@ namespace SeleniumTests
                 Assert.Equal("Edit Post Add New", driver.FindElement(By.CssSelector("h1")).Text);
                 driver.FindElement(By.LinkText("Move to Trash")).Click();
         }
-        [Fact]
+        /*[Fact]
         public void UsuwanieWsyzstkichNotatekJakoAdminWSelenium()
         {
             driver.Navigate().GoToUrl(baseURL + "/wp-login.php");
@@ -143,8 +196,16 @@ namespace SeleniumTests
             Assert.Equal("Congratulations", driver.FindElement(By.CssSelector("p > strong")).Text);
             driver.FindElement(By.CssSelector("img.avatar.avatar-32")).Click();
             driver.FindElement(By.CssSelector("button.ab-sign-out")).Click();
-        }
+        }*/
+        [Fact]
+        public void SprawdzenieDrugiejStrony()
+        {
+            driver.Navigate().GoToUrl(baseURL + "/");
+            Assert.Equal("Site Title", driver.Title);
+            driver.FindElement(By.LinkText("← Older posts")).Click();
 
+            Assert.Equal("Leave a comment", driver.FindElement(By.LinkText("Leave a comment")).Text);
+        }
 
         private bool IsElementPresent(By by)
         {
