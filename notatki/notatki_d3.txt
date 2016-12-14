@@ -32,8 +32,15 @@ test first nie implikuje testów automatycznych ani TDD
 tc - automatycznie odpala testy, darmowe do 20 konfiguracji bilduj¹cych
 wrzucamy do tc skrypt + link do repozytorium
 mo¿na odpalaæ testy po ka¿dym commicie lub po okreœlonym
+konfiguracja z klocków ustawianych w ³añcuch
 
 1) wszystkie testy
 nowy projekt -> manual
 build configuration -> manual, url do repozytorium
-https://github.com/rafal-codesprinters/autotestdotnet.git, metoda anonymous, test connection
+https://github.com/rafal-codesprinters/autotestdotnet.git, metoda anonymous, test connection, wpisaæ swojego brancha
+triggers
+- przyjmujemy po ka¿dym commit
+- quiet period - po jakim czasie od push (ma sens przy do comitowaniu)
+build step
+- command line
+- executable with parameters
