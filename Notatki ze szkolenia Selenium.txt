@@ -59,10 +59,59 @@ Tools:
 w3schools xml xpath - tutoriale, porównanie ró¿nych wersji xpatha/xmla w ró¿nych przegl¹darkach
 
 
-Continous integration - automatycze puszczanie testów
-https://www.jetbrains.com/teamcity/ - narzêdzie do contious integration, pobieramy, ustawiamy port np.8080, 
 
-xunit runner console - pobieramy paczke do projektu
+Continous integration - automatycze puszczanie testów
+
+https://www.jetbrains.com/teamcity/ - narzêdzie do contious integration, pobieramy, ustawiamy port np.8080, darmowe do 20 konfiguracji.
+http://localhost:8080
+domain: NTBK0556
+username: Administrator
+
+xunit runner console - pobieramy paczke do projektu która leci tu
+C:\autotestdotnet\IDE_WordPress\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe
+i uruchamiamy testy z ("IDE_WordPress.dll" to nazwa projektu w VS)
+C:\autotestdotnet\IDE_WordPress\IDE_WordPress\bin\Debug\IDE_WordPress.dll
+komend¹ do xunit.console.exe z parametrem IDE_WordPress.dll z uwzglêdnieniem wzglêdnych œcie¿ek, tzn: 
+packages\xunit.runner.console.2.1.0\tools\xunit.console.exe IDE_WordPress\bin\Debug\IDE_WordPress.dll
+któr¹ uruchamiamy z folderu C:\autotestdotnet\IDE_WordPress
+mo¿emy to zast¹piæ plikiem txt z komend¹
+packages\xunit.runner.console.2.1.0\tools\xunit.console.exe IDE_WordPress\bin\Debug\IDE_WordPress.dll
+który zapisujemy jako test.cmd i mo¿emy uruchamiaæ z konsoli czy innej apki.
+
+VCS Roots - version control system np.git
+
+Instalujemy team city, tworzymy projekt, wskazujemy na repo, ew.branch w VCS advanced
+Triggers - regu³y uruchamiaj¹ce testy
+
+
+
+
+
+
+
+
+
+
+
+
+packages\xunit.runner.console.2.1.0\tools\xunit.console.exe IDE_WordPress\bin\Debug\IDE_WordPress.dll -trait "name=IDE_WordPress.exported_test_case_from_IDE.Logging"
+
+'MyNamespace.MyClass.MyTestMethod'
+IDE_WordPress.exported_test_case_from_IDE.Logging
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
