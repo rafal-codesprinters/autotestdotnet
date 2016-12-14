@@ -33,7 +33,7 @@ namespace SeleniumTests
         public void Logging()
         {
             MetodaLogowania();
-            waitForElementIsVisible(By.CssSelector(".gravatar"), 10);
+            waitForElementIsVisible(By.CssSelector(".avatar.avatar-32"), 10);
             //Assert.Equal("My Site", driver.FindElement(By.LinkText("My Site")).Text);
             MetodaWylogowania();
         }

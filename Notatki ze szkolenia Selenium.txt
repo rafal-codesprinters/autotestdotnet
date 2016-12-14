@@ -39,9 +39,9 @@ Debug > Windows > Autos, locals, watch
 
 
 ZOSTA£O JESZCZE
-Continous Inegration przy u¿yciu narzêdzia Jenkins lub TeamCity.
 Data Driven Testing.
 Page Object Pattern.
+Selenium Grid
 
 
 Aplikacje do automatyzacji desktopowych:
@@ -72,11 +72,11 @@ C:\autotestdotnet\IDE_WordPress\packages\xunit.runner.console.2.1.0\tools\xunit.
 i uruchamiamy testy z ("IDE_WordPress.dll" to nazwa projektu w VS)
 C:\autotestdotnet\IDE_WordPress\IDE_WordPress\bin\Debug\IDE_WordPress.dll
 komend¹ do xunit.console.exe z parametrem IDE_WordPress.dll z uwzglêdnieniem wzglêdnych œcie¿ek, tzn: 
-packages\xunit.runner.console.2.1.0\tools\xunit.console.exe IDE_WordPress\bin\Debug\IDE_WordPress.dll
+"IDE_WordPress\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe" "IDE_WordPress\IDE_WordPress\bin\Debug\IDE_WordPress.dll"
 któr¹ uruchamiamy z folderu C:\autotestdotnet\IDE_WordPress
 mo¿emy to zast¹piæ plikiem txt z komend¹
-packages\xunit.runner.console.2.1.0\tools\xunit.console.exe IDE_WordPress\bin\Debug\IDE_WordPress.dll
-który zapisujemy jako test.cmd i mo¿emy uruchamiaæ z konsoli czy innej apki.
+"IDE_WordPress\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe" "IDE_WordPress\IDE_WordPress\bin\Debug\IDE_WordPress.dll"
+który zapisujemy jako test.cmd w katalogu g³ównym repozytorium i mo¿emy uruchamiaæ z konsoli czy innej apki.
 
 VCS Roots - version control system np.git
 
@@ -87,7 +87,7 @@ Build Steps -
 	Command executable: klikamy ikonê po prawej i wybieramy test.cmd (ze swojego brancha z gita)
 Triggers - regu³y uruchamiaj¹ce testy 
 
-.
+
 
 
 
