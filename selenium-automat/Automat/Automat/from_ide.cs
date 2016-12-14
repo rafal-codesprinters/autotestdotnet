@@ -99,13 +99,11 @@ namespace SeleniumTests
         [Fact]
         public void DodaniePostaPageObject()
         {
-            //Test.Start();
             StronaLogowania.Otworz(driver);
             StronaLogowania.Uzytkownik(PoprawnyUzytkownik.Nazwa, driver);
             StronaLogowania.Haslo(PoprawnyUzytkownik.Haslo, driver);
             StronaLogowania.Zaloguj(driver);
             WordPress.Wyloguj(driver);
-
         }
 
 
