@@ -54,7 +54,6 @@ namespace SeleniumTests
             driver.FindElement(By.Id("content")).Click();
             driver.FindElement(By.Id("content")).Clear();
             driver.FindElement(By.Id("content")).SendKeys("test pg");
-            Thread.Sleep(500);
             driver.FindElement(By.Id("publish")).Click();
             new WebDriverWait(driver, TimeSpan.FromSeconds(20)).Until(ExpectedConditions.ElementExists(By.CssSelector("#message")));
             var linkToPost = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).GetAttribute("href");
@@ -93,6 +92,35 @@ namespace SeleniumTests
             Assert.Equal("You can’t edit this item because it is in the Trash. Please restore it and try again.", element);
 
 
+        }
+
+        [Fact]
+        public void Stronicowanie()
+        {
+            Login();
+            for (var i = 0; i < 6; i++)
+            {
+                driver.FindElement(By.XPath(@"//li[@id='menu-posts']/a")).Click();
+                driver.FindElement(By.LinkText("Add New")).Click();
+                new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementToBeClickable(By.Id("publish")));
+                driver.FindElement(By.Id("title")).Click();
+                driver.FindElement(By.Id("title")).Clear();
+                driver.FindElement(By.Id("title")).SendKeys("test pg " + i);
+                driver.FindElement(By.Id("content")).Click();
+                driver.FindElement(By.Id("content")).Clear();
+                driver.FindElement(By.Id("content")).SendKeys("test pg " + i);
+                new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementToBeClickable(By.Id("publish")));
+                driver.FindElement(By.Id("publish")).Click();
+                new WebDriverWait(driver, TimeSpan.FromSeconds(20)).Until(ExpectedConditions.ElementExists(By.CssSelector("#message")));
+            }
+            Logout();
+            driver.Navigate().GoToUrl(baseURL);
+            var beforeUrl = driver.Url;
+            driver.FindElement(By.XPath(@"//*[@id=""nav-below""]/div[@class=""nav-previous""]/a")).Click();
+            var afterUrl = driver.Url;
+            var articles = driver.FindElements(By.XPath(@"//*[@id=""content""]/article"));
+            Assert.NotEmpty(articles);
+            Assert.NotEqual(beforeUrl, afterUrl);
         }
 
         private void Login()
