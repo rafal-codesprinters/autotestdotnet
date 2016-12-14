@@ -33,8 +33,9 @@ namespace SeleniumCs
             driver.FindElement(By.Id(POST_EDIT_CONTENT_ID)).Click();
             driver.FindElement(By.Id(POST_EDIT_CONTENT_ID)).Clear();
             driver.FindElement(By.Id(POST_EDIT_CONTENT_ID)).SendKeys(postContent);
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementToBeClickable(By.Id(POST_EDIT_PUBLISH_BUTTON_ID)));
             driver.FindElement(By.Id(POST_EDIT_PUBLISH_BUTTON_ID)).Click();
-            new WebDriverWait(driver, TimeSpan.FromSeconds(20)).Until(ExpectedConditions.ElementExists(By.CssSelector("#message")));
+            new WebDriverWait(driver, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementExists(By.CssSelector("#message")));
             var linkToPost = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).GetAttribute("href");
             return linkToPost;
         }
