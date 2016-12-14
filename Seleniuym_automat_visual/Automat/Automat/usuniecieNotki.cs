@@ -2,44 +2,33 @@ using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Support.UI;
+using Xunit;
+using OpenQA.Selenium.Chrome;
 
 namespace SeleniumTests
 {
-    [TestFixture]
-    public class UsuniecieNotki
+    public class UsuniecieNotki : IDisposable
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
         private string baseURL;
         private bool acceptNextAlert = true;
-        
-        [SetUp]
-        public void SetupTest()
+
+        public UsuniecieNotki()
         {
-            driver = new FirefoxDriver();
+
+            driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
             baseURL = "https://autotestdotnet.wordpress.com/";
             verificationErrors = new StringBuilder();
+            driver.Manage()
+                .Timeouts()
+                .ImplicitlyWait(TimeSpan.FromSeconds(10));
         }
-        
-        [TearDown]
-        public void TeardownTest()
-        {
-            try
-            {
-                driver.Quit();
-            }
-            catch (Exception)
-            {
-                // Ignore errors if unable to close the browser
-            }
-            Assert.AreEqual("", verificationErrors.ToString());
-        }
-        
-        [Test]
+
+        [Fact]
         public void TheUsuniecieNotkiTest()
         {
             driver.Navigate().GoToUrl(baseURL + "/wp-login.php?redirect_to=https%3A%2F%2Fautotestdotnet.wordpress.com%2Fwp-admin%2F&reauth=1");
@@ -48,14 +37,14 @@ namespace SeleniumTests
             driver.FindElement(By.Id("user_pass")).Clear();
             driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
             driver.FindElement(By.Id("wp-submit")).Click();
-            Assert.AreEqual("Dashboard ‹ Site Title — WordPress", driver.Title);
+            Assert.Equal("Dashboard ‹ Site Title — WordPress", driver.Title);
             driver.FindElement(By.LinkText("All Posts")).Click();
             driver.FindElement(By.Id("post-search-input")).Clear();
             driver.FindElement(By.Id("post-search-input")).SendKeys("Test_MP");
             driver.FindElement(By.Id("search-submit")).Click();
-            Assert.AreEqual("Posts ‹ Site Title — WordPress", driver.Title);
+            Assert.Equal("Posts ‹ Site Title — WordPress", driver.Title);
             driver.FindElement(By.LinkText("Trash")).Click();
-            Assert.AreEqual("Posts ‹ Site Title — WordPress", driver.Title);
+            Assert.Equal("Posts ‹ Site Title — WordPress", driver.Title);
             driver.FindElement(By.CssSelector("img.avatar.avatar-32")).Click();
             driver.FindElement(By.CssSelector("button.ab-sign-out")).Click();
         }
@@ -98,6 +87,11 @@ namespace SeleniumTests
             } finally {
                 acceptNextAlert = true;
             }
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
 }
