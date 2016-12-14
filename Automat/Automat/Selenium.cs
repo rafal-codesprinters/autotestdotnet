@@ -50,6 +50,7 @@ namespace SeleniumTests
             driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
             driver.FindElement(By.Id("rememberme")).Click();
             driver.FindElement(By.Id("wp-submit")).Click();
+            WaitForElementClickable(By.XPath("//li[@id='menu-posts']/a/div[3]"), 1000);
             driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
             driver.FindElement(By.LinkText("Add New")).Click();
             driver.FindElement(By.Id("title-prompt-text")).Click();
