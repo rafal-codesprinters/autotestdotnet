@@ -164,7 +164,7 @@ namespace DotNetKoans.CSharp
                 if ((i % 2) == 0) { continue; }
                 result.Add(i);
             }
-            Assert.Equal(new int[] { 1, 3, 5, 7, 9}, result);
+            Assert.Equal(new List<int> { 1, 3, 5, 7, 9}, result);
         }
 
         [Koan(13)]
