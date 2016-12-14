@@ -33,6 +33,7 @@ namespace SeleniumTests
         public void Logging()
         {
             MetodaLogowania();
+            waitForElementIsVisible(By.LinkText("My Site"), 10);
             Assert.Equal("My Site", driver.FindElement(By.LinkText("My Site")).Text);
             MetodaWylogowania();
         }
@@ -79,7 +80,11 @@ namespace SeleniumTests
 
 
 
-
+        protected void waitForElementIsVisible(By by, int seconds)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
+            wait.Until(ExpectedConditions.ElementIsVisible(by));
+        }
 
         protected void waitForElementClickable(By by, int seconds)
         {
