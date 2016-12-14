@@ -37,6 +37,7 @@ namespace SeleniumTests
             driver.Navigate().GoToUrl(baseURL + "/wp-login.php");
             Assert.Equal("Site Title ‹ Log In", driver.Title);
 
+            driver.FindElement(By.Id("user_login")).Click();
             driver.FindElement(By.Id("user_login")).Clear();
             driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
 
@@ -46,7 +47,7 @@ namespace SeleniumTests
             driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
 
             driver.FindElement(By.Id("wp-submit")).Click();
-            Thread.Sleep(1000);
+            //Thread.Sleep(1000);
             Assert.Equal("Dashboard ‹ Site Title — WordPress", driver.Title);
             driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
             Assert.Equal("Posts ‹ Site Title — WordPress", driver.Title);
