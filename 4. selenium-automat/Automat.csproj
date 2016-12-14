@@ -68,8 +68,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastruktura\PoprawnyUzytkownik.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Selenium.cs" />
+    <Compile Include="Pages\StronaAdministracyjna.cs" />
+    <Compile Include="Pages\StronaLogowania.cs" />
+    <Compile Include="Infrastruktura\Test.cs" />
+    <Compile Include="Infrastruktura\WordPress.cs" />
+    <Compile Include="Infrastruktura\WordpressConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
