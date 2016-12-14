@@ -104,7 +104,7 @@ namespace SeleniumTests
         private void Logon()
         {
             driver.Navigate().GoToUrl(baseURL + "wp-admin/");
-            System.Threading.Thread.Sleep(500);
+            System.Threading.Thread.Sleep(501);
             driver.FindElement(By.Id("user_login")).Clear();
             driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
             driver.FindElement(By.Id("user_pass")).Clear();
