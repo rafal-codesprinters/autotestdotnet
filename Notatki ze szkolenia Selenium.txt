@@ -1,0 +1,69 @@
+WIFI pass: JRPTHBP9T
+
+git username: szymonszewczyk321
+
+cmder - emulator konsoli, pomocny do kontroli kodu
+git - popularny bo ma rozproszony system kontroli wersji
+git init - tworzenie repozytorium w bie¿¹cym folderze
+git status - sprawdzenie czy jest jakis plik 
+git add . - dodanie nowych plików 
+git commit - komitowanie, uruchamia gimp editora, ¿eby wpisaæ komentarz komita
+git commit -n  - komitowanie bez komentarza
+
+GIMP: ma tryby pracy: insert - czyli wpisywanie tekstu i - ESC - skróty klawiszowe
+	s - tryb pisania (insert)
+	esc - tryb skrótów
+	:wq - zapisanie i wyjœcie
+
+gl - czyli git log z parametrami
+set upstream - komenda oznaczaj¹ca brancha je¿eli tworzymy brancha to niekoniecznie musi byæ wypychany na serwer. 
+
+HEAD - to co widzê w katalogu
+origin/master - to co jest g³ówne na serwerze
+
+bêd¹c na branchu: git merge master - mergowanie mastera do brancha
+
+git reflog - lista komend która by³a robiona na repozytorium - mo¿na cofn¹æ siê x komend wstecz
+
+
+
+
+Choæby przysz³o tysi¹c testerów i testowaliby tysi¹c lat - nie wyklikaliby wszystkich wad.
+
+
+Resharper IDE - szuka referencji w paczkach nugetowych
+
+Debug > Windows > Immediate Window  - pozwala na ¿ywo coœ dodaæ do programu, np.driver.Url odda atrybut url lub zmienna.GetHashCode() daje numer hash obiektu dziêki temu mo¿emy potwierdziæ czy odwo³ujemy siê do tego samego obiektu czy uleg³ ju¿ zmianie
+
+Debug > Windows > Autos, locals, watch
+
+
+ZOSTA£O JESZCZE
+Continous Inegration przy u¿yciu narzêdzia Jenkins lub TeamCity.
+Data Driven Testing.
+Page Object Pattern.
+
+
+Aplikacje do automatyzacji desktopowych:
+Sikuli
+Test completeq
+Xamarin
+dot net - Wine framework - opensource
+AutoIt
+
+Dodatki pomagaj¹ce 
+Xpather - do chroma
+Firepath - do fierfoxa
+
+Tools:
+w3schools xml xpath - tutoriale, porównanie ró¿nych wersji xpatha/xmla w ró¿nych przegl¹darkach
+
+
+Continous integration - automatycze puszczanie testów
+https://www.jetbrains.com/teamcity/ - narzêdzie do contious integration, pobieramy, ustawiamy port np.8080, 
+
+xunit runner console - pobieramy paczke do projektu
+
+
+
+
