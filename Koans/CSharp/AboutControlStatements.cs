@@ -175,7 +175,7 @@ namespace DotNetKoans.CSharp
             {
                 list[i] = (list[i].ToUpper());
             }
-            Assert.Equal(FILL_ME_IN, list);
+            Assert.Equal(new List<string> { "FISH", "AND", "CHIPS" }, list);
         }
 
         [Koan(14)]
@@ -187,8 +187,8 @@ namespace DotNetKoans.CSharp
             {
                 finalList.Add(item.ToUpper());
             }
-            Assert.Equal(FILL_ME_IN, list);
-            Assert.Equal(FILL_ME_IN, finalList);
+            Assert.Equal(new List<string> { "fish", "and", "chips" }, list);
+            Assert.Equal(new List<string> { "FISH", "AND", "CHIPS" }, finalList);
         }
 
         [Koan(15)]
@@ -204,7 +204,7 @@ namespace DotNetKoans.CSharp
             }
             catch (Exception ex)
             {
-                Assert.Equal(typeof(FillMeIn), ex.GetType());
+                Assert.Equal(typeof(InvalidOperationException), ex.GetType());
             }
         }
 
@@ -233,7 +233,7 @@ namespace DotNetKoans.CSharp
                 whoCaughtTheException = "When we tried to move to the next item in the list";
             }
 
-            Assert.Equal(FILL_ME_IN, whoCaughtTheException);
+            Assert.Equal("When we tried to move to the next item in the list", whoCaughtTheException);
         }
     }
 }
