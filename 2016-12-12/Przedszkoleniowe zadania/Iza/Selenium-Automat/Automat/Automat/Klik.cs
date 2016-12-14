@@ -68,17 +68,20 @@ namespace SeleniumTests
 
             //wylogowywanie
             driver.Navigate().GoToUrl(baseURL);
+           // WaiteForElementClickable(By.CssSelector("button.ab-sign-out"),10);
+
             driver.FindElement(By.CssSelector("img.avatar.avatar-32")).Click();
             driver.FindElement(By.CssSelector("button.ab-sign-out")).Click();
 
             driver.Navigate().GoToUrl(baseURL);
             WaiteForElementClickable(By.XPath(".//*[@id='wp-submit']"),10);
+            WaiteForElementClickable(By.Id("user_login"),10);
             driver.FindElement(By.Id("user_login")).Clear();
             driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
             driver.FindElement(By.Id("user_pass")).Clear();
             driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
             driver.FindElement(By.Id("wp-submit")).Click();
-            driver.FindElement(By.CssSelector("#menu-posts > a > div.wp-menu-name")).Click();
+            driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
 
             //wyszukiwanie postu i usuwanie
             driver.FindElement(By.Id("post-search-input")).SendKeys(guid);
@@ -90,7 +93,6 @@ namespace SeleniumTests
 
             Assert.Equal("No posts found.", driver.FindElement(By.XPath(".//*[@id='the-list']/tr/td")).Text);
             
-
 
         }
 
