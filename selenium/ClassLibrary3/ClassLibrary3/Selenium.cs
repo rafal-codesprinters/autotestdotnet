@@ -3,6 +3,7 @@ using System.Text;
 using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Interactions;
 using Xunit;
 using OpenQA.Selenium.Chrome;
 
@@ -75,15 +76,29 @@ namespace SeleniumTests
 
             Logon();
 
-            string AriaLabel = @"Move" + guid + " to the Trash";
             driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[2]")).Click();
-            driver.FindElement(By.XPath("//span[@aria-label=" + AriaLabel)).Click();
+
+            string AriaLabelPost = @"“" + guid + @"” (Edit)";
+            string AriaLabelTrash = @"Move “" + guid + @"“ to the Trash";
+            driver.FindElement(By.XPath("//*[@aria-label='" + AriaLabelPost + "']")).Click();
+            for (int second = 0; ; second++)
+            {
+                if (second >= 60) throw new Exception("timeout");
+                try
+                {
+                    if (IsElementPresent(By.Id("delete-action"))) break;
+                }
+                catch (Exception)
+                { }
+                Thread.Sleep(3000);
+            }
+            driver.FindElement(By.XPath("//*[@id='delete-action']/a")).Click();
 
             Logoff();
 
             driver.Navigate().GoToUrl(LinkDoNowejNotatki);
 
-            Assert.Equal("Not Found!", driver.FindElement(By.CssSelector("header.post-title > h1")).Text);
+            Assert.Equal("Not Found!", driver.FindElement(By.CssSelector("#error404 > h1")).Text);
         }
 
         private void Logon()
@@ -133,7 +148,7 @@ namespace SeleniumTests
                 { }
                 Thread.Sleep(1000);
             }
-            string myLink = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).Text;
+            string myLink = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).GetAttribute("href");
 
             return myLink;
         }
@@ -183,7 +198,7 @@ namespace SeleniumTests
         {
             try
             {
-                //driver.Quit();
+                driver.Quit();
             }
             catch (Exception)
             {
