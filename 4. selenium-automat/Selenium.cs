@@ -3,7 +3,7 @@ using System.Text;
 using OpenQA.Selenium;
 using Xunit;
 using OpenQA.Selenium.Chrome;
-
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumTests
@@ -49,6 +49,8 @@ namespace SeleniumTests
             driver.FindElement(By.Id("content")).SendKeys("to jest jakaś długa testowa notatka");
             driver.FindElement(By.Id("publish")).Click();
             driver.Navigate().GoToUrl(baseURL + "/wp-login.php?action=logout");
+
+            
         }
 
         public void Dispose()

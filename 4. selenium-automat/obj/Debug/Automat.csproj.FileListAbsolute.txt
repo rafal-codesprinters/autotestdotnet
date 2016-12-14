@@ -19,3 +19,24 @@ C:\autotestdotnet\selenium-automat\Automat\bin\Debug\xunit.runner.visualstudio.t
 C:\autotestdotnet\selenium-automat\Automat\bin\Debug\xunit.runner.utility.desktop.dll
 C:\autotestdotnet\selenium-automat\Automat\bin\Debug\WebDriver.Support.dll
 C:\autotestdotnet\selenium-automat\Automat\bin\Debug\WebDriver.Support.xml
+C:\autotestdotnet\4. selenium-automat\bin\Debug\xunit.abstractions.dll
+C:\autotestdotnet\4. selenium-automat\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+C:\autotestdotnet\4. selenium-automat\bin\Debug\xunit.runner.utility.desktop.dll
+C:\autotestdotnet\4. selenium-automat\bin\Debug\Automat.dll
+C:\autotestdotnet\4. selenium-automat\bin\Debug\Automat.pdb
+C:\autotestdotnet\4. selenium-automat\bin\Debug\WebDriver.dll
+C:\autotestdotnet\4. selenium-automat\bin\Debug\WebDriver.Support.dll
+C:\autotestdotnet\4. selenium-automat\bin\Debug\xunit.assert.dll
+C:\autotestdotnet\4. selenium-automat\bin\Debug\xunit.core.dll
+C:\autotestdotnet\4. selenium-automat\bin\Debug\xunit.execution.desktop.dll
+C:\autotestdotnet\4. selenium-automat\bin\Debug\WebDriver.xml
+C:\autotestdotnet\4. selenium-automat\bin\Debug\WebDriver.Support.xml
+C:\autotestdotnet\4. selenium-automat\bin\Debug\xunit.assert.pdb
+C:\autotestdotnet\4. selenium-automat\bin\Debug\xunit.assert.xml
+C:\autotestdotnet\4. selenium-automat\bin\Debug\xunit.core.pdb
+C:\autotestdotnet\4. selenium-automat\bin\Debug\xunit.core.xml
+C:\autotestdotnet\4. selenium-automat\bin\Debug\xunit.execution.desktop.pdb
+C:\autotestdotnet\4. selenium-automat\bin\Debug\xunit.execution.desktop.xml
+C:\autotestdotnet\4. selenium-automat\obj\Debug\Automat.csprojResolveAssemblyReference.cache
+C:\autotestdotnet\4. selenium-automat\obj\Debug\Automat.dll
+C:\autotestdotnet\4. selenium-automat\obj\Debug\Automat.pdb
