@@ -44,9 +44,43 @@ triggers
 build step
 - command line
 - executable with parameters
-dodatkowe kroki: nuget-install, visualstudio sln
+dodatkowe kroki przed testem: nuget-install, visualstudio sln (lub msbuild)
 plik cmd do g³ównego katalogu
 
 w repozytorium bez dll i pakietów -> ustawiæ dobrze w .gitignore
 dobre praktyki: Nuget Installer, MSBuild (dla maszyny bez VS)
 
+obiad
+
+ustawienia: mo¿na konfigurowaæ powiadomienia
+wizualizacja zmian
+build log
+
+refaktoryzacja kodu testów
+- logowanie mo¿na wydzieliæ
+- odpornoœæ na nazwy/id elementów
+
+logika testu
+- logowanie
+- dodaj post
+- napisz post
+- opublikuj
+- wyloguj
+- sprawdz
+
+wydzielamy klocki
+- login z w³aœciwoœciami user, password, metoda Login()
+- mo¿liwoœæ ³atwej zmiany nazw dla div jeœli np. graficy pozmieniaj¹
+
+zaleta - ³atwoœæ w utrzymaniu (poprawki w jednym miejscu) i lepsza czytelnoœæ
+
+piszemy szkielet bez rzeczywistych obiektów
+LoginPage.Open();
+LoginPage.User = "";
+LoginPage.Password = "";
+LoginPage.Login();
+AdminPage.Open();
+AdminPage.OpenPosts();
+AdminPage.OpenAddNewPost();
+AdminPage.InsertPost("caption", "content");
+WordPress.Logout();
