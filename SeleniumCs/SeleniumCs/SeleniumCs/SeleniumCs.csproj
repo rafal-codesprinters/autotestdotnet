@@ -68,9 +68,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Wordpress\Admin\AdminPage.cs" />
+    <Compile Include="Wordpress\Admin\EditPostPage.cs" />
+    <Compile Include="Wordpress\LoginPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test 03 - Zakładanie posta wersja 2 CS.cs" />
+    <Compile Include="ObslugaPostow.cs" />
+    <Compile Include="Wordpress\WordpressConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
