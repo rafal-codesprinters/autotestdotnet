@@ -105,6 +105,26 @@ namespace SeleniumTests
             
         }
 
+        [Fact]
+        public void Weryfikacja_ilosci_stron()
+        {
+            Test.Start();
+            StronaLogowania.Otworz();
+            StronaLogowania.Uzytkownik(PoprawnyUzytkownik.Nazwa);
+            StronaLogowania.Haslo(PoprawnyUzytkownik.Haslo);
+            StronaLogowania.Zaloguj();
+
+            StronaAdministracyjna.Otworz();
+            StronaAdministracyjna.OtworzPosty();
+            StronaAdministracyjna.OtworzDodanieNowegoPosta();
+            StronaAdministracyjna.Wpis("cos tam cos tam temat", "tresc posta");
+            StronaAdministracyjna.Opublikuj();
+
+            Wordpress.Wyloguj();
+            Test.Koniec();
+        }
+
+
         private bool IsElementPresent(By by)
         {
             try

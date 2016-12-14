@@ -69,7 +69,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="PoprawnyUzytkownik.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StronaAdministracyjna.cs" />
+    <Compile Include="StronaLogowania.cs" />
+    <Compile Include="Test.cs" />
+    <Compile Include="Wordpress.cs" />
     <Compile Include="zSelenium.cs" />
   </ItemGroup>
   <ItemGroup>
