@@ -44,8 +44,10 @@ namespace SeleniumTests
         public void Publish_Note()
         {
             driver.Navigate().GoToUrl(baseURL + "wp-admin/"); //driver.Navigate().GoToUrl(baseURL + "/wp-login.php?redirect_to=https%3A%2F%2Fautotestdotnet.wordpress.com%2Fwp-admin%2F&reauth=1");
+            driver.FindElement(By.Id("user_login")).Click();
             driver.FindElement(By.Id("user_login")).Clear();
             driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+            driver.FindElement(By.Id("user_pass")).Click();
             driver.FindElement(By.Id("user_pass")).Clear();
             driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
             driver.FindElement(By.Id("rememberme")).Click();
@@ -83,8 +85,10 @@ namespace SeleniumTests
             var guid = Guid.NewGuid().ToString();
             var title = "qwerty-" + guid;
             driver.Navigate().GoToUrl(baseURL + "wp-admin/"); //driver.Navigate().GoToUrl(baseURL + "/wp-login.php?redirect_to=https%3A%2F%2Fautotestdotnet.wordpress.com%2Fwp-admin%2F&reauth=1");
+            driver.FindElement(By.Id("user_login")).Click();
             driver.FindElement(By.Id("user_login")).Clear();
             driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+            driver.FindElement(By.Id("user_pass")).Click();
             driver.FindElement(By.Id("user_pass")).Clear();
             driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
             driver.FindElement(By.Id("rememberme")).Click();
