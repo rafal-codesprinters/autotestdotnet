@@ -72,7 +72,7 @@
     <Compile Include="Wordpress\Admin\EditPostPage.cs" />
     <Compile Include="Wordpress\LoginPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ObslugaPostow.cs" />
+    <Compile Include="TestWordpressPosts.cs" />
     <Compile Include="Wordpress\WordpressConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>

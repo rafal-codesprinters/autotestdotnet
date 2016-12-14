@@ -7,14 +7,13 @@ using SeleniumCs;
 
 namespace SeleniumTests
 {
-    public class ObslugaPostow : IDisposable
+    public class TestWordpressPosts : IDisposable
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
-        private bool acceptNextAlert = true;
         private WordpressConfiguration m_config;
 
-        public ObslugaPostow()
+        public TestWordpressPosts()
         {
             m_config = new WordpressConfiguration();
             driver = new ChromeDriver();
@@ -66,8 +65,6 @@ namespace SeleniumTests
             Assert.Equal("You can’t edit this item because it is in the Trash. Please restore it and try again.", element);
         }
 
-     
-
         [Fact]
         public void Paging()
         {
@@ -79,7 +76,5 @@ namespace SeleniumTests
             Assert.NotEmpty(articles);
             Assert.NotEqual(beforeUrl, afterUrl);
         }
-
-
     }
 }
