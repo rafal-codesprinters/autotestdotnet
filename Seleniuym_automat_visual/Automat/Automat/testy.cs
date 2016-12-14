@@ -67,14 +67,26 @@ namespace SeleniumTests
         [Fact]
         public void Moge_opublikowac_notatke()
         {
+            Test.Start();
+            StronaLogowania.Otworz();
+            StronaLogowania.Uzytkownik(PoprawnyUzytkownik.Nazwa);
+            StronaLogowania.Haslo((PoprawnyUzytkownik.Haslo);
+            StronaLogowania.Zaloguj();
 
+            StronaAdministracyjna.Otworz();
+            StronaAdministracyjna.OtworzPosty();
+            StronaAdministracyjna.OtworzDodanieNowegoPosta();
+            StronaAdministracyjna.Wpis("jakis temat", "jakas tresc");
+            StronaAdministracyjna.Opublikuj();
 
+            Wordpress.Wyloguj();
+            Test.Koniec();
+        }
 
-
-
-
-
-
+        private static object GetPress()
+        {
+            return Word.Press;
+        }
 
         private bool IsElementPresent(By by)
         {
@@ -130,6 +142,36 @@ namespace SeleniumTests
             Assert.Equal("", verificationErrors.ToString());
             //throw new NotImplementedException();
 
+        }
+    }
+
+    internal class Wordpress
+    {
+    }
+
+    internal class Word
+    {
+        public static object Press { get; internal set; }
+    }
+
+    internal class PoprawnyUzytkownik
+    {
+    }
+
+    internal class StronaAdministracyjna
+    {
+    }
+
+    internal class StronaLogowania
+    {
+        internal static void Otworz()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void Uzytkownik(object nazwa)
+        {
+            throw new NotImplementedException();
         }
     }
 }
