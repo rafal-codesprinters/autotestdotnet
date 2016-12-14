@@ -48,12 +48,14 @@ namespace SeleniumTests
             driver.FindElement(By.CssSelector("a.page-title-action")).Click();
             driver.FindElement(By.Id("title")).Clear();
             driver.FindElement(By.Id("title")).SendKeys("Olaboga");
-            driver.FindElement(By.Id("content-tmce")).Click();
-            driver.FindElement(By.Id("content-html")).Click();
+            driver.FindElement(By.Id("content")).Click();
             driver.FindElement(By.Id("content")).Clear();
             driver.FindElement(By.Id("content")).SendKeys("COś tu nie jest halo");
+            Thread.Sleep(2000);
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("publish")));
             driver.FindElement(By.Id("publish")).Click();
-            driver.FindElement(By.LinkText("View post")).Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id='message']/p/a")));
+            driver.FindElement(By.XPath("//*[@id='message']/p/a")).Click();
         }
 
         [Fact]
@@ -78,6 +80,7 @@ namespace SeleniumTests
             wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("content")));
             driver.FindElement(By.Id("content")).Click();
             driver.FindElement(By.Id("content")).SendKeys(guid);
+            Thread.Sleep(4000);
             wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("publish")));
             driver.FindElement(By.Id("publish")).Click();
             wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id='menu-posts']/a/div[3]")));
@@ -87,7 +90,8 @@ namespace SeleniumTests
             wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id='delete-action']/a")));
             driver.FindElement(By.XPath("//*[@id='delete-action']/a")).Click();
             driver.FindElement(By.Id("post-search-input")).SendKeys(guid + Keys.Enter);
-            Assert.False(driver.FindElement(By.XPath("//tr/td[1]/strong/a")).Enabled);
+            //Assert.True((driver.FindElement(By.XPath("//*[@id='posts-filter']/div[2]/div[2]/span[1]")).Text) = "0 items");
+            //Assert.False(driver.FindElement(By.XPath("//tr/td[1]/strong/a")));
 
         }
 
