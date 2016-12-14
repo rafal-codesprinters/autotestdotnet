@@ -22,7 +22,7 @@ namespace DotNetKoans.CSharp
 														return x.ToString();
 													});
 
-			Assert.Equal(FILL_ME_IN, result);
+			Assert.Equal(new string[] { "1", "2", "3", "4" }, result);
 		}
 		[Koan(2)]
 		public void AnonymousMethodsCanAccessOuterVariables()

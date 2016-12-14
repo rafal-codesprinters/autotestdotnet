@@ -285,7 +285,7 @@ namespace DotNetKoans.CSharp
 			//The first type parameters define the parameter types and the last one is the return type. So the following matches
 			//a method which takes two int parameters and returns a int.
 			Func<int, int, int> a = Add;
-			Assert.Equal(FILL_ME_IN, a(1, 1));
+			Assert.Equal(2, a(1, 1));
 		}
 
 		public class Car
@@ -314,7 +314,7 @@ namespace DotNetKoans.CSharp
 			Comparison<Car> by = SortByModel;
 			Array.Sort(cars, by);
 
-			Assert.Equal(FILL_ME_IN, cars[0].Model);
+			Assert.Equal("GTV-6", cars[0].Model);
 		}
 
 		private string Stringify(int x)
@@ -332,7 +332,7 @@ namespace DotNetKoans.CSharp
 
 			var result = Array.ConvertAll(numbers, c);
 
-			Assert.Equal(FILL_ME_IN, result);
-		}
-	}
+            Assert.Equal(new string[] { "1", "2", "3", "4" }, result);
+        }
+    }
 }
