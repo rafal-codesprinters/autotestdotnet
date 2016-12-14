@@ -9,6 +9,22 @@ using OpenQA.Selenium.Support.UI;
 namespace SeleniumTests
 {
 
+    public static class WebElementExtensions
+    {
+        public static bool ElementIsPresent(this IWebDriver driver, By by)
+        {
+            try
+            {
+                return driver.FindElement(by).Displayed;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
+    }
+
+
 
 
     public class Selenium : IDisposable
@@ -37,6 +53,21 @@ namespace SeleniumTests
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
             wait.Until(ExpectedConditions.ElementToBeClickable(by));
         }
+
+        protected void waitForElemantVisible(By by, int seconds)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
+            wait.Until(ExpectedConditions.ElementIsVisible(by));
+        }
+
+
+
+
+
+
+
+
+
         [Fact]
         public void DodaniePosta()
         {
@@ -104,17 +135,25 @@ namespace SeleniumTests
             driver.FindElement(By.Id("search-submit")).Click();
             //driver.FindElement(By.XPath("//*[contains(@class,'screen-reader-text') and .//text()='"+guid+"']"));
             driver.FindElement(By.Id("cb-select-all-1")).Click();
+            //driver.FindElement(By.Id("bulk-action-selector-top")).Click();
+            IWebElement sTag = driver.FindElement(By.Id("bulk-action-selector-top"));
+            SelectElement selectTag = new OpenQA.Selenium.Support.UI.SelectElement(sTag);
+            selectTag.SelectByText("Move to Trash");
+            driver.FindElement(By.Id("post-search-input")).SendKeys(guid);
+            driver.FindElement(By.Id("search-submit")).Click();
+            var noposts = driver.FindElement(By.ClassName("colspanchange")).Text;
+            Assert.Equal("No posts found.", noposts);
+        }
 
 
-
-
-
-
-
-
-
-
-
+        [Fact]
+        public void Czy_istnieja_dwie_strony_z_postami()
+        {
+            driver.Navigate().GoToUrl(baseURL + "/");
+            Assert.Equal(true, driver.ElementIsPresent(By.ClassName("nav-previous")));
+            waitForElemantClicable(By.ClassName("nav-previous"), 5);
+            driver.FindElement(By.ClassName("nav-previous")).Click();
+            Assert.Equal(true, driver.ElementIsPresent(By.ClassName("nav-next")));
         }
 
 
