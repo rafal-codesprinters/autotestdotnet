@@ -27,6 +27,8 @@ namespace SeleniumTests
 
 
 
+
+
     public class Selenium : IDisposable
     {
         private IWebDriver driver;
@@ -154,6 +156,17 @@ namespace SeleniumTests
             waitForElemantClicable(By.ClassName("nav-previous"), 5);
             driver.FindElement(By.ClassName("nav-previous")).Click();
             Assert.Equal(true, driver.ElementIsPresent(By.ClassName("nav-next")));
+            var ilosc = driver.FindElements(By.ClassName("post-title")).Count;
+            bool ilosc_el;
+            if (ilosc > 0)
+            {
+                ilosc_el = true;
+            }
+            else
+            {
+                ilosc_el = false;
+            }
+            Assert.Equal(true, ilosc_el);
         }
 
 
