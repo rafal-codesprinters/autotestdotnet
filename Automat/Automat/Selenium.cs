@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text;
 using System.Threading;
 using Xunit;
@@ -124,6 +124,14 @@ namespace SeleniumTests
             Assert.Throws<NoSuchElementException>(() => driver.FindElement(By.LinkText(title)).Click());
         }
 
+        [Fact]
+        public void HasPages()
+        {
+            driver.Navigate().GoToUrl(baseURL);
+            Assert.True(IsElementPresent(By.LinkText("← Older posts")));
+            //driver.FindElement(By.LinkText("← Older posts")).Click();
+        }
+
         private bool IsElementPresent(By by)
         {
             try
@@ -166,7 +174,7 @@ namespace SeleniumTests
         }
 
         /// <summary>
-        /// wrapeer do oczekiwania na klikalno�� elementu
+        /// wrapeer do oczekiwania na klikalność elementu
         /// </summary>
         /// <param name="by"></param>
         /// <param name="milisec"></param>

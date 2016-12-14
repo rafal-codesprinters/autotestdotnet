@@ -9,3 +9,6 @@ wiêcej w podsumowaniu
 
 testy
 na blogu s¹ conajmniej 2 strony (aktywna paginacja)
+
+xpath - szukanie po strukturze html
+najszybsze wyszukiwanie po css (u¿ywane w przegl¹darce do ró¿nych rzeczy), wolniej po strukturze DOM
