@@ -88,6 +88,7 @@ namespace SeleniumTests
             driver.FindElement(By.XPath("//*[@id='delete-action']/a")).Click();
             driver.FindElement(By.Id("post-search-input")).SendKeys(guid + Keys.Enter);
             Assert.False(driver.FindElement(By.XPath("//tr/td[1]/strong/a")).Enabled);
+
         }
 
         [Fact]
