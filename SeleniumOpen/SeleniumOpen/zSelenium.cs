@@ -78,6 +78,7 @@ namespace SeleniumTests
             wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("content")));
             driver.FindElement(By.Id("content")).Click();
             driver.FindElement(By.Id("content")).SendKeys(guid);
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("publish")));
             driver.FindElement(By.Id("publish")).Click();
             wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id='menu-posts']/a/div[3]")));
             driver.FindElement(By.XPath("//*[@id='menu-posts']/a/div[3]")).Click();
@@ -86,7 +87,17 @@ namespace SeleniumTests
             wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id='delete-action']/a")));
             driver.FindElement(By.XPath("//*[@id='delete-action']/a")).Click();
             driver.FindElement(By.Id("post-search-input")).SendKeys(guid + Keys.Enter);
-            Assert.False(driver.FindElement(By.XPath("//tr/td[1]/strong/a")).Displayed);
+            Assert.False(driver.FindElement(By.XPath("//tr/td[1]/strong/a")).Enabled);
+        }
+
+        [Fact]
+        public void Weryfikacja_ilosci_stron()
+        {
+            var guid = Guid.NewGuid().ToString();
+
+            driver.Navigate().GoToUrl(baseURL);
+            Assert.Contains("Older",driver.FindElement(By.XPath("//*[@id='nav-below']/div[1]/a")).Text);
+            
         }
 
         private bool IsElementPresent(By by)
