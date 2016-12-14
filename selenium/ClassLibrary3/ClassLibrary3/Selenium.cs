@@ -9,58 +9,72 @@ using OpenQA.Selenium.Chrome;
 
 namespace SeleniumTests
 {
-    public class Selenium : IDisposable
+        public class Test
+        {
+            public static ChromeDriver Driver;
+            public static StringBuilder verificationErrors;
+
+            internal static void Start()
+            {
+                ChromeOptions options = new ChromeOptions();
+                options.AddArgument("--start-maximized");
+                Driver = new ChromeDriver(options);
+                verificationErrors = new StringBuilder();
+            }
+
+            internal static void Koniec()
+            {
+                try
+                {
+                    Driver.Quit();
+                }
+                catch (Exception)
+                {
+                    // Ignore errors if unable to close the browser
+                }
+                Assert.Equal("", verificationErrors.ToString());
+            }
+        }
+
+    public class Selenium
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
         private string baseURL;
         private bool acceptNextAlert = true;
 
-        public Selenium()
-        {
-            ChromeOptions options = new ChromeOptions();
-            options.AddArgument("--start-maximized");
-            driver = new ChromeDriver(options);
-            baseURL = "https://autotestdotnet.wordpress.com/";
-            verificationErrors = new StringBuilder();
-        }
-        
+        //public Selenium()
+        //{
+            
+        //}
+
+
+
         [Fact]
         public void TestCzyNowoUtworzonaNotatkaPublikujeSieNaStronie()
         {
-            Logon();
+            Test.Start();
 
-            driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
-            driver.FindElement(By.CssSelector("a.page-title-action")).Click();
-            driver.FindElement(By.Id("title")).Clear();
-            driver.FindElement(By.Id("title")).SendKeys("szy 3");
-            driver.FindElement(By.Id("content")).Clear();
-            driver.FindElement(By.Id("content")).SendKeys("notatka 5");
-            driver.FindElement(By.Id("publish")).Click();
-            for (int second = 0;; second++) {
-                if (second >= 60) throw new Exception ("timeout");
-                try
-                {
-                    if (IsElementPresent(By.Id("sample-permalink"))) break;
-                }
-                catch (Exception)
-                {}
-                Thread.Sleep(1000);
-            }
-            string myLink = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).Text;
-            driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).Click();
+            Logon("autotestdotnet@gmail.com", "codesprinters2016");
+
+            NowaNotatka.OtworzFormularzNotatki();
+            NowaNotatka.StworzNotatke("jakis temat", "jakas tresc");
+            var LinkDoNotatki = NowaNotatka.OpublikujNotatke();
             
             Logoff();
-            
-            driver.Navigate().GoToUrl(myLink);
-            Assert.Equal("szy 3", driver.FindElement(By.CssSelector("header.post-title > h1")).Text);
-            Assert.Equal("notatka 5", driver.FindElement(By.CssSelector("div.post-entry > p")).Text);
+
+            NowaNotatka.WyswietlNotatkeNaStronie(LinkDoNotatki);
+                        
+            Assert.Equal("jakis temat", driver.FindElement(By.CssSelector("header.post-title > h1")).Text);
+            Assert.Equal("jakas tresc", driver.FindElement(By.CssSelector("div.post-entry > p")).Text);
+
+            Test.Koniec();
         }
 
         [Fact]
         public void TestCzyNowoUtworzonaNotatkaMozeBycUsunieta()
         {
-            Logon();
+            Logon("autotestdotnet@gmail.com", "codesprinters2016");
 
             var guid = Guid.NewGuid().ToString();
 
@@ -74,7 +88,7 @@ namespace SeleniumTests
 
             Assert.Equal(guid, driver.FindElement(By.CssSelector("header.post-title > h1")).Text);
 
-            Logon();
+            Logon("autotestdotnet@gmail.com", "codesprinters2016");
 
             driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[2]")).Click();
 
@@ -101,14 +115,14 @@ namespace SeleniumTests
             Assert.Equal("Not Found!", driver.FindElement(By.CssSelector("#error404 > h1")).Text);
         }
 
-        private void Logon()
+        private void Logon(string user, string password)
         {
             driver.Navigate().GoToUrl(baseURL + "wp-admin/");
             System.Threading.Thread.Sleep(501);
             driver.FindElement(By.Id("user_login")).Clear();
-            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+            driver.FindElement(By.Id("user_login")).SendKeys(user);
             driver.FindElement(By.Id("user_pass")).Clear();
-            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+            driver.FindElement(By.Id("user_pass")).SendKeys(password);
             driver.FindElement(By.Id("wp-submit")).Click();
             for (int second = 0; ; second++)
             {
@@ -194,18 +208,47 @@ namespace SeleniumTests
                 acceptNextAlert = true;
             }
         }
+        
+    }
 
-        public void Dispose()
+    internal class NowaNotatka
+    {
+        internal static string OpublikujNotatke()
         {
-            try
+            Test.Driver.FindElement(By.Id("publish")).Click();
+            for (int second = 0; ; second++)
             {
-                driver.Quit();
+                if (second >= 60) throw new Exception("timeout");
+                try
+                {
+                    if (IsElementPresent(By.Id("sample-permalink"))) break;
+                }
+                catch (Exception)
+                { }
+                Thread.Sleep(1000);
             }
-            catch (Exception)
-            {
-                // Ignore errors if unable to close the browser
-            }
-            Assert.Equal("", verificationErrors.ToString());
+            return Test.Driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).Text;
+            
+            //driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).Click();
+        }
+
+        internal static void OtworzFormularzNotatki()
+        {
+            driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
+        }
+
+        internal static void StworzNotatke(string tytul, string tresc)
+        {
+            driver.FindElement(By.CssSelector("a.page-title-action")).Click();
+            driver.FindElement(By.Id("title")).Clear();
+            driver.FindElement(By.Id("title")).SendKeys(tytul);
+            driver.FindElement(By.Id("content")).Clear();
+            driver.FindElement(By.Id("content")).SendKeys(tresc);
+        }
+
+        internal static void WyswietlNotatkeNaStronie(string LinkDoNotatki)
+        {
+            driver.Navigate().GoToUrl(LinkDoNotatki);
         }
     }
 }
