@@ -37,6 +37,11 @@ namespace Automat
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
             wait.Until(ExpectedConditions.ElementExists(by));
         }
+        private void WaitForElementIsVisible(By by, int seconds)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
+            wait.Until(ExpectedConditions.ElementIsVisible(by));
+        }
         [Fact]
         public void TheAddNoteTest()
         {
@@ -60,18 +65,29 @@ namespace Automat
             driver.FindElement(By.Id("title")).SendKeys(PostTitle);
             driver.FindElement(By.Id("content")).Clear();
             driver.FindElement(By.Id("content")).SendKeys(PostBody);
+            WaitForElementExists(By.XPath("//span[@id='sample-permalink']/a"), 10);
+            String link = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).Text;
             WaitForClickable(By.Id("publish"), 10);
             driver.FindElement(By.Id("publish")).Click();
 
 
-            WaitForElementExists(By.XPath("//span[@id='sample-permalink']/a"), 5);
-            String link = driver.FindElement(By.XPath("//span[@id='sample-permalink']/a")).Text;
+
+            //  driver.FindElement(By.Id("publish")).Submit();
+            //*[@id="post-status-display"]
+            //        Thread.Sleep(3000);
+            //    driver.SwitchTo().Alert().Accept();
+
+            //      driver.FindElement(By.Id("publish")).Submit();
+            //   Thread.Sleep(3000);
             driver.FindElement(By.CssSelector("img.avatar.avatar-32")).Click();
-            WaitForClickable(By.CssSelector("button.ab-sign-out"), 5);
+            WaitForClickable(By.CssSelector("button.ab-sign-out"), 10);
             driver.FindElement(By.CssSelector("button.ab-sign-out")).Click();
 
             driver.Navigate().GoToUrl(link);
-
+            var posthead = driver.FindElement(By.XPath("//header[@class='post-title']")).Text;
+            Assert.Contains(PostTitle, posthead);
+            var postbody = driver.FindElement(By.XPath("//div[@class='post-entry']")).Text;
+            Assert.Contains(PostBody, postbody);
         }
         [Fact]
         public void TheRemoveNote()
@@ -156,12 +172,12 @@ namespace Automat
             WaitForClickable(By.XPath("//div[@class='nav-previous']/a"), 10);
             driver.FindElement(By.XPath("//div[@class='nav-previous']/a")).Click();
 
-            var url= new Uri(driver.Url);
+            var url = new Uri(driver.Url);
             Assert.Contains("page/", url.PathAndQuery);
             Regex r = new Regex(@"\d+\/+$");
             Assert.True(r.IsMatch(url.PathAndQuery));
             driver.FindElement(By.XPath("//div[@id='content']/article[1]"));
-      
+
 
         }
 
