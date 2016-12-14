@@ -1,0 +1,9 @@
+testy dla aplikacji desktop
+quick test pro - testy automatyczne dla aplikacji desktop, VBA
+test complete - kod testu w kilku jêzykach (c++, c#, java), elastyczny
+ranorex
+wine
+xamarine
+wiêcej w podsumowaniu
+
+

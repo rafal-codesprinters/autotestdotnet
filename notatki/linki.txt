@@ -1,0 +1,8 @@
+https://github.com/new
+https://git-scm.com/
+https://try.github.io/levels/1/challenges/1
+https://github.com/rafal-codesprinters/autotestdotnet
+
+http://www.seleniumhq.org/projects/ide/
+https://addons.mozilla.org/en-US/firefox/addon/selenium-ide/
+https://autotestdotnet.wordpress.com/

@@ -1,0 +1,92 @@
+VS annotate (se->rmc), lineage (porównanie zmian)
+narzêdzia w mailu ze szkolenia
+ka¿dy u¿ywa swoich narzêdzi
+w firmie powinny obowi¹zywaæ jednolite konwencje kodowania
+code review dla testów, mog¹ byæ powtórzzenia
+
+funkcja kwadratow
+nazwa testu: weryfikacja ¿e potrafimy znaleŸæ 2 miejsca zerowe
+nowa funkcja dla testu jednego miejsca zerowego, œwiadomie robimy duplikacje kodu
+nazwy z podkresleniami zeby by³o czytelne inaczej ni¿ w kodzie produkcyjnym (antywzorzec)
+
+yield return + IEnumerable
+Func
+piszemy testy, w trakcie refaktoryzujemy, ¿eby by³o czytelniejsze
+testy powinny byæ maksymalnie proste, bez ifów
+
+dostarczanie wiêkszej liczby danych do testów
+atrybut MemberData, ExcelData w xunit - mo¿na zaci¹gaæ z zewn¹trz ale lepiej jak jest blisko testów
+
+przerwa
+
+atrybut Theory - w InlineData parametry
+wszystkie testy mo¿na sprowadziæ do jednej teorii
+debug selected test- mo¿na debugowaæ tylko testy które nie dzia³aj¹ po ustawieniu breakpointa
+
+Selenium - narzêdzie do automatycznego klikania
+warstwa 2 w piramidzie od góry
+
+zainstalowaæ w Firefoxie Selenium IDE (plugin)
+po restarcie pojawia siê w Narzêdziach
+wersja 2.9.1.1
+
+nagrywanie testu, zapis w formacie xml
+mo¿na szybko wygenerowaæ powtarzakny test
+jeœli test nie dzia³a mo¿na spowolniæ testy
+
+zadanie: administrator mo¿e opublikowaæ notkê pod adresem .../wp-admin/
+https://autotestdotnet.wordpress.com/wp-admin/
+dodanie notki i weryfikacja, ¿e siê pojawi³a
+autotestdotnet@gmail.com/codesprinters2016
+
+https://autotestdotnet.wordpress.com/wp-admin/
+codesprinters2016
+
+projekt cl, eksport do c# nunit webdriver
+dodaæ do solution
+- xunit, selenium webdriver
+przerabiamy nunit na xunit 
+po uruchomieniu brak xunit runner vs
+
+obiad
+
+nie ma sensu testowaæ zgodnoœci layoutu, problem z utrzymaniem testów po drobnych zmianach
+browser stack
+microsoft edge - wirtualkii dla ie
+
+cd automat
+IWebDriver
+selenium.webdriver.chromedriver
+dodanie drivera chrome
+przeklikujemy, zwykle nie dzia³a
+pocz¹tkowy test w selenium - generujemy template
+pocz¹tkowo test niestabilny, trzeba czekaæ na za³adowanie elementów
+chromedriver lepszy do testów
+przy rozwijanym menu trzeba dodaæ
+driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
+string zczytaæ z selenum lub wygenerowaæ nunit webdriver
+implicitWaits() - czeka a¿ element bêdzie widoczny (nie klikalny)
+obiekt WebDriverWait - do czekania na klikalnoœæ: wait.until(ExpectedXCondition.ElementToBeClickable(by...
+mo¿na owrapowaæ ¿eby u¿ywaæ w wielu miejscach
+podobnie dla innych warunków
+dodaæ Selenium.Support
+
+selenium widzi buttony po nazwie, musz¹ byæ widoczne w oknie chyba, ¿e scrolle
+narzêdia debug:
+exception, quick watch, imidiate - jak w VB6
+GetHashCode - do identyfikacji obiektów w pamiêci przy debugowaniu
+Autos, Locals, Watch1
+
+przerwa
+
+usuwanie notki jako administrator
+
+https://autotestdotnet.wordpress.com/wp-admin/
+autotestdotnet@gmail.com
+codesprinters2016
+
+podejœcie CRUD (create, read, update, delete)
+
+dzia³aj¹cy przyk³ad usuwania notki bez wylogowania
+
+

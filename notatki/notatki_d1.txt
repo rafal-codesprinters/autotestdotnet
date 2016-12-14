@@ -1,0 +1,173 @@
+vs ce 2015
+cmder.net - narzêdzie do kontroli wersji - full
+konsola (opakowana konsola systemowa)
+wbudowany git
+
+wstêp
+zalety testó automatycznych vs rêczne
+testowanie jest nudne
+klikanie testów za pomoc¹ komutera
+tester opracowuje mo¿liwe scenariusze
+systemy czasy rzeczywistego - nie da siê inaczej
+
+repozytorium git (nie tylko do kodu)
+
+wersjonowanie dokumentów
+C:\szkolenie
+git init - inicjalizacja repozytorium w git, puste, ga³êŸ master
+git status - 
+git add .
+git commit - trzeba podaæ opis w vim, mo¿na jako parametr
+
+dodtkowo push i pull
+
+dokumentacja i tutorial do gita
+https://git-scm.com/
+git w 15 minut
+https://try.github.io/levels/1/challenges/1
+
+
+insert -> edycja
+esc : w q
+
+git w œrodku: katalog z wersjami .git,
+stage, funkcje skrótu sh1, widoczne head
+gl
+
+wrzucamy wszystko do jednego repozytorium, oddzielne ga³êzie
+konto na git hubie
+@piotr-w/tema2016 email: interia
+mail z potwierdzeniem i zaproszeniem do wspólnego repozytorium
+
+git log - mo¿na formatowaæ, gl - sfotmatowane
+obecnie najpopularniejsze narzêdzie do kontroli wersji, z linuxa, autor Linus Torwalds, darmowe i wydajne
+architektura rozproszona
+problem z przenoszeniem du¿ych repo, jeœli firma u¿ywa np svn
+
+w svn i innych przed oddaniem zmian trezba po³¹czyæ ze zmianami innych, wymagany sta³y dostêp do serwera
+
+w git inaczej - kopia repozytorium na lokalnej maszynie, commity do lokalnego
+push - wypychanie zmian z repozytorium do serwera, mo¿na odwlekaæ, trzeba rozwi¹zaæ konflikty
+lokalnie mo¿na comitowaæ nawet niedzia³aj¹cy kod
+pull - w drug¹ stronê, pobranie z repozytorium
+
+https://github.com/rafal-codesprinters/autotestdotnet
+https
+git clone https://github.com/rafal-codesprinters/autotestdotnet.git
+klonowanie repozytorium
+kompresja w locie
+katalog nie mo¿e byæ pusty
+git dobrze podpowiada
+set upstream - ga³¹Ÿ nie musi byæ zdalna, aby siê sta³a trzeba wywo³aæ
+origin - serwer g³ówny, jedyne Ÿród³o prawdy
+head - to co widaæ w katalogu
+
+
+dalej wszystko oddajemy do repo, trzeba sobie wyrobiæ nawyck czêstego oddawania kodu
+bezpieczeñstwo kodu: commit, commit, commit ... na koniec push
+git nie widzi automatycznie zmian w repozytorium, konieczne pull
+
+
+przerwa
+
+gitlab
+tab - podpowiadanie
+git checkout - zmiana brancha
+nie zmieniaæ brancha przed commit, sprawdziæ status
+git/config - zdalne serwery
+explorer .
+
+
+dotnetkoans - projekt
+
+merge - przerzucanie zmian do siebie
+git merge <branch> - ³¹czenie zmian z brancha (do bie¿¹cej ga³êzi)
+
+od drugiej strony git rebase?
+
+git reflog - historia poleceñ, mo¿na siê cofn¹æ (coœ jak undo) wyszuakæ w google
+
+DotNetKoans.sln
+noe dzia³a odtwarzanie
+
+testy
+poziom testów
+jakoœæ funkcjonalna
+jakoœæ strukturalna
+testy funkcjonalne - zwykle nie da siê
+
+piramida testów
+najwiêcej testów jednostkowych na poziomie klas, proste i szybkie, 
+testy integracyjne kodu - wy¿szy poziom, mo¿na automatyzowaæ
+testy funkcjonalne
+testy integracyjne systemów
+testy akceptacyjne
+
+jak najwiêcej testów nale¿y spychaæ na najni¿szy poziom
+aby powsta³a piramida
+
+najwa¿niejsze testy dla przypadków krytycznych
+to co mniej sidtotne spychamy na ni¿sze poziomy testów
+
+przegl¹darka git w VS
+
+AutoKoanRunner - default
+
+przerwa obiad
+
+koany - rozwi¹zywanie
+
+funkcja kwadratowa,
+xunit
+
+szablon xunit:
+public class Class1
+{
+    [Fact]
+    public void First_test()
+    {
+        Assert.True(true);
+    }
+}
+
+
+nie ma [Startup], wiadomo, ¿e trzeba u¿yæ ctor
+sprz¹tanie przez IDisposable
+
+referencje -> nuget browse
+build
+VS nie widzi testów, potrzebne xunit.runner.visual.studio
+nazwa testu powinna by czytelna (jak kod produkcyjny) - nie powinno siê pisaæ komentarzy
+testujemy jedn¹ rzecz
+
+problem betonowania implementacji
+czynniki testów: koszt, pewnoœæ, koszt utrzymania (zmiany), ryzyko b³êdu (z³o¿onoœæ)
+wy¿ej maleje pewnoœæ
+typowy schemat aplikacji UI - BL - DB
+
+
+(test przez UI w dalszej czêœci)
+
+nie ma sensu do automatu wrzuc¹æ ma³o istotnych rzeczy (np. szczegó³y wygl¹du przycisku w UI)
+musi byæ uzasadnienie biznesowe bo wysoki koszt utrzymania (ignorowanie testów)
+stabilnoœæ kodu
+UI siê szybko zmienia (im bli¿ej usera), BL i DB bardzo rzadko
+
+
+funkcja kwadratowa - biznesowo chcemy obliczaæ miejsca zerowe (nie wa¿ne jak)
+
+        public void First_test()
+        {
+            var a = 1;
+            var b = -4;
+            var c = 3;
+
+            var wynik = Oblicz(a, b, c);
+            //Assert.True(true);
+        }
+
+nie warto pisaæ za du¿o na zapas
+w kodzie sprz¹tamy na bie¿¹co
+testy tylko z asercjami, wyj¹tek xunit gdy test nie rzuca wyj¹tku
+piszemy testy uzasadnione biznesowo
+
