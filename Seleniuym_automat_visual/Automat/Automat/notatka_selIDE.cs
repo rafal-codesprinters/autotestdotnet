@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Firefox;
 using Xunit;
 using OpenQA.Selenium.Chrome;
@@ -16,12 +17,14 @@ namespace SeleniumTests
         private StringBuilder verificationErrors;
         private string baseURL;
         private bool acceptNextAlert = true;
+        private WebDriverWait wait;
 
         public NotatkaSelIDE()
         {
 
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
             baseURL = "https://autotestdotnet.wordpress.com/";
             verificationErrors = new StringBuilder();
             driver.Manage()
@@ -53,7 +56,9 @@ namespace SeleniumTests
             driver.FindElement(By.Id("save-post")).Click();
             Assert.Equal("Edit Post ‹ Site Title — WordPress", driver.Title);
             driver.FindElement(By.Id("publish")).Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id='menu-posts']/a/div[3]")));
             Assert.Equal("Update", driver.FindElement(By.Id("publish")).GetAttribute("value"));
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id='menu-posts']/a/div[3]")));
             Assert.Equal("Edit Post ‹ Site Title — WordPress", driver.Title);
             driver.FindElement(By.CssSelector("img.avatar.avatar-32")).Click();
             driver.FindElement(By.CssSelector("button.ab-sign-out")).Click();
