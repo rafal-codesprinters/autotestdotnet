@@ -60,7 +60,7 @@ namespace SeleniumTests
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
             wait.Until(ExpectedConditions.ElementIsVisible(by));
-        }
+        } 
 
 
 
