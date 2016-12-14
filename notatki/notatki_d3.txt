@@ -18,6 +18,22 @@ teamcity - dl, install, port 8080, system account, start service, dalej w przegl
 konto admin/tema07
 
 testy z cmdline: xunit.console.exe <assembly.dll>
+mo¿na kaskadowo paczki testów jeœli zale¿¹ jedne od drugich, najlepiej d¹¿yæ do niezale¿noœci
+
+test first:
+- fast - szybkie testy
+- independent/isolated - testy nie zale¿¹ od siebie i od konfiguracji œrodowiska
+- repeateable - powtarzalne zawsze przechodz¹ tak samo
+- selfvalidated - wyst¹pienie b³êdu wskazuje jednoznacznie na b³¹d w aplikacji a nie w testach
+- timely - w dobrym momencie, test na odpowiednim poziomie
+test first nie implikuje testów automatycznych ani TDD
 
 
+tc - automatycznie odpala testy, darmowe do 20 konfiguracji bilduj¹cych
+wrzucamy do tc skrypt + link do repozytorium
+mo¿na odpalaæ testy po ka¿dym commicie lub po okreœlonym
 
+1) wszystkie testy
+nowy projekt -> manual
+build configuration -> manual, url do repozytorium
+https://github.com/rafal-codesprinters/autotestdotnet.git, metoda anonymous, test connection

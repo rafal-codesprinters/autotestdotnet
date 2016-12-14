@@ -24,7 +24,7 @@ namespace SeleniumTests
             verificationErrors = new StringBuilder();
 
             driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromMilliseconds(100));
+            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromMilliseconds(200));
         }
 
         public void Dispose()
@@ -107,7 +107,7 @@ namespace SeleniumTests
 
             // login
             driver.Navigate().GoToUrl(baseURL + "wp-admin/");
-            WaitForElementVisible(By.Id("user_login"), 1000);
+            WaitForElementVisible(By.Id("user_login"), 5000);
             driver.FindElement(By.Id("user_login")).Clear();
             driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
             driver.FindElement(By.Id("user_pass")).Clear();
