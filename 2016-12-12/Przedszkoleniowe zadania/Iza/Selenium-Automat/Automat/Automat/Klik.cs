@@ -129,6 +129,35 @@ namespace SeleniumTests
             Assert.Equal("Nowy post ILO | Site Title", driver.Title);
         }
 
+
+
+        [Fact]
+        public void OlderPostTest()
+        {
+            driver.Navigate().GoToUrl("https://autotestdotnet.wordpress.com");
+
+           //Assert.Equal(true, driver.FindElement(By.XPath(".//*[@id=\'nav-below\']/div[1]/a")).Text);
+
+            driver.FindElement(By.XPath(".//*[@id=\'nav-below\']/div[1]/a")).Click();
+            Assert.Equal("https://autotestdotnet.wordpress.com/page/2/",driver.Url);
+
+            var ilosc = driver.FindElements(By.ClassName("post-title")).Count;
+             bool ilosc_el;
+            if (ilosc > 0)
+            {
+                ilosc_el = true;
+            }
+            else
+            {
+                ilosc_el = false;
+            }
+            Assert.Equal(true, ilosc_el);
+
+        }
+
+       
+
+
         private bool IsElementPresent(By by)
         {
             try
