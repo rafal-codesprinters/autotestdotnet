@@ -12,3 +12,12 @@ na blogu s¹ conajmniej 2 strony (aktywna paginacja)
 
 xpath - szukanie po strukturze html
 najszybsze wyszukiwanie po css (u¿ywane w przegl¹darce do ró¿nych rzeczy), wolniej po strukturze DOM
+uruchamianie testów z command line - xunit console runner
+
+teamcity - dl, install, port 8080, system account, start service, dalej w przegl¹darce
+konto admin/tema07
+
+testy z cmdline: xunit.console.exe <assembly.dll>
+
+
+
