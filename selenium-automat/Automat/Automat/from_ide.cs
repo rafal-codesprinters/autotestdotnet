@@ -60,114 +60,124 @@ namespace SeleniumTests
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
             wait.Until(ExpectedConditions.ElementIsVisible(by));
-        } 
-
-
-
-
-
-
-
-
-
-        [Fact]
-        public void DodaniePosta()
-        {
-            driver.Navigate().GoToUrl(baseURL + "/wp-login.php");
-            driver.FindElement(By.Id("user_login")).Clear();
-            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
-            driver.FindElement(By.Id("user_pass")).Clear();
-            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
-            driver.FindElement(By.Id("wp-submit")).Click();
-            driver.FindElement(By.CssSelector("#menu-posts > a > div.wp-menu-name")).Click();
-            driver.FindElement(By.LinkText("Add New")).Click();
-            driver.FindElement(By.Id("title-prompt-text")).Click();
-            driver.FindElement(By.Id("title")).Click();
-            driver.FindElement(By.Id("title")).Clear();
-            driver.FindElement(By.Id("title")).SendKeys("test w 4");
-            driver.FindElement(By.Id("content")).Clear();
-            driver.FindElement(By.Id("content")).SendKeys("test w 41");
-            driver.FindElement(By.Id("publish")).Click();
-            driver.Navigate().GoToUrl(baseURL + "/");
-            //driver.FindElement(By.XPath("//*[contains(@class,'post-title') and .//text()='test w 4']"));
-            var link = driver.FindElement(By.XPath("//a[contains(@href, 'test-w-4')]")).Text;
-            Assert.Contains("test w 4", link);
-            Console.WriteLine(link);
-            //Assert.Equal("test w 4", driver.FindElement(By.XPath("//*[contains(@class,'post-title') and .//text()='test w 4']")).ToString());
-            driver.FindElement(By.Id("wp-admin-bar-my-account")).Click();
-            driver.Navigate().GoToUrl(baseURL + "/");
-            Assert.Equal("Site Title", driver.Title);
-        }
-
-        [Fact]
-        public void UsunieciePosta()
-        {
-            driver.Navigate().GoToUrl(baseURL + "/wp-login.php");
-            waitForElemantClicable(By.Id("user_login"), 5);
-            driver.FindElement(By.Id("user_login")).Clear();
-            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
-            driver.FindElement(By.Id("user_pass")).Clear();
-            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
-            driver.FindElement(By.Id("wp-submit")).Click();
-
-            driver.FindElement(By.CssSelector("#menu-posts > a > div.wp-menu-name")).Click();
-            driver.FindElement(By.LinkText("Add New")).Click();
-            driver.FindElement(By.Id("title-prompt-text")).Click();
-            driver.FindElement(By.Id("title")).Click();
-            driver.FindElement(By.Id("title")).Clear();
-            var guid = Guid.NewGuid().ToString();
-            driver.FindElement(By.Id("title")).SendKeys(guid);
-            driver.FindElement(By.Id("content")).Clear();
-            driver.FindElement(By.Id("content")).SendKeys("test w 41");
-            driver.FindElement(By.Id("publish")).Click();
-            driver.Navigate().GoToUrl(baseURL + "/");
-
-            driver.FindElement(By.Id("wp-admin-bar-my-account")).Click();
-            driver.Navigate().GoToUrl(baseURL + "/");
-            Assert.Equal("Site Title", driver.Title);
-
-            driver.Navigate().GoToUrl(baseURL + "/wp-login.php");
-            driver.FindElement(By.Id("user_login")).Clear();
-            driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
-            driver.FindElement(By.Id("user_pass")).Clear();
-            driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
-            driver.FindElement(By.Id("wp-submit")).Click();
-            driver.FindElement(By.CssSelector("#menu-posts > a > div.wp-menu-name")).Click();
-            driver.FindElement(By.Id("post-search-input")).SendKeys(guid);
-            driver.FindElement(By.Id("search-submit")).Click();
-            //driver.FindElement(By.XPath("//*[contains(@class,'screen-reader-text') and .//text()='"+guid+"']"));
-            driver.FindElement(By.Id("cb-select-all-1")).Click();
-            //driver.FindElement(By.Id("bulk-action-selector-top")).Click();
-            IWebElement sTag = driver.FindElement(By.Id("bulk-action-selector-top"));
-            SelectElement selectTag = new OpenQA.Selenium.Support.UI.SelectElement(sTag);
-            selectTag.SelectByText("Move to Trash");
-            driver.FindElement(By.Id("post-search-input")).SendKeys(guid);
-            driver.FindElement(By.Id("search-submit")).Click();
-            var noposts = driver.FindElement(By.ClassName("colspanchange")).Text;
-            Assert.Equal("No posts found.", noposts);
         }
 
 
+
+
+
+
+
+
+        //[Fact]
+        //public void DodaniePosta()
+        //{
+        //    driver.Navigate().GoToUrl(baseURL + "/wp-login.php");
+        //    driver.FindElement(By.Id("user_login")).Clear();
+        //    driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+        //    driver.FindElement(By.Id("user_pass")).Clear();
+        //    driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+        //    driver.FindElement(By.Id("wp-submit")).Click();
+        //    driver.FindElement(By.CssSelector("#menu-posts > a > div.wp-menu-name")).Click();
+        //    driver.FindElement(By.LinkText("Add New")).Click();
+        //    driver.FindElement(By.Id("title-prompt-text")).Click();
+        //    driver.FindElement(By.Id("title")).Click();
+        //    driver.FindElement(By.Id("title")).Clear();
+        //    driver.FindElement(By.Id("title")).SendKeys("test w 4");
+        //    driver.FindElement(By.Id("content")).Clear();
+        //    driver.FindElement(By.Id("content")).SendKeys("test w 41");
+        //    driver.FindElement(By.Id("publish")).Click();
+        //    driver.Navigate().GoToUrl(baseURL + "/");
+        //    var link = driver.FindElement(By.XPath("//a[contains(@href, 'test-w-4')]")).Text;
+        //    Assert.Contains("test w 4", link);
+        //    Console.WriteLine(link);
+        //    driver.FindElement(By.Id("wp-admin-bar-my-account")).Click();
+        //    driver.Navigate().GoToUrl(baseURL + "/");
+        //    Assert.Equal("Site Title", driver.Title);
+        //}
+
         [Fact]
-        public void Czy_istnieja_dwie_strony_z_postami()
+        public void DodaniePostaPageObject()
         {
-            driver.Navigate().GoToUrl(baseURL + "/");
-            Assert.Equal(true, driver.ElementIsPresent(By.ClassName("nav-previous")));
-            waitForElemantClicable(By.ClassName("nav-previous"), 5);
-            driver.FindElement(By.ClassName("nav-previous")).Click();
-            Assert.Equal(true, driver.ElementIsPresent(By.ClassName("nav-next")));
-            var ilosc = driver.FindElements(By.ClassName("post-title")).Count;
-            bool ilosc_el;
-            if (ilosc > 0)
-            {
-                ilosc_el = true;
-            }
-            else
-            {
-                ilosc_el = false;
-            }
-            Assert.Equal(true, ilosc_el);
+            //Test.Start();
+            StronaLogowania.Otworz(driver);
+            StronaLogowania.Uzytkownik(PoprawnyUzytkownik.Nazwa, driver);
+            StronaLogowania.Haslo(PoprawnyUzytkownik.Haslo, driver);
+            StronaLogowania.Zaloguj(driver);
+            WordPress.Wyloguj(driver);
+
         }
+
+
+        //[Fact]
+        //public void UsunieciePosta()
+        //{
+        //    driver.Navigate().GoToUrl(baseURL + "/wp-login.php");
+        //    waitForElemantClicable(By.Id("user_login"), 5);
+        //    driver.FindElement(By.Id("user_login")).Clear();
+        //    driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+        //    driver.FindElement(By.Id("user_pass")).Clear();
+        //    driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+        //    driver.FindElement(By.Id("wp-submit")).Click();
+
+        //    driver.FindElement(By.CssSelector("#menu-posts > a > div.wp-menu-name")).Click();
+        //    driver.FindElement(By.LinkText("Add New")).Click();
+        //    driver.FindElement(By.Id("title-prompt-text")).Click();
+        //    driver.FindElement(By.Id("title")).Click();
+        //    driver.FindElement(By.Id("title")).Clear();
+        //    var guid = Guid.NewGuid().ToString();
+        //    driver.FindElement(By.Id("title")).SendKeys(guid);
+        //    driver.FindElement(By.Id("content")).Clear();
+        //    driver.FindElement(By.Id("content")).SendKeys("test w 41");
+        //    driver.FindElement(By.Id("publish")).Click();
+        //    driver.Navigate().GoToUrl(baseURL + "/");
+
+        //    driver.FindElement(By.Id("wp-admin-bar-my-account")).Click();
+        //    driver.Navigate().GoToUrl(baseURL + "/");
+        //    Assert.Equal("Site Title", driver.Title);
+
+        //    driver.Navigate().GoToUrl(baseURL + "/wp-login.php");
+        //    driver.FindElement(By.Id("user_login")).Clear();
+        //    driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
+        //    driver.FindElement(By.Id("user_pass")).Clear();
+        //    driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
+        //    driver.FindElement(By.Id("wp-submit")).Click();
+        //    driver.FindElement(By.CssSelector("#menu-posts > a > div.wp-menu-name")).Click();
+        //    driver.FindElement(By.Id("post-search-input")).SendKeys(guid);
+        //    driver.FindElement(By.Id("search-submit")).Click();
+        //    //driver.FindElement(By.XPath("//*[contains(@class,'screen-reader-text') and .//text()='"+guid+"']"));
+        //    driver.FindElement(By.Id("cb-select-all-1")).Click();
+        //    //driver.FindElement(By.Id("bulk-action-selector-top")).Click();
+        //    IWebElement sTag = driver.FindElement(By.Id("bulk-action-selector-top"));
+        //    SelectElement selectTag = new OpenQA.Selenium.Support.UI.SelectElement(sTag);
+        //    selectTag.SelectByText("Move to Trash");
+        //    driver.FindElement(By.Id("post-search-input")).SendKeys(guid);
+        //    driver.FindElement(By.Id("search-submit")).Click();
+        //    var noposts = driver.FindElement(By.ClassName("colspanchange")).Text;
+        //    Assert.Equal("No posts found.", noposts);
+        //}
+
+
+        //[Fact]
+        //public void Czy_istnieja_dwie_strony_z_postami()
+        //{
+        //    driver.Navigate().GoToUrl(baseURL + "/");
+        //    Assert.Equal(true, driver.ElementIsPresent(By.ClassName("nav-previous")));
+        //    waitForElemantClicable(By.ClassName("nav-previous"), 5);
+        //    driver.FindElement(By.ClassName("nav-previous")).Click();
+        //    Assert.Equal(true, driver.ElementIsPresent(By.ClassName("nav-next")));
+        //    var ilosc = driver.FindElements(By.ClassName("post-title")).Count;
+        //    bool ilosc_el;
+        //    if (ilosc > 0)
+        //    {
+        //        ilosc_el = true;
+        //    }
+        //    else
+        //    {
+        //        ilosc_el = false;
+        //    }
+        //    Assert.Equal(true, ilosc_el);
+        //}
 
 
 
@@ -233,13 +243,58 @@ namespace SeleniumTests
         }
 
 
-        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
-        // ~Selenium() {
-        //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-        //   Dispose(false);
-        // }
 
-        // This code added to correctly implement the disposable pattern.
 
+
+
+        internal class WordPress
+        {
+            internal static void Wyloguj(IWebDriver driver)
+            {
+                driver.FindElement(By.Id("wp-admin-bar-my-account")).Click();
+            }
+        }
+
+        public class PoprawnyUzytkownik
+        {
+            public static string Nazwa = "autotestdotnet@gmail.com";
+
+            public static string Haslo = "codesprinters2016";
+        }
+
+
+        static class StronaLogowania
+        {
+            private static string baseURL;
+
+            internal static void Otworz(IWebDriver driver)
+            {
+                baseURL = "https://autotestdotnet.wordpress.com";
+                driver.Navigate().GoToUrl(baseURL + "/wp-login.php");
+            }
+
+            internal static void Uzytkownik(string Nazwa, IWebDriver driver)
+            {
+                driver.FindElement(By.Id("user_login")).Clear();
+                driver.FindElement(By.Id("user_login")).SendKeys(Nazwa);
+            }
+
+            internal static void Haslo(string Haslo, IWebDriver driver)
+            {
+                driver.FindElement(By.Id("user_pass")).Clear();
+                driver.FindElement(By.Id("user_pass")).SendKeys(Haslo);
+            }
+
+
+            internal static void Zaloguj(IWebDriver driver)
+            {
+                driver.FindElement(By.Id("wp-submit")).Click();
+            }
+
+
+        }
     }
-}
+    }
+
+
+
