@@ -8,8 +8,8 @@
     <ProjectGuid>{4B0FFBA5-A1D0-4C1D-9EC4-18F1951CE788}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Selenium_zakładanie_posta</RootNamespace>
-    <AssemblyName>Selenium_zakładanie posta</AssemblyName>
+    <RootNamespace>Selenium_zakladanie_posta</RootNamespace>
+    <AssemblyName>Selenium_zakladanie_posta</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>

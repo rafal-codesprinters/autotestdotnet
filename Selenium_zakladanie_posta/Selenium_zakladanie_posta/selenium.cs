@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
@@ -48,7 +48,7 @@ namespace SeleniumTests
             driver.FindElement(By.Id("title")).Clear();
             driver.FindElement(By.Id("title")).SendKeys("Pan Tadeusz v7");
             driver.FindElement(By.Id("content")).Clear();
-            driver.FindElement(By.Id("content")).SendKeys("Litwo Ty moja Kr�lowo...");
+            driver.FindElement(By.Id("content")).SendKeys("Litwo Ty moja Królowo...");
             driver.FindElement(By.Id("publish")).Click();
             driver.FindElement(By.CssSelector("img.avatar.avatar-32")).Click();
             Thread.Sleep(1000);
@@ -104,6 +104,19 @@ namespace SeleniumTests
             driver.FindElement(By.Id("s")).SendKeys(guid);
             driver.FindElement(By.Name("search")).Click();
             Assert.Throws<NoSuchElementException>(() => driver.FindElement(By.LinkText(guid)).Click());
+        }
+        [Fact]
+        public void Sprawdzenie_obecnosci_postow_na_drugiej_stronie()
+        {
+            driver.Navigate().GoToUrl("https://autotestdotnet.wordpress.com");
+            var beforeUrl = driver.Url;
+            driver.FindElement(By.XPath(@"//*[@id=""nav-below""]/div[@class=""nav-previous""]/a")).Click();
+            var afterUrl = driver.Url;
+            var articles = driver.FindElements(By.XPath(@"//*[@id=""content""]/article"));
+            Assert.NotEmpty(articles);
+            Assert.NotEqual(beforeUrl, afterUrl);
+
+
         }
         private bool IsElementPresent(By by)
         {
