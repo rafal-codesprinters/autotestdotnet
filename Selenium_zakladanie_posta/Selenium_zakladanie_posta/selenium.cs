@@ -24,17 +24,12 @@ namespace SeleniumTests
             baseURL = "https://autotestdotnet.wordpress.com/wp-admin/";
             verificationErrors = new StringBuilder();
         }
-        //private void waitForElementClickable (By By, int milisecond)
-        //{
-        //    WebdriverWait wait = new WebdriverWait(driver, TimeSpan.FromSeconds(seconds));
-        //    wait.Until(ExpectedConditions.ElementToBeClicktable(by));
-        //}
-        
+       
         [Fact]
         public void Dodanie_postu_sprawdzenie_czy_jest_dodany()
         {
             driver.Navigate().GoToUrl(baseURL + "");
-            //Thread.Sleep(1000); - pauza miedzy poszczegolnymi krokami
+            //Thread.Sleep(1000); - 
             driver.FindElement(By.Id("user_login")).Click();
             driver.FindElement(By.Id("user_login")).Clear();
             driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
@@ -51,7 +46,7 @@ namespace SeleniumTests
             driver.FindElement(By.Id("content")).SendKeys("Litwo Ty moja Królowo...");
             driver.FindElement(By.Id("publish")).Click();
             driver.FindElement(By.CssSelector("img.avatar.avatar-32")).Click();
-            Thread.Sleep(1000);
+            Thread.Sleep(1000); //pauza miedzy poszczegolnymi krokami
             driver.FindElement(By.CssSelector("button.ab-sign-out")).Click();
             driver.Navigate().GoToUrl("https://autotestdotnet.wordpress.com");
             Assert.Equal("Pan Tadeusz v7", driver.FindElement(By.LinkText("Pan Tadeusz v7")).Text);
@@ -115,8 +110,29 @@ namespace SeleniumTests
             var articles = driver.FindElements(By.XPath(@"//*[@id=""content""]/article"));
             Assert.NotEmpty(articles);
             Assert.NotEqual(beforeUrl, afterUrl);
+        }
+        [Fact]
+        public void Publikowanie_notatki_Funkcje()
+        {
+            //Test.Start();
 
+            StronaLogowania.Otworz();
+            StronaLogowania.Wprowadzenie_Uzytkownika();
+            StronaLogowania.Wprowadzenie_Hasla();
+            StronaLogowania.Odznacz_Zapamietaj_mnie();
+            StronaLogowania.Przycisk_Zaloguj();
 
+            StronaAdministracyjna.Lista_Postow();
+            StronaAdministracyjna.Lista_postów_Nowy_Post();
+            StronaAdministracyjna.Nowy_Post_Temat();
+            StronaAdministracyjna.Nowy_Post_Tresc();
+            StronaAdministracyjna.Nowy_Post_Publikuj();
+
+            StronaLogowania.Wyloguj();
+
+            StronaWordPress.Lista_Postow();
+
+            //Test.Koniec();
         }
         private bool IsElementPresent(By by)
         {
@@ -170,6 +186,75 @@ namespace SeleniumTests
                 // Ignore errors if unable to close the browser
             }
             Assert.Equal("", verificationErrors.ToString());
+        }
+    }
+
+    public class StronaWordPress
+    {
+        public static void Lista_Postow()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class StronaAdministracyjna
+    {
+        public static void Lista_Postow()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Lista_postów_Nowy_Post()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Nowy_Post_Publikuj()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Nowy_Post_Temat()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Nowy_Post_Tresc()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class StronaLogowania
+    {
+        public static void Odznacz_Zapamietaj_mnie()
+        {
+            driver.FindElement(By.Id("rememberme")).Click();
+        }
+
+        public static void Otworz()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Przycisk_Zaloguj()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Wprowadzenie_Hasla()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Wprowadzenie_Uzytkownika()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Wyloguj()
+        {
+            throw new NotImplementedException();
         }
     }
 }
