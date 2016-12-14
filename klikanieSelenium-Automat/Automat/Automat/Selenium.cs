@@ -46,7 +46,7 @@ namespace SeleniumTests
             driver.FindElement(By.Id("user_pass")).SendKeys("codesprinters2016");
 
             driver.FindElement(By.Id("wp-submit")).Click();
-            waitForElementClickable(By.Id("wp-admin-bar-newdash"), 10);
+            Thread.Sleep(1000);
             Assert.Equal("Dashboard ‹ Site Title — WordPress", driver.Title);
             driver.FindElement(By.XPath("//li[@id='menu-posts']/a/div[3]")).Click();
             Assert.Equal("Posts ‹ Site Title — WordPress", driver.Title);
