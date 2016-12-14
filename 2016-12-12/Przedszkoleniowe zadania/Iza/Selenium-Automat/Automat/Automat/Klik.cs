@@ -75,7 +75,8 @@ namespace SeleniumTests
 
             driver.Navigate().GoToUrl(baseURL);
             WaiteForElementClickable(By.XPath(".//*[@id='wp-submit']"),10);
-            WaiteForElementClickable(By.Id("user_login"),10);
+            //WaiteForElementClickable(By.Id("user_login"),10);
+            driver.FindElement(By.Id("user_login")).Click();
             driver.FindElement(By.Id("user_login")).Clear();
             driver.FindElement(By.Id("user_login")).SendKeys("autotestdotnet@gmail.com");
             driver.FindElement(By.Id("user_pass")).Clear();
