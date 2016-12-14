@@ -46,3 +46,7 @@ build step
 - executable with parameters
 dodatkowe kroki: nuget-install, visualstudio sln
 plik cmd do g³ównego katalogu
+
+w repozytorium bez dll i pakietów -> ustawiæ dobrze w .gitignore
+dobre praktyki: Nuget Installer, MSBuild (dla maszyny bez VS)
+
