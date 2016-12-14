@@ -129,7 +129,14 @@ namespace SeleniumTests
         {
             driver.Navigate().GoToUrl(baseURL);
             Assert.True(IsElementPresent(By.LinkText("← Older posts")));
-            //driver.FindElement(By.LinkText("← Older posts")).Click();
+        }
+
+        [Fact]
+        public void GotoOlderPosts()
+        {
+            driver.Navigate().GoToUrl(baseURL);
+            driver.FindElement(By.LinkText("← Older posts")).Click();
+            Assert.True(driver.FindElements(By.XPath("//*[@id=\"content\"]/article")).Count > 0);
         }
 
         private bool IsElementPresent(By by)
