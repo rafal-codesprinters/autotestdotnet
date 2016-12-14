@@ -1,0 +1,1 @@
+"4. selenium-automat\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe" "4. selenium-automat\bin\Debug\Automat.dll"
