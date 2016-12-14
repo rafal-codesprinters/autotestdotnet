@@ -81,9 +81,13 @@ który zapisujemy jako test.cmd i mo¿emy uruchamiaæ z konsoli czy innej apki.
 VCS Roots - version control system np.git
 
 Instalujemy team city, tworzymy projekt, wskazujemy na repo, ew.branch w VCS advanced
-Triggers - regu³y uruchamiaj¹ce testy
+Build Steps - 
+	Runner: Command Line, 
+	Run:Executable with parameters, 
+	Command executable: klikamy ikonê po prawej i wybieramy test.cmd (ze swojego brancha z gita)
+Triggers - regu³y uruchamiaj¹ce testy 
 
-
+.
 
 
 
