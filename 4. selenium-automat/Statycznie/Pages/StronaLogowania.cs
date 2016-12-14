@@ -1,7 +1,7 @@
-﻿using Automat.Infrastruktura;
+﻿using Automat.Statycznie.Infrastruktura;
 using OpenQA.Selenium;
 
-namespace Automat.Pages
+namespace Automat.Statycznie.Pages
 {
     internal static class StronaLogowania
     {

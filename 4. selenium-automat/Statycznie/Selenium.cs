@@ -1,8 +1,8 @@
-using Automat.Infrastruktura;
-using Automat.Pages;
+using Automat.Statycznie.Infrastruktura;
+using Automat.Statycznie.Pages;
 using Xunit;
 
-namespace Automat
+namespace Automat.Statycznie
 {
     public class Selenium
     {

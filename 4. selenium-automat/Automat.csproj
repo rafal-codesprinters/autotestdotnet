@@ -68,14 +68,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Infrastruktura\PoprawnyUzytkownik.cs" />
+    <Compile Include="Obiektowo\Infrastruktura\PoprawnyUzytkownik.cs" />
+    <Compile Include="Obiektowo\Infrastruktura\Test.cs" />
+    <Compile Include="Obiektowo\Infrastruktura\WordPress.cs" />
+    <Compile Include="Obiektowo\Infrastruktura\WordpressConfiguration.cs" />
+    <Compile Include="Obiektowo\Pages\StronaAdministracyjna.cs" />
+    <Compile Include="Obiektowo\Pages\StronaLogowania.cs" />
+    <Compile Include="Obiektowo\Selenium.cs" />
+    <Compile Include="Statycznie\Infrastruktura\PoprawnyUzytkownik.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Selenium.cs" />
-    <Compile Include="Pages\StronaAdministracyjna.cs" />
-    <Compile Include="Pages\StronaLogowania.cs" />
-    <Compile Include="Infrastruktura\Test.cs" />
-    <Compile Include="Infrastruktura\WordPress.cs" />
-    <Compile Include="Infrastruktura\WordpressConfiguration.cs" />
+    <Compile Include="Statycznie\Selenium.cs" />
+    <Compile Include="Statycznie\Pages\StronaAdministracyjna.cs" />
+    <Compile Include="Statycznie\Pages\StronaLogowania.cs" />
+    <Compile Include="Statycznie\Infrastruktura\Test.cs" />
+    <Compile Include="Statycznie\Infrastruktura\WordPress.cs" />
+    <Compile Include="Statycznie\Infrastruktura\WordpressConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

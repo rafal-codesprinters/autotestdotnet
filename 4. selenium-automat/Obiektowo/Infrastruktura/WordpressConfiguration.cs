@@ -1,4 +1,4 @@
-﻿namespace Automat.Infrastruktura
+﻿namespace Automat.Obiektowo.Infrastruktura
 {
     internal class WordpressConfiguration
     {

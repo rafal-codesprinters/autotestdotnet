@@ -4,7 +4,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Xunit;
 
-namespace Automat.Infrastruktura
+namespace Automat.Statycznie.Infrastruktura
 {
     internal class Test
     {

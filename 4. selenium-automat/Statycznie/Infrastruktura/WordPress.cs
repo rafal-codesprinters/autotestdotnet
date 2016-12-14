@@ -1,4 +1,4 @@
-﻿namespace Automat.Infrastruktura
+﻿namespace Automat.Statycznie.Infrastruktura
 {
     internal static class WordPress
     {
